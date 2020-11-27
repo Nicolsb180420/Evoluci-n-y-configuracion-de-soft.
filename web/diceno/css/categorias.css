@@ -1,0 +1,122 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19/11/2020, 06:16:57 PM
+    Author     : Nicol Samanamud 
+*/
+
+.categories-section {
+    margin: 0;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.categories-section {
+    background-color: #eef1f6;
+    padding: 30px 15px;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+
+.categories-section a .category-item {
+    display: flex;
+    background-repeat: no-repeat!important;
+    border-radius: 8px;
+    background-size: cover!important;
+    background-position: 50% 50%!important;
+    margin: 6px;
+    position: relative;
+    -webkit-box-shadow: 2px 2px 8px 0 rgba(0,0,0,.2);
+    -moz-box-shadow: 2px 2px 8px 0 rgba(0,0,0,.2);
+    box-shadow: 2px 2px 8px 0 rgba(0,0,0,.2);
+}
+
+.categories-section .category-item div {
+    width: 100%;
+    text-align: center;
+}
+
+
+.categories-section a .category-item h5 {
+    top: 35%;
+    position: absolute;
+    min-width: 40%;
+    max-width: 50%;
+    text-align: center;
+    color: #6b6b72;
+    font-size: 1.1em;
+}
+
+
+.categories-section a {
+    color: #282828;
+    text-decoration: none;
+}
+p, a, td, div, li, span {
+    font-size: 15px;
+}
+a, area, button, [role="button"], input, label, select, summary, textarea {
+    touch-action: manipulation;
+}
+
+a {
+    color: #0275d8;
+    text-decoration: none;
+}
+a {
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+}
+a {
+    background-color: transparent;
+}
+
+.categories-section a {
+    color: #282828;
+    text-decoration: none;
+}
+
+
+* {
+    -webkit-transition: all 0.35s;
+    -moz-transition: all 0.35s;
+    transition: all 0.35s;
+}
+* {
+    font-family: "Lato";
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+* {
+    box-sizing: border-box;
+}
+user agent stylesheet
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+
+.categories-section .col-md-4 {
+    padding: 0;
+}
+.col-xs-6 {
+    float: left;
+    width: 50%;
+}
+.col-xs, .col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12, .col-sm, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-md, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-lg, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-xl, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+
+
+
