@@ -156,4 +156,24 @@ inner join distritos on distritos.id_distrito=pedido_distrito*/
         }
     }
    
+   
+     public void actualizar_estado(pedido temp) {
+        try {
+            con.getSt().executeUpdate(
+                    "UPDATE pedido  "
+                    + "     SET pedido_estado = "+temp.getPedido_estado()
+                    + "     WHERE pedido_id = "+temp.getPedido_id()+";"
+            );
+        } catch (Exception e) {
+        }
+    }
+     
+     
+     
+     
+     
+     
+     
+     
+   
 }

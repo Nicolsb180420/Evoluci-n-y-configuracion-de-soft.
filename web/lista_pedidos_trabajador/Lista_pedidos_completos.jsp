@@ -263,14 +263,24 @@
 
                                     <td><%=temp_listap.getPedido_estado()%></td>
                                     <td>
+
+
                                         <a href="ver_pedido.jsp?id=<%=temp_listap.getPedido_id()%>">
                                             <center>    <img src="../imagenes/icono_ver.png" width="30" height="30" alt="ver"/>  </center>
                                         </a>
+
+
                                     </td>
                                     <td>
-                                        <a href="cambiar_estado.jsp?id=<%=temp_listap.getPedido_id()%>">
-                                            <center>    <img src="../imagenes/icono_cambiar.png" width="30" height="30" alt="ver"/>  </center>
-                                        </a>
+
+
+                                        <form action="cambiar_estado.jsp">
+                                            <input  name="id_pedido" value="<%=temp_listap.getPedido_id()%>" hidden />
+                                            <input  name="cambiar_estado" value="<%=temp_listap.getPedido_estado() %>" hidden />  
+                                            <center><button type="submit" class="btn btn-primary"><img src="../imagenes/icono_cambiar.png" width="30" height="30" alt="ver"/></button></center>
+                                        </form> 
+
+
                                     </td>
 
                                 </tr>
