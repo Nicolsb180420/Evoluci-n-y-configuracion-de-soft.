@@ -5,6 +5,8 @@
 --%>
 
 
+<%@page import="logica.logica_puesto_permisos"%>
+<%@page import="datos.puesto_permisos"%>
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -57,10 +59,11 @@
 
         <div class="container-fluid">
             <%
-                /*  String cliente_id;
-                HttpSession sesion = request.getSession();
-                cliente_id = sesion.getAttribute("cliente_id").toString();
-                 */
+                String cliente_id;
+                HttpSession sesion_trabajadro = request.getSession();
+                cliente_id = sesion_trabajadro.getAttribute("trabajador_id").toString();
+                 String puesto = sesion_trabajadro.getAttribute("trabajador_puesto").toString();
+
                 //out.print(cliente_id);
                 categoria temp1 = new categoria();
                 logica.logica_categoria con1 = new logica_categoria();
@@ -104,31 +107,179 @@
 
                     </div>
 
+                    <div class="col-12 col-sm-4 col-md-3 col-lg-2 col-xl-1">
+
+
+                        <div class="btn-group   float-right align-self-end"  >
+
+                            <% if (cliente_id.equals("NN")) {%>
+                            <!---------------------------------------------------------------------------------------------------------------------------------->                  
+                            <div class="btn-group ">
+
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
+                                    Registrarse o iniciar sesion 
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
+
+
+                                    <form action="../login/login_controlador.jsp" class="px-4 py-3">
+
+                                        <div class="form-group">
+                                            <label for="exampleDropdownFormEmail1">Correo :</label>
+                                            <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Correo@ejemplo.com" name="correo" >
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleDropdownFormPassword1">Contraseña :</label>
+                                            <input type="contra" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" name="contra">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                                <label class="form-check-label" for="dropdownCheck">
+                                                    recordar
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Ingresar</button>
+
+                                    </form>
+
+
+
+
+
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Registrarse</a>
+                                    <a class="dropdown-item" href="#">¿Olvidaste tu contraseña?</a>
+
+                                </div>
+
+
+
+                            </div>
+
+                            <%} else {
+
+                            %>
+
+                            <div class="btn-group ">
+
+                                <center>
+
+
+
+
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
+                                            <%  out.print(sesion_trabajadro.getAttribute("trabajador_nombre").toString() + " " + sesion_trabajadro.getAttribute("trabajador_apellido").toString());  %>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+
+                                            <!--
+                                            <button class="dropdown-item" type="button">Mis compras</button>
+                                            
+                                            <a href="../lista_deseos/lista_deseos.jsp" class="dropdown-item">Lista de deseos</a>
+                                            <a href="../carrito/carrito.jsp" class="dropdown-item">Carrito de compras</a>
+                                            -->
+                                            <a href="../login/login_cerrar.jsp" class="dropdown-item" type="button">Cerrar sesion</a>
+
+
+                                        </div>
+                                    </div>
+                                </center>
+
+                            </div>
+
+
+                            <%}%>
+
+
+
+
+                            <!---------------------------------------------------------------------------------------------------------------------------------->
+                        </div>
+
+
+
+
+
+                    </div>
+
+                </nav>
+
+
             </div>
-        </nav>
 
 
-    </div>
-
-
-</div>
-
-<br><br>
-
-<div class="container">
-    <div class="row">
-        <div class="col-12">
-            <center>
-                <p class="h3" style="color: #CE6100"> <strong>Portal del empleado</strong></p> <br>
-            </center>
         </div>
-    </div>
-</div>
 
-<div class="container">
-    <div class="categories-section">
-        <div class="row">
-            <div class="col-md-4 col-xs-12 col-sm-12">
+        <br><br>
+
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <center>
+                        <p class="h3" style="color: #CE6100"> <strong>Portal del empleado</strong></p> <br>
+                    </center>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="categories-section">
+                <div class="row">
+                    <%
+                       
+                        
+                        
+                        puesto_permisos temp_pp = new puesto_permisos();
+                        logica.logica_puesto_permisos con_pp = new logica_puesto_permisos();
+
+                        con_pp.consultar_permisos_puesto(puesto);
+                       //  out.print( puesto+"<br>"); 
+                    // out.print( logica_puesto_permisos.logica_puesto_permisos.size()+"<br>"); 
+
+                    %>
+
+                    <%                for (int i = 0; i < logica_puesto_permisos.logica_puesto_permisos.size(); i++) {
+                            temp_pp = (puesto_permisos) logica_puesto_permisos.logica_puesto_permisos.get(i);
+                        //  out.print(temp_pp.getPuesto_permisos_permisos()+"<br>");
+
+                    %>
+
+                    
+                 <% if(temp_pp.getPuesto_permisos_permisos() == 1){
+                     %>
+                  <div class="col-md-4 col-xs-12 col-sm-12">
+                <a href="#">
+                    <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
+                        <div><img src="../imagenes/reporte de pedidos.png" width="80" height="85" alt="deshumedecedor"/></div> 
+                        <div><h5>Reporte de pedidos</h5></div>
+                    </div>
+                </a>
+            </div>
+                    <%
+                 }    
+                 %>  
+                 
+                  <% if(temp_pp.getPuesto_permisos_permisos() == 2){
+                  %>
+                     <div class="col-md-4 col-xs-12 col-sm-12">
+                <a href="#">
+                    <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
+                        <div><img src="../imagenes/reporte de ventas.png" width="80" height="85" alt="deshumedecedor"/></div> 
+                        <div><h5>Reporte de ventas</h5></div>
+                    </div>
+                </a>
+            </div>
+                    
+                    <%
+                 }    
+                 %> 
+                 
+                  <% if(temp_pp.getPuesto_permisos_permisos() == 3){
+                     %>
+                   <div class="col-md-4 col-xs-12 col-sm-12">
                 <a href="../trabajador/crud_trabajador.jsp">
                     <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                         <div><img src="../imagenes/lista trabajador.png" width="150" height="85" alt="ambientador"/></div> 
@@ -136,7 +287,13 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-12">
+                    <%
+                 }    
+                 %> 
+                 
+                  <% if(temp_pp.getPuesto_permisos_permisos() == 4){
+                     %>
+                  <div class="col-md-4 col-xs-12 col-sm-12">
                 <a href="../trabajador/registrar_trabajador.jsp">
                     <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                         <div><img src="../imagenes/trabajador.png" width="85" height="85" alt="desinfectante"/></div> 
@@ -144,49 +301,15 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md-4 col-xs-12 col-sm-12">
-                <a href="../proveedor/crud_proveedor.jsp">
-                    <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
-                        <div><img src="../imagenes/lista proveedores.png" width="85" height="85" alt="detergente"/></div> 
-                        <div><h5>Crud proveedor</h5></div>
-                    </div>
-                </a>
-            </div>
-
-
-            <div class="col-md-4 col-xs-12 col-sm-12">
-                <a href="../proveedor/registrar_proveedor.jsp">
-                    <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
-                        <div><img src="../imagenes/proveedor.png" width="85" height="85" alt="protector"/></div> 
-                        <div><h5>Registrar proveedor</h5></div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-xs-12 col-sm-12">
-                <a href="../vehiculo/lista_vehiculos.jsp">
-                    <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
-                        <div><img src="../imagenes/lista vehiculo.png" width="85" height="85" alt="lejia"/></div> 
-                        <div><h5>Crud vehiculo</h5></div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-xs-12 col-sm-12">
-                <a href="../vehiculo/registrar_vehiculo.jsp">
-                    <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
-                        <div><img src="../imagenes/vehiculo.png " width="70" height="85" alt="deshumedecedor"/></div> 
-                        <div><h5>Registrar vehiculo</h5></div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-xs-12 col-sm-12">
-                <a href="../info_producto/registrar_producto.jsp">
-                    <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
-                        <div><img src="../imagenes/producto.png" width="80" height="85" alt="deshumedecedor"/></div> 
-                        <div><h5>Registrar producto</h5></div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-4 col-xs-12 col-sm-12">
+                    
+                    <%
+                 }    
+                 %> 
+                 
+                  <% if(temp_pp.getPuesto_permisos_permisos() == 5){
+                   %>
+                  
+                      <div class="col-md-4 col-xs-12 col-sm-12">
                 <a href="../stock/lista_stock_1.jsp">
                     <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                         <div><img src="../imagenes/stock.png" width="80" height="85" alt="deshumedecedor"/></div> 
@@ -195,10 +318,204 @@
                 </a>
             </div>
             
+                    <%
+                 }    
+                 %> 
+                 
+                  <% if(temp_pp.getPuesto_permisos_permisos() == 6){
+                     %>
+                    <div class="col-md-4 col-xs-12 col-sm-12">
+                <a href="../info_producto/registrar_producto.jsp">
+                    <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
+                        <div><img src="../imagenes/producto.png" width="80" height="85" alt="deshumedecedor"/></div> 
+                        <div><h5>Registrar producto</h5></div>
+                    </div>
+                </a>
+            </div>
+                    
+                    <%
+                 }    
+                 %> 
+                
+                      <% if(temp_pp.getPuesto_permisos_permisos() == 7){
+                    %>
+                    
+            <div class="col-md-4 col-xs-12 col-sm-12">
+                <a href="#">
+                    <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
+                        <div><img src="../imagenes/crud producto.png" width="80" height="85" alt="deshumedecedor"/></div> 
+                        <div><h5>Crud producto</h5></div>
+                    </div>
+                </a>
+            </div>  
+                    
+                    <%
+                 }    
+                 %> 
+                 
+                 
+                 
+                    <% if(temp_pp.getPuesto_permisos_permisos() == 8){
+                  %>
+                      <div class="col-md-4 col-xs-12 col-sm-12">
+                <a href="#">
+                    <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
+                        <div><img src="../imagenes/crud pedido.png" width="80" height="85" alt="deshumedecedor"/></div> 
+                        <div><h5>Crud pedido</h5></div>
+                    </div>
+                </a>
+            </div>
+                    <%
+                 }    
+                 %> 
+                 
+                 
+                 
+                    <% if(temp_pp.getPuesto_permisos_permisos() == 9){
+               %>
+                     <div class="col-md-4 col-xs-12 col-sm-12">
+                <a href="#">
+                    <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
+                        <div><img src="../imagenes/registrar pedido.png" width="80" height="85" alt="deshumedecedor"/></div> 
+                        <div><h5>Registrar pedido</h5></div>
+                    </div>
+                </a>
+            </div>
+                    
+                    <%
+                 }    
+                 %> 
+                 
+                 
+                 
+                    <% if(temp_pp.getPuesto_permisos_permisos() == 10){
+              %>
+                      <div class="col-md-4 col-xs-12 col-sm-12">
+                <a href="../proveedor/crud_proveedor.jsp">
+                    <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
+                        <div><img src="../imagenes/lista proveedores.png" width="85" height="85" alt="detergente"/></div> 
+                        <div><h5>Crud proveedor</h5></div>
+                    </div>
+                </a>
+            </div>
+                    
+                    <%
+                 }    
+                 %> 
+                 
+                 
+                 
+                    <% if(temp_pp.getPuesto_permisos_permisos() ==11){
+            %>
+                    
+                     <div class="col-md-4 col-xs-12 col-sm-12">
+                <a href="../proveedor/registrar_proveedor.jsp">
+                    <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
+                        <div><img src="../imagenes/proveedor.png" width="85" height="85" alt="protector"/></div> 
+                        <div><h5>Registrar proveedor</h5></div>
+                    </div>
+                </a>
+            </div>
+            
+                    <%
+                 }    
+                 %> 
+                 
+                 
+                 
+                    <% if(temp_pp.getPuesto_permisos_permisos() == 12){
+                    %>
+                    
+                       <div class="col-md-4 col-xs-12 col-sm-12">
+                <a href="#">
+                    <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
+                        <div><img src="../imagenes/crud encomienda.png" width="80" height="85" alt="deshumedecedor"/></div> 
+                        <div><h5>Crud encomienda</h5></div>
+                    </div>
+                </a>
+            </div>
+                    <%
+                 }    
+                 %> 
+                 
+                 
+                 
+                    <% if(temp_pp.getPuesto_permisos_permisos() == 13){
+                  %>
+                     <div class="col-md-4 col-xs-12 col-sm-12">
+                <a href="#">
+                    <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
+                        <div><img src="../imagenes/registrar encomienda.png" width="80" height="85" alt="deshumedecedor"/></div> 
+                        <div><h5>Registrar encomienda</h5></div>
+                    </div>
+                </a>
+            </div>
+                    
+                    <%
+                 }    
+                 %> 
+                 
+                 
+                 
+                    <% if(temp_pp.getPuesto_permisos_permisos() == 14){
+                    %>
+                      <div class="col-md-4 col-xs-12 col-sm-12">
+                <a href="../vehiculo/lista_vehiculos.jsp">
+                    <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
+                        <div><img src="../imagenes/lista vehiculo.png" width="85" height="85" alt="lejia"/></div> 
+                        <div><h5>Crud vehiculo</h5></div>
+                    </div>
+                </a>
+            </div>
+                    
+                    <%
+                 }    
+                 %> 
+                 
+                 
+                 
+                    <% if(temp_pp.getPuesto_permisos_permisos() == 15){
+                %>
+                     <div class="col-md-4 col-xs-12 col-sm-12">
+                <a href="../vehiculo/registrar_vehiculo.jsp">
+                    <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
+                        <div><img src="../imagenes/vehiculo.png " width="70" height="85" alt="deshumedecedor"/></div> 
+                        <div><h5>Registrar vehiculo</h5></div>
+                    </div>
+                </a>
+            </div>
+                    
+                    <%
+                 }    
+                 %> 
+                 
+                 
+                    <% if(temp_pp.getPuesto_permisos_permisos() == 16){
+                   %>
+                    
+                    <div class="col-md-4 col-xs-12 col-sm-12">
+                <a href="#">
+                    <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
+                        <div><img src="../imagenes/ver encomienda.png" width="80" height="85" alt="deshumedecedor"/></div> 
+                        <div><h5>Ver encomienda</h5></div>
+                    </div>
+                </a>
+            </div>
+                    <%
+                 }    
+                 %> 
+                    
+
+                    <%
+                        }
+
+
+                    %>
+
+                </div>
+            </div>
         </div>
-    </div>
-</div>
 
 
-</body>
+    </body>
 </html>

@@ -1,28 +1,23 @@
 <%-- 
-    Document   : login
-    Created on : 18/11/2020, 11:13:52 PM
-    Author     : bryan
+    Document   : ver_lista_pedido
+    Created on : 27/11/2020, 06:15:21 PM
+    Author     : Nicol Samanamud 
 --%>
 
-<%@page import="logica.logica_carrito"%>
-<%@page import="datos.carrito"%>
-<%@page import="logica.logica_lista_deseos"%>
-<%@page import="datos.lista_deseos"%>
-<%@page import="logica.logica_producto"%>
-<%@page import="datos.producto"%>
+<%@page import="logica.logica_lista_pedido"%>
+<%@page import="datos.lista_pedido"%>
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>
-<%@page import="logica.logica_cliente"%>
-<%@page import="datos.cliente"%>
-<%@page import="logica.logica_login"%>
-<%@page import="datos.login"%>
+<%@page import="logica.logica_carrito"%>
+<%@page import="datos.carrito"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="UTF-8">
+        <title>Ver pedido</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-
         <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
 
 
@@ -58,18 +53,11 @@
         <%--caja de texto--%>
 
         <link rel="stylesheet" href="../diceno/css/caja_text.css">
-        <link rel="stylesheet" href="../diceno/css/categorias.css">
+        <link rel="stylesheet" href="../diceno/css/estilos.css">
 
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     </head>
-
-    <%--menu despegable--%>   
-
-
-
     <body>
-
-
-
         <div class="container-fluid">
             <%
                 String cliente_id;
@@ -79,36 +67,7 @@
                 //out.print(cliente_id);
                  categoria temp1 = new categoria();
                   logica.logica_categoria con1 = new logica_categoria();
-                  
-                //  out.print(request.getParameter("accion")+"<br>");
-                  
             %>
-            <%
-            if(request.getParameter("accion")==null){
-                
-            }else if(request.getParameter("accion").equals("no")){
-                %>
-            <div class="alert alert-warning alert-dismissible fade show" role="alert">
-  <strong>ERROR: </strong> Usted ha ingresado un dato incorrecto 
-  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-    <span aria-hidden="true">&times;</span>
-  </button>
-</div>
-            <%
-            }else if(request.getParameter("accion").equals("si")){
-                %>
-            
-            
-            
-            <%
-            }else{
-                
-            }
-            
-            %>
-      
-            
-            
 
 
             <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
@@ -125,7 +84,7 @@
                             <label class="pure-toggle-label" for="pure-toggle-left" data-toggle-label="left" style="width: 50px; height:  50px;"  > <span class="pure-toggle-icon" ></span> </label>
 
                             <div >
-                                <a href="#"><img src="../imagenes/logo.png" width="100" height="60" /> </a>  
+                                <a href="../menu_principal/login.jsp"><img src="../imagenes/logo.png" width="100" height="60" /> </a>   
 
                             </div>
 
@@ -308,297 +267,97 @@
 
         </div>
 
-
-
-
-
-
+        <br><br>
         <div class="container">
-
-
-            <div class="row" >
-
-                <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-                        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="../imagenes/carrucel/carrusel_5.png" width="100%"   class="d-block w-100" alt="...">
-                            <%--  
-                               <div class="carousel-caption d-none d-md-block">
-                                   <h5>First slide label</h5>
-                                   <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                               </div>
-                            --%>  
-                        </div>
-                        <div class="carousel-item">
-                            <img src="../imagenes/carrucel/carrusel_2_nuevo.jpg" width="100%" class="d-block w-100" alt="...">
-                            <%--  
-                               <div class="carousel-caption d-none d-md-block">
-                                   <h5>Second slide label</h5>
-                                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                               </div>
-                            --%> 
-                        </div>
-
-                        <div class="carousel-item">
-                            <img src="../imagenes/carrucel/carrusel_3_nuevo.jpg" width="100%"  class="d-block w-100" alt="...">
-                            <%--      
-                               <div class="carousel-caption d-none d-md-block">
-                                   <h5>Third slide label</h5>
-                                   <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>                       
-                               </div>
-                            --%> 
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+            <div class="row">
+                <div class="col-12">
+                    <center>
+                        <p class="h3" style="color: #CE6100"> <strong>Pedido</strong></p> <br>
+                    </center>
                 </div>
             </div>
+        </div>                       
+        <%
+            lista_pedido temp_listap = new lista_pedido();
+            logica_lista_pedido con = new logica_lista_pedido();
+            int id_temp = Integer.parseInt(request.getParameter("id"));
 
+            con.ver_lista_pedido(id_temp);
 
-            <br>
+        %>  
 
-            <div class="row" >
+        <form action="lista_solicitud.jsp">
 
-                <nav aria-label="breadcrumb" style=" width: 100%; ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
 
-                    <ol class="breadcrumb"style="background-color:#FFAA2E ;">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="text-center">
 
-                        <li class="breadcrumb-item">
+                                        <th>ID</th>
+                                        <th>IMAGEN</th>
+                                        <th>NOMBRE</th>
+                                        <th>PRECIO UNIT.</th>
+                                        <th>DESCRIPCION</th>
+                                        <th>CATEGORIA</th>
+                                        <th>CANTIDAD</th>
+                                        <th>TOTAL</th>
+                                    </tr>
+                                </thead>
 
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    NUESTROS PRODUCTOS
-                                </button>
-                                <div class="dropdown-menu">
-                                    <%
-                                        for (int i = 0; i < logica_categoria.logica_categoria.size(); i++) {
-                                            temp1 = (categoria) logica_categoria.logica_categoria.get(i);
+                                <tbody>
+                                    <%  float total = 0;    
+                                        for (int i = 0; i < logica_lista_pedido.logica_lista_pedido.size(); i++) {
+                                            temp_listap = (lista_pedido) logica_lista_pedido.logica_lista_pedido.get(i);
 
                                     %>
-                                    <a class="dropdown-item" href="../busquedas/categorias.jsp?id=<%=temp1.getCategoria_id()%>"><%=temp1.getCategoria_nombre()%></a>
+
+                                    <tr>
+
+                                        <td><%=temp_listap.getProducto_id()%></td>
+
+                                                   <td>  <img src="<% /*out.print("../imagenes/productos/" + temp_listap.getProducto_imagen().substring(47, temp_listap.getProducto_imagen().length()));*/
+                                          out.print("../imagenes/productos/" + temp_listap.getProducto_imagen().substring(98, temp_listap.getProducto_imagen().length()));%>" width="auto" height="100"  class="card-body-top" /></td>
+
+                                        <td><%=temp_listap.getProducto_nombre()%></td>
+
+                                        <td><% out.print("S/." + temp_listap.getProducto_precio());%></td>
+
+                                        <td><%=temp_listap.getProducto_descripcion()%></td>
+
+                                        <td><%=temp_listap.getCategoria_nombre()%></td>
+
+                                        <td><%=temp_listap.getLista_pedido_cantidad()%></td>
+
+                                        <td> 
+                                    <%
+                                        
+                                        total = temp_listap.getLista_pedido_cantidad() * temp_listap.getProducto_precio();
+                                        out.print("S/. " + String.format("%.2f", total));
+                                        
+                                    %>
+                                </td> 
+
+                                    </tr>
                                     <%}%>
-
-                                </div>
-
-                            </div>
-
-
-                        </li>
-
-                        <li class="breadcrumb-item">
-                            <a class="dropdown-item" href=""><strong>INICIO</strong></a>
-                        </li>
-
-                        <li class="breadcrumb-item" aria-current="page">
-                            <a class="dropdown-item" href="../Nosotros/contacto.jsp "><strong>NOSOTROS</strong></a>
-                        </li>
-
-                        <li class="breadcrumb-item" aria-current="page">
-                            <a class="dropdown-item" href="../Nosotros/Preguntas.jsp"><strong>PREGUNTAS FRECUENTES</strong></a>
-                        </li>
-
-                        <li class="breadcrumb-item " aria-current="page">
-                            <a class="dropdown-item" href="../Nosotros/Politica.jsp"><strong>POLITICA DE PRIVACIDAD</strong></a>
-                        </li>
-                    </ol>
-                </nav>
-
-            </div>
-            <br>           
-            <div class="row" >
-                <div class="col-12">
-                    <label class="h2">AGREGADOS RECIENTEMENTE </label> 
-                </div>
-
-
-
-            </div>
-            <div class="row" >
-                <%
-                    producto p = new producto();
-                    logica.logica_producto con3 = new logica_producto();
-
-                    con3.ultimo_registro();
-                    // out.print(logica_producto.logica_producto.size());
-
-                    for (int i = 0; i < logica_producto.logica_producto.size(); i++) {
-                        p = (producto) logica_producto.logica_producto.get(i);
-
-                %>   
-
-
-                <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
-
-                         <img src="<% out.print("../imagenes/productos/"+p.getProducto_imagen().substring(47,p.getProducto_imagen().length()));
-                     /*81*/   /*out.print("../imagenes/productos/" + p.getProducto_imagen().substring(98, p.getProducto_imagen().length()));*/%>" width="auto" height="150"  class="card-body-top" />
-
-
-
-
-                    <div class="card-body">
-
-                        <h5 class="card-title"><%=p.getProducto_nombre()%></h5>
-                        <p class="card-text"><%=p.getProducto_descripcion()%></p>
-                        <a href="../info_producto/producto.jsp?id=<%=p.getProducto_id()%>" class="btn btn-danger">mas informacion</a>
+                                </tbody>
+                            </table>   
+                                
+                                <input type="submit" class="btn btn-danger" value="Volver" name="btnVolver" />
+                        </div>
                     </div>
+
                 </div>
-                <%}%>      
-
-
-
 
             </div>
-
-
-
-
-            <div class="row" >
-                <div class="col-12">
-                    <label class="h2">MAS VENDIDOS </label> 
-                </div>
-
-
-
-            </div>
-            <div class="row" >
-                <%
-                    lista_deseos l = new lista_deseos();
-                    logica.logica_lista_deseos con4 = new logica_lista_deseos();
-
-                    con4.masVendidos();
-                    // out.print(logica_producto.logica_producto.size());
-
-                    for (int i = 0; i < logica_lista_deseos.logica_lista_deseos.size(); i++) {
-                        l = (lista_deseos) logica_lista_deseos.logica_lista_deseos.get(i);
-
-                %>   
-
-
-                <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
-
-                         <img src="<% out.print("../imagenes/productos/"+l.getProducto_imagen().substring(47,l.getProducto_imagen().length()));
-                     /*81*/   /*out.print("../imagenes/productos/" + l.getProducto_imagen().substring(98, l.getProducto_imagen().length()));*/%>" width="auto" height="150"  class="card-body-top" />
-
-
-                    <div class="card-body">
-
-                        <h5 class="card-title"><%=l.getProducto_nombre()%></h5>
-                        <p class="card-text"><%=l.getProducto_descripcion()%></p>
-                        <a href="../info_producto/producto.jsp?id=<%=l.getProducto_id()%>" class="btn btn-danger">mas informacion</a>
-                    </div>
-                </div>
-                <%}%>      
-
-
-
-
-            </div>    
-
-        </div>
-
-
-    <br> 
-    <br> 
-
-
-
-
-
-
-    <div class="container">
-        <div class="categories-section">
-            <div class="row">
-                <div class="col-md-4 col-xs-12 col-sm-12">
-                    <a href="../busquedas/categorias.jsp?id=1">
-                        <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
-                            <div><img src="../imagenes/ambientador.png" width="85" height="85" alt="ambientador"/></div> 
-                            <div><h5>Ambientadores</h5></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-xs-12 col-sm-12">
-                    <a href="../busquedas/categorias.jsp?id=2">
-                        <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
-                            <div><img src="../imagenes/desinfectante.png" width="55" height="85" alt="desinfectante"/></div> 
-                            <div><h5>Desinfectantes</h5></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-xs-12 col-sm-12">
-                    <a href="../busquedas/categorias.jsp?id=3">
-                        <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
-                            <div><img src="../imagenes/detergente.png" width="60" height="85" alt="detergente"/></div> 
-                            <div><h5>Detergentes</h5></div>
-                        </div>
-                    </a>
-                </div>
-
-
-                <div class="col-md-4 col-xs-12 col-sm-12">
-                    <a href="../busquedas/categorias.jsp?id=4">
-                        <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
-                            <div><img src="../imagenes/protectores.png" width="70" height="85" alt="protector"/></div> 
-                            <div><h5>Protectores y limpiadores</h5></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-xs-12 col-sm-12">
-                    <a href="../busquedas/categorias.jsp?id=5">
-                        <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
-                            <div><img src="../imagenes/lejia.png" width="70" height="85" alt="lejia"/></div> 
-                            <div><h5>Quimicos controlados</h5></div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md-4 col-xs-12 col-sm-12">
-                    <a href="../busquedas/categorias.jsp?id=6">
-                        <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
-                            <div><img src="../imagenes/deshumedecedor.png" width="70" height="85" alt="deshumedecedor"/></div> 
-                            <div><h5>Deshumedecedores</h5></div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-    <br>
-    <br>
-    <br><br><br>
-
-
-
-
-
-
-
-
-
-
-
-    <div class="container-fluid pagina">
+        </form>
+                                
+                                
+                                
+ <div class="container-fluid pagina">
 
 
 
@@ -704,24 +463,7 @@
 
 
 
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body>
+    </div>                               
+                                
+    </body>
 </html>

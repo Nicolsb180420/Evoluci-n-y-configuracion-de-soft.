@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
     <head>
- 
+
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
 
@@ -52,11 +52,11 @@
 
         <link rel="stylesheet" href="../diceno/css/caja_text.css">
         <link rel="stylesheet" href="../diceno/css/categorias.css">
-        
+
         <link rel="stylesheet" href="../diceno/css/jquery.dataTables.min.css"/>
         <script src="../diceno/js/jquery.dataTables.min.js" type="text/javascript"></script>
-        
-        
+
+
         <script>
             $(document).ready(function () {
                 $('#tabla_alumno').DataTable({
@@ -81,17 +81,17 @@
 
 
     </head>
-  
+
     <body>
- <div class="container-fluid">
+        <div class="container-fluid">
             <%
                 String cliente_id;
                 HttpSession sesion = request.getSession();
                 cliente_id = sesion.getAttribute("cliente_id").toString();
 
                 //out.print(cliente_id);
-                 categoria temp1 = new categoria();
-                  logica.logica_categoria con1 = new logica_categoria();
+                categoria temp1 = new categoria();
+                logica.logica_categoria con1 = new logica_categoria();
             %>
 
 
@@ -121,8 +121,7 @@
 
 
                                 <div class="nav-primary">
-                                    <%  
-                                       
+                                    <%
                                         con1.consultarDep();
                                     %>
                                     <%
@@ -132,17 +131,17 @@
                                     %>
                                     <center>
                                         <div class="btn-group" style="width:100%;">
-                                           <a href="../busquedas/categorias.jsp?id=<%=temp1.getCategoria_id()%>" class="btn btn-outline-danger" style=" color: #ffffff"> 
+                                            <a href="../busquedas/categorias.jsp?id=<%=temp1.getCategoria_id()%>" class="btn btn-outline-danger" style=" color: #ffffff"> 
                                                 <%=temp1.getCategoria_nombre()%>
                                             </a>
-                                   
-                                            
+
+
 
                                         </div>
                                     </center>
                                     <%}%>
 
-                                 
+
 
                                     <center>
                                         <div class="btn-group" style="width:100%;   ">
@@ -171,14 +170,14 @@
 
 
 
-                      <div class="col-8 col-sm-6 col-md-7 col-lg-8 col-xl-9" style="left:14px" >
+                    <div class="col-8 col-sm-6 col-md-7 col-lg-8 col-xl-9" style="left:14px" >
                         <form action="../busquedas/dato.jsp">
-                        
+
                             <input type="text" name="busqueda"  class="search-for-champion" >
 
-                        <button  class="search-btn" type="submit" style="background: #CE6100   " > <img src="../imagenes/buscar.png" width="45" height="45" alt="buscar"/>
-                        </button>
-                </form>
+                            <button  class="search-btn" type="submit" style="background: #CE6100   " > <img src="../imagenes/buscar.png" width="45" height="45" alt="buscar"/>
+                            </button>
+                        </form>
 
 
                     </div>
@@ -255,7 +254,7 @@
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <button class="dropdown-item" type="button">Mis compras</button>
-                                            <button class="dropdown-item" type="button">Lista de deseos</button>
+                                            <a href="../lista_deseos/lista_deseos.jsp" class="dropdown-item">Lista de deseos</a>
                                             <a href="../carrito/carrito.jsp" class="dropdown-item">Carrito de compras</a>
 
                                             <a href="../login/login_cerrar.jsp" class="dropdown-item" type="button">Cerrar sesion</a>
@@ -287,223 +286,212 @@
 
 
         </div>
-                            
-                            
-                            
-                              <div class="container">
-
-                                  <a href="http://wa.me/51977857322?text=Me%20interesa%20pagar%20una%20solicitud%20de%20envio"> paga aqui mano </a>
 
 
 
+        <div class="container">
 
+            <a href="http://wa.me/51977857322?text=Me%20interesa%20pagar%20una%20solicitud%20de%20envio"> paga aqui mano </a>
 
-        <br>
-        <br>
-        <br>
-        <div class="row table-responsive">
+            <br>
+            <br>
+            <br>
+            <div class="row table-responsive">
 
-            <table class="display" id="tabla_alumno">
-                <thead style="background: #F38500;">
-                    <tr>
-                        <th>PEDIDO_ID</th>
-                        <th>CLIENTE_NOMBRE</th>
-                        <th>CLIENTE_APELLIDO</th>
-                        <th>TELEFONO</th>
-                        <th>DEPARTAMENTO</th>
-                        <th>PROVINCIA</th>
-                        <th>DISTRITO</th>
-                        <th>UBICACION</th>
-                        <th>PAGO</th>
-                        <th>FECHA</th>
-                        <th>ESTADO</th>
-                        
-                        
-                        
-                        <th>VER</th>     
-                         <th>EDITAR</th>
-                          <th>ELIMNAR</th>
+                <table class="display" id="tabla_alumno">
+                    <thead style="background: #F38500;">
+                        <tr>
+                            <th>PEDIDO_ID</th>
+                            <th>CLIENTE_NOMBRE</th>
+                            <th>CLIENTE_APELLIDO</th>
+                            <th>TELEFONO</th>
+                            <th>DEPARTAMENTO</th>
+                            <th>PROVINCIA</th>
+                            <th>DISTRITO</th>
+                            <th>UBICACION</th>
+                            <th>PAGO</th>
+                            <th>FECHA</th>
+                            <th>ESTADO</th>
+                            <th></th>
+                            <th></th>
 
-                    </tr>
-                </thead>
-                <tbody>
+                        </tr>
+                    </thead>
+                    <tbody>
 
 
 
-                    <%                        
-                        pedido temp = new pedido();
-                        logica_pedido con = new logica_pedido();
+                        <%
+                            pedido temp = new pedido();
+                            logica_pedido con = new logica_pedido();
+                            con.ver_pedidos(cliente_id);
 
-                      con.ver_pedidos(cliente_id);
+                            for (int i = 0; i < logica_pedido.logica_pedido.size(); i++) {
 
-                        for (int i = 0; i < logica_pedido.logica_pedido.size(); i++) {
+                                temp = (pedido) logica_pedido.logica_pedido.get(i);
 
-                            temp = (pedido) logica_pedido.logica_pedido.get(i);
-                            
-                            
 
-                    %>
+                        %>
 
-                    <tr>
-                        <td><%=temp.getPedido_id()%></td>
-                        <td><%=temp.getCliente_nombre()  %></td>
-                        <td><%=temp.getCliente_apellido()  %></td>
-                         <td><%=temp.getPedido_telefono() %></td>
-                         <td><%=temp.getDesdep() %></td>
-                         <td><%=temp.getDespro() %></td>
-                         <td><%=temp.getDesdist()  %></td>
-                         <td><%=temp.getPedido_ubicacion() %></td>
-                         <td><%=temp.getPedido_pago() %></td>
-                         <td><%=temp.getPedido_fecha() %></td>
-                         <td><%=temp.getPedido_estado() %></td>
-                        <td>
-                            <a href="matricula_ver.jsp?id=<%=temp.getPedido_id()%>">
-                                <center>    <img src="../imagenes/cruds/ver.png" width="20" height="20" alt="editar"/>  </center>
-                      </a>
-                        </td>
-                        
-                        
-                        
-                        <td>
-                        <a href="matricula_modificar.jsp?id=<%=temp.getPedido_id()%>">
-                                    <center>    <img src="../imagenes/cruds/editar.png" width="20" height="20" alt="editar"/>  </center>
-                      </a>
-                        </td>
-                       <td> 
-                           <a href="matricula_eliminar.jsp?id=<%=temp.getPedido_id()%>">
-                                    <center>    <img src="../imagenes/cruds/borrar.png" width="20" height="20" alt="borrar"/></center>
+                        <tr>
+                            <td><%=temp.getPedido_id()%></td>
+                            <td><%=temp.getCliente_nombre()%></td>
+                            <td><%=temp.getCliente_apellido()%></td>
+                            <td><%=temp.getPedido_telefono()%></td>
+                            <td><%=temp.getDesdep()%></td>
+                            <td><%=temp.getDespro()%></td>
+                            <td><%=temp.getDesdist()%></td>
+                            <td><%=temp.getPedido_ubicacion()%></td>
+                            <td><%=temp.getPedido_pago()%></td>
+                            <td><%=temp.getPedido_fecha()%></td>
+                            <td><%=temp.getPedido_estado()%></td>
+                            <td>
+                                <a href="ver_lista_pedido.jsp?id=<%=temp.getPedido_id()%>">
+                                    <center>    <img src="../imagenes/icono_ver.png" width="30" height="30" alt="ver"/>  </center>
+                                </a>
+                            </td>
+
+                            <%
+                                if (temp.getPedido_estado() == 0) {
+                            %>  
+                            <td> 
+                                <a href="eliminar_pedido.jsp?id=<%=temp.getPedido_id()%>">
+                                    <center>    <img src="../imagenes/icono_borrar1.png" width="30" height="30" alt="borrar"/></center>
 
                                 </a>
                             </td>
-                    </tr>
-                    
-                      
-                    
-                    
-                    <%}%>
+                            <%
+                            } else {
 
-
-                </tbody>
-            </table>
-
-        </div>
-
- <br>
-        <div class="row">            
-
-            <a href="../alumno/alumno_crud.jsp">  <button   class="btn btn-outline-dark" style="background:  #F38500;">BUSCAR</button> </a>
-            <a href="../menu_principal/menu_principal.jsp">  <button   class="btn btn-light" >MENU PRINCIPAL</button> </a>
-        </div>
-    </div>               
-
-
-    <div class="container-fluid pagina">
+                            %>
+                            <td></td> 
+                            <%                                }
+                            %>
+                        </tr>
 
 
 
 
-
-        <div class="row" >
-
-            <div class="col-6 col-sm-12 col-md-12 col-lg-3 col-xl-3" >
+                        <%}%>
 
 
-                <br>
-                <br>
-                <center>
-                    <img src="../imagenes/logo_bn.png" width="250px"  height="149px" />
-
-
-                </center>
-            </div>
-
-            <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
-                <br>
-                <center>
-                    <p class="h5">“Un hogar impecable es nuestra misión"</p>
-                    <br>
-                    <img src="../imagenes/ubicacion.png" width="25" height="25" alt="ubicacion"/>
-
-
-                    Mza H Lote 01 urb. Pro Industrial S.M.P Lima-Perú
-                    <br>
-                    <img src="../imagenes/telefono.png" width="35" height="30" alt="telefono"/>
-
-                    Teléfono:  536-4941
-                    <br>
-                    <img src="../imagenes/celular.png" width="18" height="18" alt="celular"/>
-                    Ventas: 928315913
-                    <br>
-                    <img src="../imagenes/correo.png" width="25" height="25" alt="correo"/>
-
-                    Correo: Ventas@kazvel.com
-                    <br>
-                </center>
-
-                <br>
-            </div>
-
-
-
-
-
-            <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
-                <br>
-
-
-                <center>
-
-                    <p class="h3"> CONOCENOS :  </p>
-                    <!--
-                                        NOSOTROS
-                                        <br>
-                    -->        
-                    <a href="../Nosotros/Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
-
-                    <br>
-                    <a href="../Nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDA  </a>   
-                    <br>
-
-                    <a href="../Nosotros/contacto.jsp"style="color: #000">CONTACTANOS</a> 
-
-                    <br>
-
-
-                </center>
-                <br>
-
-            </div> 
-
-
-
-            <div class="col-3 col-sm-4 col-md-4 col-lg-3 col-xl-3" >
-                <br>
-
-                <center>
-                    <p class="h3"> SIGUENOS EN :  </p>   
-                    <br>
-                    <a href=""><img src="../imagenes/facebook.png" height="40px" width="40px"  /></a> 
-                    <br>
-
-                    <a href=""><img src="../imagenes/twitter.png"  height="40px" width="40px" /></a> 
-                    <br>
-
-                    <a href="https://instagram.com/qkazvel?igshid=nc1l54gp8lh5"><img src="../imagenes/instagram.png" height="40px" width="40px"  /></a> 
-                </center>
+                    </tbody>
+                </table>
 
             </div>
 
+            <br>
+
+        </div>               
+
+
+        <div class="container-fluid pagina">
+
+
+
+
+
+            <div class="row" >
+
+                <div class="col-6 col-sm-12 col-md-12 col-lg-3 col-xl-3" >
+
+
+                    <br>
+                    <br>
+                    <center>
+                        <img src="../imagenes/logo_bn.png" width="250px"  height="149px" />
+
+
+                    </center>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                    <br>
+                    <center>
+                        <p class="h5">“Un hogar impecable es nuestra misión"</p>
+                        <br>
+                        <img src="../imagenes/ubicacion.png" width="25" height="25" alt="ubicacion"/>
+
+
+                        Mza H Lote 01 urb. Pro Industrial S.M.P Lima-Perú
+                        <br>
+                        <img src="../imagenes/telefono.png" width="35" height="30" alt="telefono"/>
+
+                        Teléfono:  536-4941
+                        <br>
+                        <img src="../imagenes/celular.png" width="18" height="18" alt="celular"/>
+                        Ventas: 928315913
+                        <br>
+                        <img src="../imagenes/correo.png" width="25" height="25" alt="correo"/>
+
+                        Correo: Ventas@kazvel.com
+                        <br>
+                    </center>
+
+                    <br>
+                </div>
+
+
+
+
+
+                <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                    <br>
+
+
+                    <center>
+
+                        <p class="h3"> CONOCENOS :  </p>
+                        <!--
+                                            NOSOTROS
+                                            <br>
+                        -->        
+                        <a href="../Nosotros/Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
+
+                        <br>
+                        <a href="../Nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDA  </a>   
+                        <br>
+
+                        <a href="../Nosotros/contacto.jsp"style="color: #000">CONTACTANOS</a> 
+
+                        <br>
+
+
+                    </center>
+                    <br>
+
+                </div> 
+
+
+
+                <div class="col-3 col-sm-4 col-md-4 col-lg-3 col-xl-3" >
+                    <br>
+
+                    <center>
+                        <p class="h3"> SIGUENOS EN :  </p>   
+                        <br>
+                        <a href=""><img src="../imagenes/facebook.png" height="40px" width="40px"  /></a> 
+                        <br>
+
+                        <a href=""><img src="../imagenes/twitter.png"  height="40px" width="40px" /></a> 
+                        <br>
+
+                        <a href="https://instagram.com/qkazvel?igshid=nc1l54gp8lh5"><img src="../imagenes/instagram.png" height="40px" width="40px"  /></a> 
+                    </center>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
 
 
         </div>
-
-
-
-
-
-
-
-    </div>
 
 
 

@@ -7,11 +7,18 @@ package datos;
 
 /**
  *
- * @author bryan
+ * @author Nicol Samanamud
  */
-public class pedido {
-
-    private int pedido_id;
+public class lista_pedido {
+    /*lista_pedidos_id	int	Unchecked
+lista_pedidos_pedido	int	Unchecked
+lista_pedidos_producto	int	Unchecked
+lista_pedido_cantidad	int	Unchecked
+		Unchecked*/
+    
+    private int lista_pedidos_id,lista_pedidos_pedido,lista_pedidos_producto,lista_pedido_cantidad;
+    private pedido FK_pedido;
+     private int pedido_id;
     private int pedido__cliente;
     private cliente FK_pedido__cliente;
     private int cliente_id;
@@ -43,11 +50,31 @@ public class pedido {
     private float pedido_pago;
     private String pedido_fecha;
     private int pedido_estado;
+    
+    private producto FK_producto;
+    private int producto_id;
+    private String producto_nombre;
+    private float producto_precio;
+    private String producto_caracteristica;
+    private String producto_descripcion;
+    private int producto_categoria;
+    private categoria FK_producto_categoria;
+     private int categoria_id;
+    private String categoria_nombre;
+    private String producto_peso;
+    private String producto_tipo_peso;
+    private String producto_imagen;
+    private int producto_valoracion;
 
-    public pedido() {
+    public lista_pedido() {
     }
 
-    public pedido(int pedido_id, int pedido__cliente, cliente FK_pedido__cliente, int cliente_id, String cliente_nombre, String cliente_apellido, String cliente_nacimiento, int cliente_login, login FK_cliente_login, int login_id, String login_correo, String login_contra, String login_tipo, int pedido_telefono, int pedido_distrito, distrito FK_pedido_distrito, int id_distrito, String desdist, String coddis, int distrito_provincias, provincia FK_distrito_provincias, int provincia_id, String despro, String codpro, int provincia_departamento, departamento FK_provincia_departamento, int departamento_id, String coddep, String desdep, String pedido_ubicacion, float pedido_pago, String pedido_fecha, int pedido_estado) {
+    public lista_pedido(int lista_pedidos_id, int lista_pedidos_pedido, int lista_pedidos_producto, int lista_pedido_cantidad, pedido FK_pedido, int pedido_id, int pedido__cliente, cliente FK_pedido__cliente, int cliente_id, String cliente_nombre, String cliente_apellido, String cliente_nacimiento, int cliente_login, login FK_cliente_login, int login_id, String login_correo, String login_contra, String login_tipo, int pedido_telefono, int pedido_distrito, distrito FK_pedido_distrito, int id_distrito, String desdist, String coddis, int distrito_provincias, provincia FK_distrito_provincias, int provincia_id, String despro, String codpro, int provincia_departamento, departamento FK_provincia_departamento, int departamento_id, String coddep, String desdep, String pedido_ubicacion, float pedido_pago, String pedido_fecha, int pedido_estado, producto FK_producto, int producto_id, String producto_nombre, float producto_precio, String producto_caracteristica, String producto_descripcion, int producto_categoria, categoria FK_producto_categoria, int categoria_id, String categoria_nombre, String producto_peso, String producto_tipo_peso, String producto_imagen, int producto_valoracion) {
+        this.lista_pedidos_id = lista_pedidos_id;
+        this.lista_pedidos_pedido = lista_pedidos_pedido;
+        this.lista_pedidos_producto = lista_pedidos_producto;
+        this.lista_pedido_cantidad = lista_pedido_cantidad;
+        this.FK_pedido = FK_pedido;
         this.pedido_id = pedido_id;
         this.pedido__cliente = pedido__cliente;
         this.FK_pedido__cliente = FK_pedido__cliente;
@@ -81,61 +108,75 @@ public class pedido {
         this.pedido_pago = pedido_pago;
         this.pedido_fecha = pedido_fecha;
         this.pedido_estado = pedido_estado;
+        this.FK_producto = FK_producto;
+        this.producto_id = producto_id;
+        this.producto_nombre = producto_nombre;
+        this.producto_precio = producto_precio;
+        this.producto_caracteristica = producto_caracteristica;
+        this.producto_descripcion = producto_descripcion;
+        this.producto_categoria = producto_categoria;
+        this.FK_producto_categoria = FK_producto_categoria;
+        this.categoria_id = categoria_id;
+        this.categoria_nombre = categoria_nombre;
+        this.producto_peso = producto_peso;
+        this.producto_tipo_peso = producto_tipo_peso;
+        this.producto_imagen = producto_imagen;
+        this.producto_valoracion = producto_valoracion;
     }
 
-    public pedido(int pedido_id, int pedido__cliente, int pedido_telefono, int pedido_distrito, String pedido_ubicacion, float pedido_pago, String pedido_fecha, int pedido_estado) {
-        this.pedido_id = pedido_id;
-        this.pedido__cliente = pedido__cliente;
-        this.pedido_telefono = pedido_telefono;
-        this.pedido_distrito = pedido_distrito;
-        this.pedido_ubicacion = pedido_ubicacion;
-        this.pedido_pago = pedido_pago;
-        this.pedido_fecha = pedido_fecha;
-        this.pedido_estado = pedido_estado;
-    }
-
-    /*insertar pedido*/
-    public pedido(int pedido__cliente, int pedido_telefono, int pedido_distrito, String pedido_ubicacion, float pedido_pago) {
-        this.pedido__cliente = pedido__cliente;
-        this.pedido_telefono = pedido_telefono;
-        this.pedido_distrito = pedido_distrito;
-        this.pedido_ubicacion = pedido_ubicacion;
-        this.pedido_pago = pedido_pago;
-
-    }
-    
-    /* ver pedido*/
-
-    public pedido(int pedido_id, int pedido__cliente, String cliente_nombre, String cliente_apellido, int pedido_telefono, int pedido_distrito, String desdist, String despro, String desdep, String pedido_ubicacion, float pedido_pago, String pedido_fecha, int pedido_estado) {
-        this.pedido_id = pedido_id;
-        this.pedido__cliente = pedido__cliente;
-        this.cliente_nombre = cliente_nombre;
-        this.cliente_apellido = cliente_apellido;
-        this.pedido_telefono = pedido_telefono;
-        this.pedido_distrito = pedido_distrito;
-        this.desdist = desdist;
-        this.despro = despro;
-        this.desdep = desdep;
-        this.pedido_ubicacion = pedido_ubicacion;
-        this.pedido_pago = pedido_pago;
-        this.pedido_fecha = pedido_fecha;
-        this.pedido_estado = pedido_estado;
-    }
-
-    public pedido(int pedido_id, int pedido__cliente, String cliente_nombre, String cliente_apellido, int pedido_telefono, String desdist, String pedido_ubicacion, float pedido_pago, String pedido_fecha, int pedido_estado) {
-        this.pedido_id = pedido_id;
-        this.pedido__cliente = pedido__cliente;
-        this.cliente_nombre = cliente_nombre;
-        this.cliente_apellido = cliente_apellido;
-        this.pedido_telefono = pedido_telefono;
-        this.desdist = desdist;
-        this.pedido_ubicacion = pedido_ubicacion;
-        this.pedido_pago = pedido_pago;
-        this.pedido_fecha = pedido_fecha;
-        this.pedido_estado = pedido_estado;
+    public lista_pedido(int lista_pedidos_id, int lista_pedidos_pedido, int lista_pedido_cantidad, int producto_id, String producto_nombre, float producto_precio, String producto_descripcion, String categoria_nombre, String producto_imagen) {
+        this.lista_pedidos_id = lista_pedidos_id;
+        this.lista_pedidos_pedido = lista_pedidos_pedido;
+        this.lista_pedido_cantidad = lista_pedido_cantidad;
+        this.producto_id = producto_id;
+        this.producto_nombre = producto_nombre;
+        this.producto_precio = producto_precio;
+        this.producto_descripcion = producto_descripcion;
+        this.categoria_nombre = categoria_nombre;
+        this.producto_imagen = producto_imagen;
     }
     
     
+
+    public int getLista_pedidos_id() {
+        return lista_pedidos_id;
+    }
+
+    public void setLista_pedidos_id(int lista_pedidos_id) {
+        this.lista_pedidos_id = lista_pedidos_id;
+    }
+
+    public int getLista_pedidos_pedido() {
+        return lista_pedidos_pedido;
+    }
+
+    public void setLista_pedidos_pedido(int lista_pedidos_pedido) {
+        this.lista_pedidos_pedido = lista_pedidos_pedido;
+    }
+
+    public int getLista_pedidos_producto() {
+        return lista_pedidos_producto;
+    }
+
+    public void setLista_pedidos_producto(int lista_pedidos_producto) {
+        this.lista_pedidos_producto = lista_pedidos_producto;
+    }
+
+    public int getLista_pedido_cantidad() {
+        return lista_pedido_cantidad;
+    }
+
+    public void setLista_pedido_cantidad(int lista_pedido_cantidad) {
+        this.lista_pedido_cantidad = lista_pedido_cantidad;
+    }
+
+    public pedido getFK_pedido() {
+        return FK_pedido;
+    }
+
+    public void setFK_pedido(pedido FK_pedido) {
+        this.FK_pedido = FK_pedido;
+    }
 
     public int getPedido_id() {
         return pedido_id;
@@ -400,11 +441,119 @@ public class pedido {
     public void setPedido_estado(int pedido_estado) {
         this.pedido_estado = pedido_estado;
     }
-    
-    
-    
-    
-    
-    
 
+    public producto getFK_producto() {
+        return FK_producto;
+    }
+
+    public void setFK_producto(producto FK_producto) {
+        this.FK_producto = FK_producto;
+    }
+
+    public int getProducto_id() {
+        return producto_id;
+    }
+
+    public void setProducto_id(int producto_id) {
+        this.producto_id = producto_id;
+    }
+
+    public String getProducto_nombre() {
+        return producto_nombre;
+    }
+
+    public void setProducto_nombre(String producto_nombre) {
+        this.producto_nombre = producto_nombre;
+    }
+
+    public float getProducto_precio() {
+        return producto_precio;
+    }
+
+    public void setProducto_precio(float producto_precio) {
+        this.producto_precio = producto_precio;
+    }
+
+    public String getProducto_caracteristica() {
+        return producto_caracteristica;
+    }
+
+    public void setProducto_caracteristica(String producto_caracteristica) {
+        this.producto_caracteristica = producto_caracteristica;
+    }
+
+    public String getProducto_descripcion() {
+        return producto_descripcion;
+    }
+
+    public void setProducto_descripcion(String producto_descripcion) {
+        this.producto_descripcion = producto_descripcion;
+    }
+
+    public int getProducto_categoria() {
+        return producto_categoria;
+    }
+
+    public void setProducto_categoria(int producto_categoria) {
+        this.producto_categoria = producto_categoria;
+    }
+
+    public categoria getFK_producto_categoria() {
+        return FK_producto_categoria;
+    }
+
+    public void setFK_producto_categoria(categoria FK_producto_categoria) {
+        this.FK_producto_categoria = FK_producto_categoria;
+    }
+
+    public int getCategoria_id() {
+        return categoria_id;
+    }
+
+    public void setCategoria_id(int categoria_id) {
+        this.categoria_id = categoria_id;
+    }
+
+    public String getCategoria_nombre() {
+        return categoria_nombre;
+    }
+
+    public void setCategoria_nombre(String categoria_nombre) {
+        this.categoria_nombre = categoria_nombre;
+    }
+
+    public String getProducto_peso() {
+        return producto_peso;
+    }
+
+    public void setProducto_peso(String producto_peso) {
+        this.producto_peso = producto_peso;
+    }
+
+    public String getProducto_tipo_peso() {
+        return producto_tipo_peso;
+    }
+
+    public void setProducto_tipo_peso(String producto_tipo_peso) {
+        this.producto_tipo_peso = producto_tipo_peso;
+    }
+
+    public String getProducto_imagen() {
+        return producto_imagen;
+    }
+
+    public void setProducto_imagen(String producto_imagen) {
+        this.producto_imagen = producto_imagen;
+    }
+
+    public int getProducto_valoracion() {
+        return producto_valoracion;
+    }
+
+    public void setProducto_valoracion(int producto_valoracion) {
+        this.producto_valoracion = producto_valoracion;
+    }
+    
+    
+    
 }

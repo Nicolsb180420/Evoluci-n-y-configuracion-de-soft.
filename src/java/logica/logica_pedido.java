@@ -116,4 +116,44 @@ FROM            dbo.pedido INNER JOIN
         }
     }
 
+    /*eliminar */
+   public void eliminar(int id_temp){
+        try {
+            con.getSt().executeUpdate("delete from pedido where pedido_id="+id_temp );
+        } catch (Exception e) {}
+    }
+    
+   
+   /*Visualizacion de pedidos de todos los clientes*/
+   /*create view VistaPedidosComp
+as
+select pedido_id,pedido_cliente,cliente_nombre,cliente_apellido,pedido_telefono,desdist,pedido_ubicacion,pedido_fecha,pedido_pago,pedido_estado 
+from pedido
+inner join cliente on cliente_id=pedido_cliente
+inner join distritos on distritos.id_distrito=pedido_distrito*/
+
+   
+   public void VerPedidosDeClientes() {
+        con.consulta("select * from VistaPedidosComp");
+        logica_pedido.clear();
+        try {
+            while (con.getRs().next()) {
+                pedido temp = new pedido(
+                        Integer.parseInt(con.getRs().getString(1)),
+                        Integer.parseInt(con.getRs().getString(2)),
+                        con.getRs().getString(3),
+                        con.getRs().getString(4),
+                        Integer.parseInt(con.getRs().getString(5)),
+                        con.getRs().getString(6),
+                        con.getRs().getString(7),
+                        Float.parseFloat(con.getRs().getString(9)),
+                        con.getRs().getString(8),
+                        Integer.parseInt(con.getRs().getString(10)));
+
+                logica_pedido.add(temp);
+            }
+        } catch (Exception e) {
+        }
+    }
+   
 }

@@ -167,4 +167,28 @@ where trabajador_id=5*/
             con.getSt().executeUpdate("delete from login where login_id="+id_temp );
         } catch (Exception e) {}
     }
+   
+   /*
+   select trabajador_id,trabajador_nombre,trabajador_apellido from trabajador where trabajador_login=6
+   */
+    public void buscar_codigo_trabajador(int id_login) {
+        con.consulta("select trabajador_id,trabajador_nombre,trabajador_apellido,trabajador_puesto from trabajador where trabajador_login='"+id_login+"'");
+        logica_trabajador.clear();
+        try {
+            while (con.getRs().next()) {
+                trabajador temp = new trabajador(
+                       Integer.parseInt(con.getRs().getString(1)),
+                        con.getRs().getString(2),
+                        con.getRs().getString(3),
+                        Integer.parseInt(con.getRs().getString(4))
+                    );
+
+                logica_trabajador.add(temp);
+            }
+        } catch (Exception e) {
+        }
+    }
+    
+   
+   
 }

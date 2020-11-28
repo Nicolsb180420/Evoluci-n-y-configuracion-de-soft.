@@ -187,6 +187,20 @@ public class trabajador {
         this.login_contra = login_contra;
     }
 
+    /*codigo de trabajador */
+
+    public trabajador(int trabajador_id, String trabajador_nombre, String trabajor_apellido, int trabajador_puesto) {
+        this.trabajador_id = trabajador_id;
+        this.trabajador_nombre = trabajador_nombre;
+        this.trabajor_apellido = trabajor_apellido;
+        this.trabajador_puesto = trabajador_puesto;
+    }
+
+ 
+    
+    
+    
+    
     
     public int getTrabajador_id() {
         return trabajador_id;
