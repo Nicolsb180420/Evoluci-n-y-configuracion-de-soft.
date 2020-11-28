@@ -28,14 +28,6 @@
 
         <link rel="stylesheet" type="text/css" href="../diceno/css/menu_principal.css">
 
-        <%-- despegable movivble y adaptable--%>
-
-
-        <%-- problemas :C borra esto amigo o no ? 
-       <link rel="stylesheet" href="../diceno/css/css_des/app.css"/> 
-        --%>
-
-
         <link href="../diceno/css/navbar.css" rel="stylesheet">
 
         <script src="../diceno/js/jquery-3.5.1.min.js"></script>
@@ -254,8 +246,9 @@
 
                                 con_car.validar_exixtencia(cliente_id);
                             %>
-
+                            <a href="../carrito/carrito.jsp">
                             <img src="../imagenes/carrito.png" width="50" height="50" alt="carrito"/>
+                            </a>
                             <label class="h3" ><%out.print("(" + logica_carrito.logica_carrito.size() + ")");%></label>
 
 
