@@ -135,6 +135,15 @@ public class pedido {
         this.pedido_estado = pedido_estado;
     }
     
+    /*cambiar estado*/
+
+    public pedido(int pedido_id, int pedido_estado) {
+        this.pedido_id = pedido_id;
+        this.pedido_estado = pedido_estado;
+    }
+    
+    
+    
     
 
     public int getPedido_id() {

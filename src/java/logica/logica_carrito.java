@@ -102,7 +102,8 @@ begin
  rollback
  
 end
-        
+ 
+    
 UPDATE carrito 
     SET carrito_cantidad = 2 
     WHERE carrito_id = 2
