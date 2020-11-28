@@ -223,10 +223,10 @@
                                 <center>
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
-                                            <%  out.print(sesion.getAttribute("cliente_nombre").toString() + " " + sesion.getAttribute("cliente_nombre").toString());  %>
+                                            <%  out.print(sesion.getAttribute("cliente_nombre").toString() + " " + sesion.getAttribute("cliente_apellido").toString());  %>
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <button class="dropdown-item" type="button">Mis compras</button>
+                                            <a href="../lista_pedidos/lista_solicitud.jsp" class="dropdown-item">Mis compras</a> 
                                             <a href="../lista_deseos/lista_deseos.jsp" class="dropdown-item">Lista de deseos</a>
                                             <a href="../carrito/carrito.jsp" class="dropdown-item">Carrito de compras</a>
 

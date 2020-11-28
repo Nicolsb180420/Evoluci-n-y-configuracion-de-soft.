@@ -54,10 +54,33 @@
         <link rel="stylesheet" href="../diceno/css/caja_text.css">
         <link rel="stylesheet" href="../diceno/css/categorias.css">
 
+        <link rel="stylesheet" href="../diceno/css/jquery.dataTables.min.css"/>
+        <script src="../diceno/js/jquery.dataTables.min.js" type="text/javascript"></script>
+
+        <script>
+            $(document).ready(function () {
+                $('#tabla_alumno').DataTable({
+                    "order": [[1, "asc"]], /*ordenar por el nombre*/
+                    "language": {
+                        "lengthMenu": "Mostrar _MENU_ registros por pagina",
+                        "info": "Mostrando pagina _PAGE_ de _PAGES_",
+                        "infoEmpty": "No hay registros disponibles",
+                        "infoFiltered": "(filtrada de _MAX_ registros)",
+                        "loadingRecords": "Cargando...",
+                        "processing": "Procesando...",
+                        "search": "Buscar:",
+                        "zeroRecords": "No se encontraron registros coincidentes",
+                        "paginate": {
+                            "next": "Siguiente",
+                            "previous": "Anterior"
+                        },
+                    }
+                });
+            });
+        </script>
 
 
-        
-        
+
     </head>
 
     <%--menu despegable--%>   
@@ -214,28 +237,28 @@
 
                         <%} else {
 
-                         carrito temp_car = new carrito();
-                                logica_carrito con_car = new logica_carrito();
+                            carrito temp_car = new carrito();
+                            logica_carrito con_car = new logica_carrito();
 
-                                con_car.validar_exixtencia(cliente_id);
-                            %>
+                            con_car.validar_exixtencia(cliente_id);
+                        %>
                         <div class="btn-group ">
 
                             <center>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
-                                            <%  out.print(sesion.getAttribute("cliente_nombre").toString() + " " + sesion.getAttribute("cliente_nombre").toString());  %>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <button class="dropdown-item" type="button">Mis compras</button>
-                                            <a href="../lista_deseos/lista_deseos.jsp" class="dropdown-item">Lista de deseos</a>
-                                            <a href="../carrito/carrito.jsp" class="dropdown-item">Carrito de compras</a>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
+                                        <%  out.print(sesion.getAttribute("cliente_nombre").toString() + " " + sesion.getAttribute("cliente_apellido").toString());  %>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a href="../lista_pedidos/lista_solicitud.jsp" class="dropdown-item">Mis compras</a> 
+                                        <a href="../lista_deseos/lista_deseos.jsp" class="dropdown-item">Lista de deseos</a>
+                                        <a href="../carrito/carrito.jsp" class="dropdown-item">Carrito de compras</a>
 
-                                            <a href="../login/login_cerrar.jsp" class="dropdown-item" type="button">Cerrar sesion</a>
+                                        <a href="../login/login_cerrar.jsp" class="dropdown-item" type="button">Cerrar sesion</a>
 
-                                        </div>
                                     </div>
-                                </center>
+                                </div>
+                            </center>
 
                         </div>
 
@@ -271,74 +294,76 @@
     <br>
 
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="form-group">
 
-                    <table class="table table-hover">
-                        <thead>
-                            <tr class="text-center">
-                                <th></th>
-                                <th>ID</th>
-                                <th>IMAGEN</th>
-                                <th>NOMBRE</th>
-                                <th>CATEGORIA</th>
-                                <th>DESCRIPCION</th>
-                                <th>PRECIO</th>
-                                <th></th>
-                               
-                            </tr>
-                        </thead>
+        <div class="row table-responsive">
+            <table class="display" id="tabla_alumno">
+                <thead style="background: #F38500;">
+                    <tr class="text-center">
+                        <th></th>
+                        <th>ID</th>
+                        <th>IMAGEN</th>
+                        <th>NOMBRE</th>
+                        <th>CATEGORIA</th>
+                        <th>DESCRIPCION</th>
+                        <th>PRECIO</th>
+                        <th></th>
+                        <th></th>
 
-                        <tbody>
-                            <%
-                                lista_deseos temp = new lista_deseos();
-                                logica_lista_deseos con = new logica_lista_deseos();
-                                
-                                        
-                                con.ListaDeseos(cliente_id);
-                               
-                                for (int i = 0; i < logica_lista_deseos.logica_lista_deseos.size(); i++) {
-                                    temp = (lista_deseos) logica_lista_deseos.logica_lista_deseos.get(i);
-                                  
-                            %>
+                    </tr>
+                </thead>
 
-                            <tr>
-                                <td> <input hidden="" value="<%=temp.getLista_deseos_id() %>" /> </td>
-                                
-                                <td><%=temp.getProducto_id() %></td>
+                <tbody>
+                    <%
+                        lista_deseos temp = new lista_deseos();
+                        logica_lista_deseos con = new logica_lista_deseos();
 
-                                <td>  <img src="<% out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(47, temp.getProducto_imagen().length()));
-                                               /*  out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(98, temp.getProducto_imagen().length()));*/%>" width="auto" height="100"  class="card-body-top" /></td>
+                        con.ListaDeseos(cliente_id);
 
-                                <td><%=temp.getProducto_nombre() %></td>
+                        for (int i = 0; i < logica_lista_deseos.logica_lista_deseos.size(); i++) {
+                            temp = (lista_deseos) logica_lista_deseos.logica_lista_deseos.get(i);
 
-                                <td><%=temp.getCategoria_nombre() %></td>
-                                
-                                <td><%=temp.getProducto_descripcion() %></td>
+                    %>
 
-                                <td><% out.print("S/." + temp.getProducto_precio() );%></td>
+                    <tr>
+                        <td> <input hidden="" value="<%=temp.getLista_deseos_id()%>" /> </td>
 
-                                <td>
-                                    <a href="eliminar.jsp?id=<%=temp.getLista_deseos_id() %>" class="btn">
-                                        <img src="../imagenes/icono_borrar.png" width="45" height="45" alt="icono_borrar"/>
-                                    </a>
-                                    
-                                </td>
-                            </tr>
-                            <%}%>
-                        </tbody>
-                    </table>   
+                        <td><%=temp.getProducto_id()%></td>
 
+                        <td>  <img src="<% out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(47, temp.getProducto_imagen().length()));
+                                       /*  out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(98, temp.getProducto_imagen().length()));*/%>" width="auto" height="100"  class="card-body-top" /></td>
 
-                </div>
-            </div>
+                        <td><%=temp.getProducto_nombre()%></td>
+
+                        <td><%=temp.getCategoria_nombre()%></td>
+
+                        <td><%=temp.getProducto_descripcion()%></td>
+
+                        <td><% out.print("S/." + temp.getProducto_precio());%></td>
+
+                        <td>
+                            <a href="eliminar.jsp?id=<%=temp.getLista_deseos_id()%>" class="btn">
+                                <img src="../imagenes/icono_borrar.png" width="45" height="45" alt="icono_borrar"/>
+                            </a>
+
+                        </td>
+                        
+                        <td>
+                            <a href="../info_producto/producto.jsp?id=<%=temp.getProducto_id() %>" class="btn">
+                                <img src="../imagenes/ver_producto.png" width="45" height="45" alt="icono_ver"/>
+                            </a>
+
+                        </td>
+                    </tr>
+                    <%}%>
+                </tbody>
+            </table>   
 
         </div>
 
-    </div>      
+    </div>
 
 
+    <br><br>
 
 
 

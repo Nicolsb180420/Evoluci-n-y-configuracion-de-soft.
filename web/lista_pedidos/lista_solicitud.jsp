@@ -134,9 +134,6 @@
                                             <a href="../busquedas/categorias.jsp?id=<%=temp1.getCategoria_id()%>" class="btn btn-outline-danger" style=" color: #ffffff"> 
                                                 <%=temp1.getCategoria_nombre()%>
                                             </a>
-
-
-
                                         </div>
                                     </center>
                                     <%}%>
@@ -178,21 +175,10 @@
                             <button  class="search-btn" type="submit" style="background: #CE6100   " > <img src="../imagenes/buscar.png" width="45" height="45" alt="buscar"/>
                             </button>
                         </form>
-
-
                     </div>
 
 
                     <div class="col-12 col-sm-4 col-md-3 col-lg-2 col-xl-1">
-
-
-
-
-
-
-
-
-
 
                         <div class="btn-group   float-right align-self-end"  >
 
@@ -250,10 +236,10 @@
                                 <center>
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
-                                            <%  out.print(sesion.getAttribute("cliente_nombre").toString() + " " + sesion.getAttribute("cliente_nombre").toString());  %>
+                                            <%  out.print(sesion.getAttribute("cliente_nombre").toString() + " " + sesion.getAttribute("cliente_apellido").toString());  %>
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <button class="dropdown-item" type="button">Mis compras</button>
+                                            <a href="../lista_pedidos/lista_solicitud.jsp" class="dropdown-item">Mis compras</a> 
                                             <a href="../lista_deseos/lista_deseos.jsp" class="dropdown-item">Lista de deseos</a>
                                             <a href="../carrito/carrito.jsp" class="dropdown-item">Carrito de compras</a>
 
@@ -291,7 +277,7 @@
 
         <div class="container">
 
-            <a href="http://wa.me/51977857322?text=Me%20interesa%20pagar%20una%20solicitud%20de%20envio"> paga aqui mano </a>
+
 
             <br>
             <br>
@@ -365,7 +351,7 @@
 
                             %>
                             <td></td> 
-                            <%                                }
+                            <%}
                             %>
                         </tr>
 
@@ -381,8 +367,13 @@
             </div>
 
             <br>
+            <a href="http://wa.me/51977857322?text=Me%20interesa%20pagar%20una%20solicitud%20de%20envio" class="btn" style="background: #339900; color: #ffffff;"> 
+                <img src="../imagenes/whatsapp.png" width="50" height="50" alt="whatsapp"/>
+                Realizar el pago
+            </a>
 
         </div>               
+        <br>             
 
 
         <div class="container-fluid pagina">
@@ -492,10 +483,6 @@
 
 
         </div>
-
-
-
-
 
 
     </body>

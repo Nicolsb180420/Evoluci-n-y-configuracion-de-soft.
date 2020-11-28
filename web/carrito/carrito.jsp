@@ -99,11 +99,10 @@
             HttpSession sesion = request.getSession();
             cliente_id = sesion.getAttribute("cliente_id").toString();
 
-            
-             carrito temp = new carrito();
-                                logica_carrito con = new logica_carrito();
+            carrito temp = new carrito();
+            logica_carrito con = new logica_carrito();
 
-                                con.validar_exixtencia(cliente_id);
+            con.validar_exixtencia(cliente_id);
             //out.print(cliente_id);
 
         %>
@@ -249,29 +248,27 @@
 
                         <%} else {
 
-
-                  
                         %>
-                            
-                            <img src="../imagenes/carrito.png" width="50" height="50" alt="carrito"/>
-                            <label class="h3" ><%out.print("("+logica_carrito.logica_carrito.size()+")");%></label>
+
+                        <img src="../imagenes/carrito.png" width="50" height="50" alt="carrito"/>
+                        <label class="h3" ><%out.print("(" + logica_carrito.logica_carrito.size() + ")");%></label>
                         <div class="btn-group ">
 
                             <center>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
-                                            <%  out.print(sesion.getAttribute("cliente_nombre").toString() + " " + sesion.getAttribute("cliente_nombre").toString());  %>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <button class="dropdown-item" type="button">Mis compras</button>
-                                            <button class="dropdown-item" type="button">Lista de deseos</button>
-                                            <a href="../carrito/carrito.jsp" class="dropdown-item">Carrito de compras</a>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
+                                        <%  out.print(sesion.getAttribute("cliente_nombre").toString() + " " + sesion.getAttribute("cliente_apellido").toString());  %>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a href="../lista_pedidos/lista_solicitud.jsp" class="dropdown-item">Mis compras</a> 
+                                        <a href="../lista_deseos/lista_deseos.jsp" class="dropdown-item">Lista de deseos</a>
+                                        <a href="../carrito/carrito.jsp" class="dropdown-item">Carrito de compras</a>
 
-                                            <a href="../login/login_cerrar.jsp" class="dropdown-item" type="button">Cerrar sesion</a>
+                                        <a href="../login/login_cerrar.jsp" class="dropdown-item" type="button">Cerrar sesion</a>
 
-                                        </div>
                                     </div>
-                                </center>
+                                </div>
+                            </center>
 
                         </div>
 
@@ -296,10 +293,6 @@
 
 
     </div>
-
-
-
-
 
 
 
@@ -329,7 +322,7 @@
 
                         <tbody>
                             <%
-                               
+
                                 float total = 0;
                                 float pago_total = 0;
                                 //    out.print(cliente_id);
@@ -345,14 +338,14 @@
 
                                 <td><%=temp.getCarrito_id()%></td>
 
-                                <td>  <img src="<% out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(47, temp.getProducto_imagen().length()));
-                                               /*  out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(98, temp.getProducto_imagen().length()));*/%>" width="auto" height="100"  class="card-body-top" /></td>
+                                           <td>  <img src="<% out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(47, temp.getProducto_imagen().length()));
+                                    /*  out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(98, temp.getProducto_imagen().length()));*/%>" width="auto" height="100"  class="card-body-top" /></td>
 
                                 <td><%=temp.getProducto_nombre()%></td>
 
                                 <td><%=temp.getCategoria_nombre()%></td>
 
-                                <td><% out.print("S/." + temp.getProducto_precio() );%></td>
+                                <td><% out.print("S/." + temp.getProducto_precio());%></td>
 
 
 
@@ -382,17 +375,17 @@
                                     <%
                                         total = temp.getCarrito_cantidad() * temp.getProducto_precio();
                                         out.print("S/. " + String.format("%.2f", total));
-                                        
+
                                     %>
                                 </td> 
-                              
+
                                 <td>
-                                    
+
                                     <a href="controlador_carrito_borrar.jsp?id=<%=temp.getCarrito_id()%>" class="btn btn-outline-danger">quitar</a>
-                                    
+
                                 </td>
-                                
-                                
+
+
 
                             </tr>
                             <%}%>
@@ -405,11 +398,13 @@
 
             <div class="col-12">
 
-                Pago total : <%=pago_total%>
+                Pago total : S/.<%=pago_total%>
 
             </div>
+            
             <div class="col-12">
                 <!-- Button trigger modal -->
+                <br>
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                     Registrar venta
                 </button>
@@ -495,14 +490,12 @@
 
         </div>
 
-        <div class="row-12">
-            <a href="../lista_pedidos/lista_solicitud.jsp" class="btn btn-outline-primary">Solicitudes</a> 
-        </div>
+
 
     </div>      
 
 
-
+    <br><br>
 
 
     <div class="container-fluid pagina">

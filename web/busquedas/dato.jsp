@@ -155,15 +155,6 @@
 
                     <div class="col-12 col-sm-4 col-md-3 col-lg-2 col-xl-1">
 
-
-
-
-
-
-
-
-
-
                         <div class="btn-group   float-right align-self-end"  >
 
                             <% if (cliente_id.equals("NN")) {%>
@@ -171,7 +162,7 @@
                             <div class="btn-group ">
 
                                 <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
-                                    registrarse o iniciar sesion 
+                                    Registrarse o iniciar sesion 
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
 
@@ -190,7 +181,7 @@
                                             <div class="form-check">
                                                 <input type="checkbox" class="form-check-input" id="dropdownCheck">
                                                 <label class="form-check-label" for="dropdownCheck">
-                                                    recordar
+                                                    Recordar
                                                 </label>
                                             </div>
                                         </div>
@@ -203,7 +194,7 @@
 
 
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Registrarce</a>
+                                    <a class="dropdown-item" href="#">Registrarse</a>
                                     <a class="dropdown-item" href="#">¿Olvidaste tu contraseña?</a>
 
                                 </div>
@@ -224,10 +215,10 @@
                                 <center>
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
-                                            <%  out.print(sesion.getAttribute("cliente_nombre").toString() + " " + sesion.getAttribute("cliente_nombre").toString());  %>
+                                            <%  out.print(sesion.getAttribute("cliente_nombre").toString() + " " + sesion.getAttribute("cliente_apellido").toString());  %>
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right">
-                                            <button class="dropdown-item" type="button">mis compras</button>
+                                            <a href="../lista_pedidos/lista_solicitud.jsp" class="dropdown-item">Mis compras</a> 
                                             <a href="../lista_deseos/lista_deseos.jsp" class="dropdown-item">Lista de deseos</a>
                                             <a href="../carrito/carrito.jsp" class="dropdown-item">carrito</a>
 
