@@ -104,7 +104,7 @@
                                     %>
                                     <center>
                                         <div class="btn-group" style="width:100%;">
-                                            <a href="busquedas/categorias.jsp?id=<%=temp1.getCategoria_id()%>" class="btn btn-outline-danger" style=" color: #ffffff"> 
+                                            <a href="categorias.jsp?id=<%=temp1.getCategoria_id()%>" class="btn btn-outline-danger" style=" color: #ffffff"> 
                                                 <%=temp1.getCategoria_nombre()%>
                                             </a>
 
@@ -227,7 +227,7 @@
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <button class="dropdown-item" type="button">Mis compras</button>
-                                            <button class="dropdown-item" type="button">Lista de deseos</button>
+                                            <a href="../lista_deseos/lista_deseos.jsp" class="dropdown-item">Lista de deseos</a>
                                             <a href="../carrito/carrito.jsp" class="dropdown-item">Carrito de compras</a>
 
                                             <a href="../login/login_cerrar.jsp" class="dropdown-item" type="button">Cerrar sesion</a>
@@ -288,7 +288,7 @@
                         </li>
 
                         <li class="breadcrumb-item">
-                            <a class="dropdown-item" href=""><strong>INICIO</strong></a>
+                            <a class="dropdown-item" href="../menu_principal/login.jsp"><strong>INICIO</strong></a>
                         </li>
 
                         <li class="breadcrumb-item" aria-current="page">
@@ -349,6 +349,7 @@
 
 
         </div>                 
+
 
         <div class="container-fluid pagina">
 
@@ -457,7 +458,6 @@
 
 
         </div>
-
 
 
     </body>

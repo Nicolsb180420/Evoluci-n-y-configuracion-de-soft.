@@ -28,9 +28,13 @@
 
 
         <link rel="stylesheet" type="text/css" href="../diceno/css/menu_principal.css">
-        <%-- despegable movivble y adaptable--%>
-        <link rel="stylesheet" href="../diceno/css/css_des/app.css"/> 
 
+        <%-- despegable movivble y adaptable--%>
+
+
+        <%-- problemas :C borra esto amigo o no ? 
+       <link rel="stylesheet" href="../diceno/css/css_des/app.css"/> 
+        --%>
 
 
         <link href="../diceno/css/navbar.css" rel="stylesheet">
@@ -55,8 +59,7 @@
         <%--caja de texto--%>
 
         <link rel="stylesheet" href="../diceno/css/caja_text.css">
-
-        <link rel="stylesheet" href="../diceno/css/ProductoMostrar.css">
+        <link rel="stylesheet" href="../diceno/css/categorias.css">
 
     </head>
 
@@ -73,8 +76,9 @@
                 HttpSession sesion = request.getSession();
                 cliente_id = sesion.getAttribute("cliente_id").toString();
 
-                //  out.print(cliente_id);
-
+                //out.print(cliente_id);
+                categoria temp1 = new categoria();
+                logica.logica_categoria con1 = new logica_categoria();
             %>
 
 
@@ -92,7 +96,7 @@
                             <label class="pure-toggle-label" for="pure-toggle-left" data-toggle-label="left" style="width: 50px; height:  50px;"  > <span class="pure-toggle-icon" ></span> </label>
 
                             <div >
-                               <a href="../menu_principal/login.jsp"><img src="../imagenes/logo.png" width="100" height="60" /> </a>   
+                                <a href="../menu_principal/login.jsp"><img src="../imagenes/logo.png" width="100" height="60" /> </a>   
 
                             </div>
 
@@ -104,8 +108,7 @@
 
 
                                 <div class="nav-primary">
-                                    <%  categoria temp1 = new categoria();
-                                        logica.logica_categoria con1 = new logica_categoria();
+                                    <%
                                         con1.consultarDep();
                                     %>
                                     <%
@@ -115,9 +118,12 @@
                                     %>
                                     <center>
                                         <div class="btn-group" style="width:100%;">
-                                            <button type="button" class="btn btn-outline-danger" style=" color: #ffffff">
+                                            <a href="../busquedas/categorias.jsp?id=<%=temp1.getCategoria_id()%>" class="btn btn-outline-danger" style=" color: #ffffff"> 
                                                 <%=temp1.getCategoria_nombre()%>
-                                            </button> 
+                                            </a>
+
+
+
                                         </div>
                                     </center>
                                     <%}%>
@@ -151,27 +157,20 @@
 
 
 
-                      <div class="col-8 col-sm-6 col-md-7 col-lg-8 col-xl-9" style="left:14px" >
+                    <div class="col-8 col-sm-6 col-md-7 col-lg-8 col-xl-9" style="left:14px" >
                         <form action="../busquedas/dato.jsp">
-                        
+
                             <input type="text" name="busqueda"  class="search-for-champion" >
 
-                        <button  class="search-btn" type="submit" style="background: #CE6100   " > <img src="../imagenes/buscar.png" width="45" height="45" alt="buscar"/>
-                        </button>
-                </form>
+                            <button  class="search-btn" type="submit" style="background: #CE6100   " > <img src="../imagenes/buscar.png" width="45" height="45" alt="buscar"/>
+                            </button>
+                        </form>
 
 
                     </div>
 
 
                     <div class="col-12 col-sm-4 col-md-3 col-lg-2 col-xl-1">
-
-
-
-
-
-
-
 
 
 
@@ -230,6 +229,9 @@
 
                                 con_car.validar_exixtencia(cliente_id);
                             %>
+                            
+                            <img src="../imagenes/carrito.png" width="50" height="50" alt="carrito"/>
+                            <label class="h3" ><%out.print("("+logica_carrito.logica_carrito.size()+")");%></label>
                             <div class="btn-group ">
 
                                 <center>
@@ -254,13 +256,8 @@
                             <%}%>
 
 
-
-
                             <!---------------------------------------------------------------------------------------------------------------------------------->
                         </div>
-
-
-
 
 
                     </div>
@@ -271,7 +268,6 @@
 
 
         </div>
-
         <br>
         <br>
         <br>

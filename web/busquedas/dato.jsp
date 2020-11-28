@@ -53,15 +53,15 @@
 
     </head>
     <body>
-            <div class="container-fluid">
+        <div class="container-fluid">
             <%
                 String cliente_id;
                 HttpSession sesion = request.getSession();
                 cliente_id = sesion.getAttribute("cliente_id").toString();
 
                 //out.print(cliente_id);
-                 categoria temp1 = new categoria();
-                  logica.logica_categoria con1 = new logica_categoria();
+                categoria temp1 = new categoria();
+                logica.logica_categoria con1 = new logica_categoria();
             %>
 
 
@@ -91,8 +91,7 @@
 
 
                                 <div class="nav-primary">
-                                    <%  
-                                       
+                                    <%
                                         con1.consultarDep();
                                     %>
                                     <%
@@ -102,17 +101,17 @@
                                     %>
                                     <center>
                                         <div class="btn-group" style="width:100%;">
-                                           <a href="busquedas/categorias.jsp?id=<%=temp1.getCategoria_id()%>" class="btn btn-outline-danger" style=" color: #ffffff"> 
+                                            <a href="busquedas/categorias.jsp?id=<%=temp1.getCategoria_id()%>" class="btn btn-outline-danger" style=" color: #ffffff"> 
                                                 <%=temp1.getCategoria_nombre()%>
                                             </a>
-                                   
-                                            
+
+
 
                                         </div>
                                     </center>
                                     <%}%>
 
-                                 
+
 
                                     <center>
                                         <div class="btn-group" style="width:100%;   ">
@@ -141,14 +140,14 @@
 
 
 
-                      <div class="col-8 col-sm-6 col-md-7 col-lg-8 col-xl-9" style="left:14px" >
-                        <form action="">
-                        
+                   <div class="col-8 col-sm-6 col-md-7 col-lg-8 col-xl-9" style="left:14px" >
+                        <form action="dato.jsp">
+
                             <input type="text" name="busqueda"  class="search-for-champion" >
 
-                        <button  class="search-btn" type="submit" style="background: #CE6100   " > <img src="../imagenes/buscar.png" width="45" height="45" alt="buscar"/>
-                        </button>
-                </form>
+                            <button  class="search-btn" type="submit" style="background: #CE6100   " > <img src="../imagenes/buscar.png" width="45" height="45" alt="buscar"/>
+                            </button>
+                        </form>
 
 
                     </div>
@@ -215,7 +214,7 @@
 
                             <%} else {
 
-                             carrito temp_car = new carrito();
+                                carrito temp_car = new carrito();
                                 logica_carrito con_car = new logica_carrito();
 
                                 con_car.validar_exixtencia(cliente_id);
@@ -229,7 +228,7 @@
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right">
                                             <button class="dropdown-item" type="button">mis compras</button>
-                                            <button class="dropdown-item" type="button">lista de deseos</button>
+                                            <a href="../lista_deseos/lista_deseos.jsp" class="dropdown-item">Lista de deseos</a>
                                             <a href="../carrito/carrito.jsp" class="dropdown-item">carrito</a>
 
                                             <a href="../login/login_cerrar.jsp" class="dropdown-item" type="button">Cerrar sesion</a>
@@ -261,12 +260,12 @@
 
 
         </div>
-                            
-                            
-                        <br>    
-                            
-                            <div class="container">
-                                <div class="row" >
+
+
+        <br>    
+
+        <div class="container">
+            <div class="row" >
 
                 <nav aria-label="breadcrumb" style=" width: 100%; ">
 
@@ -279,8 +278,8 @@
                                     NUESTROS PRODUCTOS
                                 </button>
                                 <div class="dropdown-menu">
-                                    <%     
-                                         con1.consultarDep();
+                                    <%
+                                        con1.consultarDep();
                                         for (int i = 0; i < logica_categoria.logica_categoria.size(); i++) {
                                             temp1 = (categoria) logica_categoria.logica_categoria.get(i);
 
@@ -297,45 +296,44 @@
 
                         </li>
 
-                        <li class="breadcrumb-item">
-                            <a class="dropdown-item" href="#"><strong>INICIO</strong></a>
+                       <li class="breadcrumb-item">
+                            <a class="dropdown-item" href="../menu_principal/login.jsp"><strong>INICIO</strong></a>
                         </li>
 
                         <li class="breadcrumb-item" aria-current="page">
-                            <a class="dropdown-item" href="#"><strong>NOSOTROS</strong></a>
+                            <a class="dropdown-item" href="../Nosotros/contacto.jsp "><strong>NOSOTROS</strong></a>
                         </li>
 
                         <li class="breadcrumb-item" aria-current="page">
-                            <a class="dropdown-item" href="#"><strong>PREGUNTAS FRECUENTES</strong></a>
+                            <a class="dropdown-item" href="../Nosotros/Preguntas.jsp"><strong>PREGUNTAS FRECUENTES</strong></a>
                         </li>
 
                         <li class="breadcrumb-item " aria-current="page">
-                            <a class="dropdown-item" href="#"><strong>POLITICA DE PRIVACIDAD</strong></a>
+                            <a class="dropdown-item" href="../Nosotros/Politica.jsp"><strong>POLITICA DE PRIVACIDAD</strong></a>
                         </li>
                     </ol>
                 </nav>
 
             </div>
-                                
-                                
-                              
-                                    
-                                    
+
+
+
+
+
             <%
-            //request.getParameter("id")
-            String  palabra = request.getParameter("busqueda");
-            
-               producto p = new producto();
-            logica.logica_producto con2 = new logica_producto();   
-            
-             con2.CajadeTexto(palabra);
+                //request.getParameter("id")
+                String palabra = request.getParameter("busqueda");
 
-             %>        
-             
-                <div class="row" >
+                producto p = new producto();
+                logica.logica_producto con2 = new logica_producto();
 
-                <%
-                    // out.print(logica_producto.logica_producto.size());
+                con2.CajadeTexto(palabra);
+
+            %>        
+
+            <div class="row" >
+
+                <%                    // out.print(logica_producto.logica_producto.size());
                     for (int i = 0; i < logica_producto.logica_producto.size(); i++) {
                         p = (producto) logica_producto.logica_producto.get(i);
 
@@ -344,7 +342,7 @@
 
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
 
-                         <img src="<%out.print("../imagenes/productos/" + p.getProducto_imagen().substring(38, p.getProducto_imagen().length()));
+                    <img src="<%out.print("../imagenes/productos/" + p.getProducto_imagen().substring(38, p.getProducto_imagen().length()));
                              /* out.print("../imagenes/productos/"+p.getProducto_imagen().substring(81,p.getProducto_imagen().length()));*/%>" width="auto" height="150"  class="card-body-top" />
 
 
@@ -363,13 +361,119 @@
 
 
             </div>
-                                    
-                                    
-                   </div>                 
-                            
-        
-        
-        
-        
+
+
+        </div>                 
+
+
+        <div class="container-fluid pagina">
+
+
+
+
+
+            <div class="row" >
+
+                <div class="col-6 col-sm-12 col-md-12 col-lg-3 col-xl-3" >
+
+
+                    <br>
+                    <br>
+                    <center>
+                        <img src="../imagenes/logo_bn.png" width="250px"  height="149px" />
+
+
+                    </center>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                    <br>
+                    <center>
+                        <p class="h5">?Un hogar impecable es nuestra misión"</p>
+                        <br>
+                        <img src="../imagenes/ubicacion.png" width="25" height="25" alt="ubicacion"/>
+
+
+                        Mza H Lote 01 urb. Pro Industrial S.M.P Lima-Perú
+                        <br>
+                        <img src="../imagenes/telefono.png" width="35" height="30" alt="telefono"/>
+
+                        Teléfono:  536-4941
+                        <br>
+                        <img src="../imagenes/celular.png" width="18" height="18" alt="celular"/>
+                        Ventas: 928315913
+                        <br>
+                        <img src="../imagenes/correo.png" width="25" height="25" alt="correo"/>
+
+                        Correo: Ventas@kazvel.com
+                        <br>
+                    </center>
+
+                    <br>
+                </div>
+
+
+
+
+
+                <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                    <br>
+
+
+                    <center>
+
+                        <p class="h3"> CONOCENOS :  </p>
+                        <!--
+                                            NOSOTROS
+                                            <br>
+                        -->        
+                        <a href="../Nosotros/Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
+
+                        <br>
+                        <a href="../Nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDA  </a>   
+                        <br>
+
+                        <a href="../Nosotros/contacto.jsp"style="color: #000">CONTACTANOS</a> 
+
+                        <br>
+
+
+                    </center>
+                    <br>
+
+                </div> 
+
+
+
+                <div class="col-3 col-sm-4 col-md-4 col-lg-3 col-xl-3" >
+                    <br>
+
+                    <center>
+                        <p class="h3"> SIGUENOS EN :  </p>   
+                        <br>
+                        <a href=""><img src="../imagenes/facebook.png" height="40px" width="40px"  /></a> 
+                        <br>
+
+                        <a href=""><img src="../imagenes/twitter.png"  height="40px" width="40px" /></a> 
+                        <br>
+
+                        <a href="https://instagram.com/qkazvel?igshid=nc1l54gp8lh5"><img src="../imagenes/instagram.png" height="40px" width="40px"  /></a> 
+                    </center>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
+        </div>     
+
+
     </body>
 </html>
