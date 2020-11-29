@@ -1,20 +1,18 @@
 <%-- 
-    Document   : crud_producto
-    Created on : 28/11/2020, 10:53:24 AM
+    Document   : reporte_encomienda
+    Created on : 29/11/2020, 03:42:41 AM
     Author     : Nicol Samanamud 
 --%>
 
-<%@page import="logica.logica_categoria"%>
-<%@page import="datos.categoria"%>
-<%@page import="logica.logica_producto"%>
-<%@page import="datos.producto"%>
+<%@page import="logica.logica_encomienda"%>
+<%@page import="datos.encomienda"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <html>
         <head>
             <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>Productos</title>
+            <title>Reporte encomienda</title>
 
             <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
 
@@ -238,65 +236,48 @@
             <table class="display" id="tabla_alumno">
                 <thead style="background: #F38500;">
                     <tr class="text-center">
-                        <th></th>
                         <th>ID</th>
-                        <th>IMAGEN</th>
-                        <th>NOMBRE</th>
-                        <th>CATEGORIA</th>
-                        <th>DESCRIPCION</th>
-                        <th>PRECIO</th>
                         <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>PLACA</th>
+                        <th>DEPARTAMENTO</th>
+                        <th>PROVINCIA</th>
+                        <th>DISTRITO</th>
+                        <th>FECHA</th>
+                        <th>ESTADO</th>
+
 
                     </tr>
                 </thead>
 
                 <tbody>
                     <%
-                        producto temp = new producto();
-                        logica_producto con = new logica_producto();
+                        encomienda temp = new encomienda();
+                        logica_encomienda con = new logica_encomienda();
 
-                        con.consultarListaProductos();
+                        con.consultar();
 
-                        for (int i = 0; i < logica_producto.logica_producto.size(); i++) {
-                            temp = (producto) logica_producto.logica_producto.get(i);
+                        for (int i = 0; i < logica_encomienda.logica_encomienda.size(); i++) {
+                            temp = (encomienda) logica_encomienda.logica_encomienda.get(i);
 
                     %>
 
                     <tr>
-                        <td> <input hidden="" value="<%=temp.getProducto_id()%>" /> </td>
+                        <td><%=temp.getEncomienda() %></td>
 
-                        <td><%=temp.getProducto_id()%></td>
+                        <td> <input hidden="" name="" value="<%=temp.getEncomienda_vehiculo() %>" /> </td>    
 
-                       
+                        <td><%=temp.getVehiculo_placa() %></td>
 
-                        <td><%=temp.getProducto_nombre()%></td>
+                        <td><%=temp.getDesdep() %></td>
 
-                        <td><%=temp.getProducto_caracteristica()%></td>
+                        <td><%=temp.getDespro() %></td>
 
-                        <td><%=temp.getProducto_descripcion()%></td>
+                        <td><%=temp.getDesdist() %></td>
 
-                        <td><%=temp.getCategoria_nombre()%></td>
+                        <td><%=temp.getEncomienda_fecha() %></td>
 
-                        <td><%=temp.getProducto_peso()%><%=temp.getProducto_tipo_peso()%></td>
+                        <td><%=temp.getEncomienda_estado() %></td>
 
-                        <td><% out.print("S/." + temp.getProducto_precio());%></td>
-
-                        <td>
-                            <a href="ver_producto.jsp?id=<%=temp.getProducto_id()%>" class="btn">
-                                <img src="../imagenes/ver_producto.png" width="45" height="45" alt="icono_borrar"/>
-                            </a>
-
-                        </td>
-
-                       <!-- <td>
-                            <a href="editar_producto.jsp?id=<%=temp.getProducto_id()%>" class="btn">
-                                <img src="../imagenes/editar_producto.png" width="45" height="45" alt="icono_ver"/>
-                            </a>
-
-                        </td>-->
                     </tr>
                     <%}%>
                 </tbody>
