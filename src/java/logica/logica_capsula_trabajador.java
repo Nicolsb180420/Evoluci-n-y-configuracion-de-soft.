@@ -47,5 +47,30 @@ public class logica_capsula_trabajador {
     }
     
     
+      
+    public void mostrar_capsula_trabajador(String id_trabajador) {
+    
+       con.consulta("select *from ver_capsula_trabajador where capsula_trabajador_trabajador='"+id_trabajador+"'");
+        logica_capsula_trabajador.clear();
+        try {
+            while (con.getRs().next()) {
+                capsula_trabajador temp1 = new capsula_trabajador(
+                        Integer.parseInt(con.getRs().getString(1)),
+                        Integer.parseInt(con.getRs().getString(2)),
+                        Integer.parseInt(con.getRs().getString(3)),
+                        con.getRs().getString(4),
+                        con.getRs().getString(5),
+                        con.getRs().getString(6)
+                );
+                       
+               
+                logica_capsula_trabajador.add(temp1);
+            }
+        } catch (Exception e) {
+        }
+    }
+    
+    
+    
 
 }

@@ -46,4 +46,40 @@ public void ver_capsula_pedido() {
     }
     
     
+  public void mostrar_capsula_trabajador(String id_trabajador) {
+    
+       con.consulta("select * from ver_capsula_pedido  where capsula_pedido_trabajador='"+id_trabajador+"'");
+        logica_capsula_pedido.clear();
+        try {
+            while (con.getRs().next()) {
+                capsula_pedido temp1 = new capsula_pedido(
+                        Integer.parseInt(con.getRs().getString(1)),
+                        Integer.parseInt(con.getRs().getString(2)),
+                        Integer.parseInt(con.getRs().getString(3)),
+                        Integer.parseInt(con.getRs().getString(4)),
+                        con.getRs().getString(5),
+                        con.getRs().getString(6), 
+                        Integer.parseInt(con.getRs().getString(7)),
+                        Integer.parseInt(con.getRs().getString(8)),
+                        con.getRs().getString(9),
+                        Integer.parseInt(con.getRs().getString(10)),
+                        con.getRs().getString(11),
+                        Integer.parseInt(con.getRs().getString(12)),
+                        con.getRs().getString(13),
+                        con.getRs().getString(14),
+                        Integer.parseInt(con.getRs().getString(15)),  
+                        Integer.parseInt(con.getRs().getString(16))
+                );
+                   
+                       
+               
+                logica_capsula_pedido.add(temp1);
+            }
+        } catch (Exception e) {
+        }
+    }
+    
+    
+
+
 }

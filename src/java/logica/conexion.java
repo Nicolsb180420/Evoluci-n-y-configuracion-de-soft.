@@ -18,7 +18,7 @@ public class conexion {
  
     public conexion() {
         
-     /*    url="jdbc:sqlserver://DESKTOP-CTOMSI0:1433;databaseName=proyecto_final";
+         url="jdbc:sqlserver://DESKTOP-CTOMSI0:1433;databaseName=proyecto_final";
         try {
            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             con=DriverManager.getConnection(url,"sa","789521");
@@ -26,8 +26,8 @@ public class conexion {
             System.out.println("Exito");
         } catch (Exception e) {
             System.out.println("Fracaso");
-        }*/
-        
+        }
+        /*
      
         url="jdbc:sqlserver://LAPTOP-IMQSGCGU:1433;databaseName=proyecto_final";
         try {
@@ -38,7 +38,7 @@ public class conexion {
         } catch (Exception e) {
             System.out.println("Fracaso");
         }
-
+*/
            
     }
    

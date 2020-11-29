@@ -4,6 +4,10 @@
     Author     : bryan
 --%>
 
+<%@page import="logica.logica_capsula_pedido"%>
+<%@page import="datos.capsula_pedido"%>
+<%@page import="logica.logica_capsula_trabajador"%>
+<%@page import="datos.capsula_trabajador"%>
 <%@page import="logica.logica_vehiculo"%>
 <%@page import="datos.vehiculo"%>
 <%@page import="logica.logica_departamento"%>
@@ -96,9 +100,9 @@
 
     </head>
     <body>
-        <% String cliente_id;
+        <% String trabajador_id;
             HttpSession sesion_trabajadro = request.getSession();
-            cliente_id = sesion_trabajadro.getAttribute("trabajador_id").toString();
+            trabajador_id = sesion_trabajadro.getAttribute("trabajador_id").toString();
     String puesto = sesion_trabajadro.getAttribute("trabajador_puesto").toString();%>
 
 
@@ -155,10 +159,67 @@
                             </tbody>
                         </table>   
 
-                        <a href="registrar_trabajador.jsp"><button type="button" class="btn btn-danger">NUEVO</button></a> 
                     </div>
                 </div>
             </div>
+                            
+                           <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="form-group">
+                        <table class="table table-hover table-responsive">
+                            <thead>
+                                <tr class="text-center">
+                                    <th>ID</th>
+                                    <th>ID_trabajador</th>
+                                    <th>ID_repartidor</th>
+                                      <th>NOMBRE</th>
+                                    <th>APELLIDO</th>
+                               
+                                    <th>TELEFONO</th>
+                                
+
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%
+                                    capsula_trabajador temp_ct = new capsula_trabajador();
+                                    logica_capsula_trabajador con_ct = new logica_capsula_trabajador();
+
+                                    con_ct.mostrar_capsula_trabajador(trabajador_id);
+//out.print(logica_capsula_trabajador.logica_capsula_trabajador.size());
+                                    for (int i = 0; i < logica_capsula_trabajador.logica_capsula_trabajador.size(); i++) {
+                                        temp_ct = (capsula_trabajador) logica_capsula_trabajador.logica_capsula_trabajador.get(i);
+
+                                %>
+
+                                <tr>
+                                    <td><%=temp_ct.getCapsula_trabajador_id()  %></td>
+                                    <td><%=temp_ct.getCapsula_trabajador_trabajador()  %></td>
+                                    <td><%=temp_ct.getCapsula_trabajador_repartidor()  %></td>
+                                    <td><%=temp_ct.getTrabajador_nombre()%></td>
+                                    <td><%=temp_ct.getTrabajor_apellido()%></td>
+                                
+                                    <td><%=temp_ct.getTrabajador_telefono()%></td>
+
+                                    <td><a href="ver_trabajador.jsp?id=<%=temp_tra.getTrabajador_id()%>" class="btn btn-danger">VER</a> </td>
+                                    <td><a href="<%=temp_tra.getTrabajador_id()%>" class="btn btn-danger">eliminar</a> </td>
+                                </tr>
+                                <%}%>
+                            </tbody>
+                        </table>   
+
+                    
+                    </div>
+                </div>
+            </div>     
+                            
+                            
+                            
 
 
             <div class="row"> 
@@ -233,6 +294,101 @@
                 </div>
 
             </div>
+                            
+                            
+                            
+                            
+                            
+            <div class="row"> 
+                <div class="col-12">
+                    <div class="form-group">
+
+                        <table class="table table-hover">
+                            <thead>
+                                <tr class="text-center">
+
+                                    <th>ID</th>
+                                    <th>NOMBRE</th>
+                                    <th>APELLIDO</th>
+                                    <th>TELEFONO</th>
+                                    <th>DISTRITO</th>
+                                    <th>DIRECCION</th>
+                                    <th>FECHA PEDIDO</th>
+                                    <th>PAGO</th>
+                                    <th>ESTADO</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <%
+                                    capsula_pedido temp_cp = new capsula_pedido();
+                                    logica_capsula_pedido con_cp = new logica_capsula_pedido();
+
+                                  con_cp.mostrar_capsula_trabajador(trabajador_id);
+                                    for (int i = 0; i < logica_capsula_pedido.logica_capsula_pedido.size(); i++) {
+                                        temp_cp = (capsula_pedido) logica_capsula_pedido.logica_capsula_pedido.get(i);
+
+                                %>
+
+                                <tr>
+
+                                    <td><%=temp_cp.getCapsula_pedido_id() %></td>
+
+                                    <td><%=temp_cp.getCapsula_pedido_pedido() %></td>
+
+                                    <td><%=temp_cp.getPedido_id() %></td>
+
+                                    <td><%=temp_cp.getPedido__cliente() %></td>
+
+                                    <td><%=temp_cp.getCliente_nombre() %></td>
+
+                                    <td><%=temp_cp.getCliente_apellido() %></td>
+
+                                    <td><%=temp_cp.getPedido_telefono() %></td>
+
+                                    <td><%=temp_cp.getId_distrito() %></td>
+                                    
+                                    
+                                    <td><%=temp_cp.getDesdist() %></td>
+                                    
+                                    <td><%=temp_cp.getProvincia_id() %></td>
+                                    
+                                    <td><%=temp_cp.getDespro() %></td>
+                                    
+                                    <td><%=temp_cp.getDepartamento_id() %></td>
+                                    
+                                    <td><%=temp_cp.getDesdep() %></td>
+                                    
+                                    <td><%=temp_cp.getPedido_fecha() %></td>
+                                    
+                                    <td><%=temp_cp.getPedido_estado() %></td>
+                                    
+                                    <td><%=temp_cp.getCapsula_pedido_trabajador() %></td>
+                                    
+                                    
+                                    <td>
+
+
+                                        <a href="ver_pedido.jsp?id=<%=temp_listap.getPedido_id()%>">
+                                            <center>    <img src="../imagenes/icono_ver.png" width="30" height="30" alt="ver"/>  </center>
+                                        </a>
+
+
+                                    </td>
+                                    <td><a href="agregar_pedido.jsp?id=<%=temp_listap.getPedido_id()%>" class="btn btn-danger">agregar</a> </td>
+
+                                </tr>
+                                <%}%>
+                            </tbody>
+                        </table>   
+
+                    </div>
+                </div>
+
+            </div>
+                            
 
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                 Registrar venta
