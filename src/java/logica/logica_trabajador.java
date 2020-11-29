@@ -190,5 +190,23 @@ where trabajador_id=5*/
     }
     
    
-   
+    public void consultar_repartidor() {
+        con.consulta("select trabajador_id,trabajador_nombre,trabajador_apellido,trabajador_sexo,trabajador_tipo_identidad,trabajador_numero_identidad,trabajador_telefono from trabajador where trabajador_puesto = 4");
+        logica_trabajador.clear();
+        try {
+            while (con.getRs().next()) {
+                trabajador temp1 = new trabajador(
+                         Integer.parseInt(con.getRs().getString(1)),
+                        con.getRs().getString(2),
+                        con.getRs().getString(3),
+                        con.getRs().getString(4),
+                        con.getRs().getString(5),
+                        con.getRs().getString(6),
+                        con.getRs().getString(7)
+                        );
+                logica_trabajador.add(temp1);
+            }
+        } catch (Exception e) {
+        }
+    }
 }

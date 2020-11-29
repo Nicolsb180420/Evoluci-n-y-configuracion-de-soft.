@@ -197,6 +197,17 @@ public class trabajador {
     }
 
  
+    /*ver repartidor */
+
+    public trabajador(int trabajador_id, String trabajador_nombre, String trabajor_apellido, String trabajador_sexo, String trabajador_tipo_identidad, String trabajador_numero_identidad, String trabajador_telefono) {
+        this.trabajador_id = trabajador_id;
+        this.trabajador_nombre = trabajador_nombre;
+        this.trabajor_apellido = trabajor_apellido;
+        this.trabajador_sexo = trabajador_sexo;
+        this.trabajador_tipo_identidad = trabajador_tipo_identidad;
+        this.trabajador_numero_identidad = trabajador_numero_identidad;
+        this.trabajador_telefono = trabajador_telefono;
+    }
     
     
     
