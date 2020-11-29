@@ -249,7 +249,7 @@
                     <% if (temp_pp.getPuesto_permisos_permisos() == 1) {
                     %>
                     <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="#">
+                        <a href="../lista_pedidos_trabajador/reporte_pedidos.jsp">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/reporte de pedidos.png" width="80" height="85" alt="deshumedecedor"/></div> 
                                 <div><h5>Reporte de pedidos</h5></div>
@@ -263,7 +263,7 @@
                     <% if (temp_pp.getPuesto_permisos_permisos() == 2) {
                     %>
                     <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="#">
+                        <a href="../lista_pedidos_trabajador/reporte_ventas.jsp">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/reporte de ventas.png" width="80" height="85" alt="deshumedecedor"/></div> 
                                 <div><h5>Reporte de ventas</h5></div>

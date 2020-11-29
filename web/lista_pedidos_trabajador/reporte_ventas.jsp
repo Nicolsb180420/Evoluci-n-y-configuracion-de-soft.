@@ -1,21 +1,17 @@
 <%-- 
-    Document   : Lista_pedidos_completos
-    Created on : 27/11/2020, 10:30:05 PM
+    Document   : reporte_ventas
+    Created on : 29/11/2020, 01:25:04 AM
     Author     : Nicol Samanamud 
 --%>
 
 <%@page import="logica.logica_pedido"%>
 <%@page import="datos.pedido"%>
-<%@page import="logica.logica_categoria"%>
-<%@page import="datos.categoria"%>
-<%@page import="logica.logica_carrito"%>
-<%@page import="datos.carrito"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Crud pedidos</title>
+        <title>Reporte venta</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
@@ -255,7 +251,7 @@
                                     <th>PAGO</th>
                                     <th>ESTADO</th>
                                     <th></th>
-                                    <th></th>
+                                    
                                 </tr>
                             </thead>
 
@@ -267,6 +263,7 @@
                                     con.VerPedidosDeClientes();
                                     for (int i = 0; i < logica_pedido.logica_pedido.size(); i++) {
                                         temp_listap = (pedido) logica_pedido.logica_pedido.get(i);
+                                        if(temp_listap.getPedido_estado()==1){
 
                                 %>
 
@@ -298,20 +295,9 @@
 
 
                                     </td>
-                                    <td>
-
-
-                                        <form action="cambiar_estado.jsp">
-                                            <input  name="id_pedido" value="<%=temp_listap.getPedido_id()%>" hidden />
-                                            <input  name="cambiar_estado" value="<%=temp_listap.getPedido_estado()%>" hidden />  
-                                            <center><button type="submit" class="btn"><img src="../imagenes/icono_cambiar.png" width="30" height="25" alt="ver"/></button></center>
-                                        </form> 
-
-
-                                    </td>
-
+                                    
                                 </tr>
-                                <%}%>
+                                <%}}%>
                             </tbody>
                         </table>   
 
