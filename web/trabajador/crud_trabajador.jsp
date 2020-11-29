@@ -4,6 +4,8 @@
     Author     : Nicol Samanamud 
 --%>
 
+<%@page import="logica.logica_categoria"%>
+<%@page import="datos.categoria"%>
 <%@page import="logica.logica_trabajador"%>
 <%@page import="datos.trabajador"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,7 +13,7 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Proveedores</title>
+        <title>Trabajadores</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
 
@@ -52,18 +54,44 @@
         <link rel="stylesheet" href="../diceno/css/caja_text.css">
         <link rel="stylesheet" href="../diceno/css/estilos.css">
 
+        <link rel="stylesheet" href="../diceno/css/jquery.dataTables.min.css"/>
+        <script src="../diceno/js/jquery.dataTables.min.js" type="text/javascript"></script>
+
+        <script>
+            $(document).ready(function () {
+                $('#tabla_alumno').DataTable({
+                    "order": [[1, "asc"]], /*ordenar por el nombre*/
+                    "language": {
+                        "lengthMenu": "Mostrar _MENU_ registros por pagina",
+                        "info": "Mostrando pagina _PAGE_ de _PAGES_",
+                        "infoEmpty": "No hay registros disponibles",
+                        "infoFiltered": "(filtrada de _MAX_ registros)",
+                        "loadingRecords": "Cargando...",
+                        "processing": "Procesando...",
+                        "search": "Buscar:",
+                        "zeroRecords": "No se encontraron registros coincidentes",
+                        "paginate": {
+                            "next": "Siguiente",
+                            "previous": "Anterior"
+                        },
+                    }
+                });
+            });
+        </script>
+        
     </head>
 
 <body>
  <div class="container-fluid">
             <%
-                /*  String cliente_id;
-                HttpSession sesion = request.getSession();
-                cliente_id = sesion.getAttribute("cliente_id").toString();
-                 */
+                String cliente_id;
+                HttpSession sesion_trabajadro = request.getSession();
+                cliente_id = sesion_trabajadro.getAttribute("trabajador_id").toString();
+                String puesto = sesion_trabajadro.getAttribute("trabajador_puesto").toString();
+
                 //out.print(cliente_id);
-               /* categoria temp1 = new categoria();
-                logica.logica_categoria con1 = new logica_categoria();*/
+                categoria temp1 = new categoria();
+                logica.logica_categoria con1 = new logica_categoria();
             %>
 
 
@@ -104,23 +132,120 @@
 
                     </div>
 
+                    <div class="col-12 col-sm-4 col-md-3 col-lg-2 col-xl-1">
+
+
+                        <div class="btn-group   float-right align-self-end"  >
+
+                            <% if (cliente_id.equals("NN")) {%>
+                            <!---------------------------------------------------------------------------------------------------------------------------------->                  
+                            <div class="btn-group ">
+
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
+                                    Registrarse o iniciar sesion 
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
+
+
+                                    <form action="../login/login_controlador.jsp" class="px-4 py-3">
+
+                                        <div class="form-group">
+                                            <label for="exampleDropdownFormEmail1">Correo :</label>
+                                            <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Correo@ejemplo.com" name="correo" >
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleDropdownFormPassword1">Contraseña :</label>
+                                            <input type="contra" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" name="contra">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                                <label class="form-check-label" for="dropdownCheck">
+                                                    recordar
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Ingresar</button>
+
+                                    </form>
+
+
+
+
+
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Registrarse</a>
+                                    <a class="dropdown-item" href="#">¿Olvidaste tu contraseña?</a>
+
+                                </div>
+
+
+
+                            </div>
+
+                            <%} else {
+
+                            %>
+
+                            <div class="btn-group ">
+
+                                <center>
+
+
+
+
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
+                                            <%  out.print(sesion_trabajadro.getAttribute("trabajador_nombre").toString() + " " + sesion_trabajadro.getAttribute("trabajador_apellido").toString());  %>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+
+                                            <!--
+                                            <button class="dropdown-item" type="button">Mis compras</button>
+                                            
+                                            <a href="../lista_deseos/lista_deseos.jsp" class="dropdown-item">Lista de deseos</a>
+                                            <a href="../carrito/carrito.jsp" class="dropdown-item">Carrito de compras</a>
+                                            -->
+                                            <a href="../login/login_cerrar.jsp" class="dropdown-item" type="button">Cerrar sesion</a>
+
+
+                                        </div>
+                                    </div>
+                                </center>
+
+                            </div>
+
+
+                            <%}%>
+
+
+
+
+                            <!---------------------------------------------------------------------------------------------------------------------------------->
+                        </div>
+
+
+
+
+
+                    </div>
+
+                </nav>
+
+
             </div>
-        </nav>
 
 
-    </div>
-              
+        </div>
 
         <br>
         <br>
 
         <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <div class="form-group">
-                        <table class="table table-hover table-responsive">
-                            <thead>
-                                <tr class="text-center">
+            <div class="row table-responsive">
+                <table class="display" id="tabla_alumno">
+                    <thead style="background: #F38500;">
+                        <tr class="text-center">
                                     <th>ID</th>
                                     <th>NOMBRE</th>
                                     <th>APELLIDO</th>
@@ -169,9 +294,18 @@
                                     <td><%=temp2.getLogin_id() %></td>
                                     <td><%=temp2.getLogin_correo()  %></td>
                                    <!-- <td><%=temp2.getLogin_contra()  %></td> -->
-                                    <td><a href="ver_trabajador.jsp?id=<%=temp2.getTrabajador_id() %>" class="btn btn-danger">VER</a> </td>
-                                    <td><a href="editar_trabajador.jsp?id=<%=temp2.getTrabajador_id() %>" class="btn btn-danger">EDITAR</a> </td>
-                                    <td><a href="eliminar_trabajador.jsp?id=<%=temp2.getLogin_id() %>" class="btn btn-danger">ELIMINAR</a> </td>
+                                    <td><a href="ver_trabajador.jsp?id=<%=temp2.getTrabajador_id() %>" class="btn ">
+                                           <img src="../imagenes/ver_producto.png" width="30" height="30" alt="ver_producto"/>
+
+                                        </a> </td>
+                                    <td><a href="editar_trabajador.jsp?id=<%=temp2.getTrabajador_id() %>" class="btn ">
+                                            <img src="../imagenes/editar_producto.png" width="30" height="30" alt="editar_producto"/>
+
+                                        </a> </td>
+                                    <td><a href="eliminar_trabajador.jsp?id=<%=temp2.getLogin_id() %>" class="btn">
+                                            <img src="../imagenes/icono_borrar.png" width="30" height="30" alt="icono_borrar1"/>
+
+                                        </a> </td>
                                     <td><a href="editar_login.jsp?id=<%=temp2.getLogin_id() %>" class="btn btn-danger">CONTRASEÑA</a> </td>
                                 </tr>
                                 <%}%>
@@ -181,8 +315,7 @@
                             <a href="registrar_trabajador.jsp"><button type="button" class="btn btn-danger">NUEVO</button></a> 
                     </div>
                 </div>
-            </div>
-        </div>      
+       
 
         
     </body>

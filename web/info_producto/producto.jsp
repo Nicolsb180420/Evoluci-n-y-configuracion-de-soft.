@@ -60,6 +60,7 @@
 
         <link rel="stylesheet" href="../diceno/css/caja_text.css">
         <link rel="stylesheet" href="../diceno/css/categorias.css">
+        <link rel="stylesheet" href="../diceno/css/ProductoMostrar.css">
 
     </head>
 
@@ -230,8 +231,10 @@
                                 con_car.validar_exixtencia(cliente_id);
                             %>
 
+                            <a href="../carrito/carrito.jsp">
                             <img src="../imagenes/carrito.png" width="50" height="50" alt="carrito"/>
-                            <label class="h3" ><%out.print("(" + logica_carrito.logica_carrito.size() + ")");%></label>
+                            </a>
+                            <label class="h3" ><%out.print("("+logica_carrito.logica_carrito.size()+")");%></label>
                             <div class="btn-group ">
 
                                 <center>
@@ -289,13 +292,15 @@
 
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    
                     <div id="contenedor1">
                         <img src="<% out.print("../imagenes/productos/" + p.getProducto_imagen().substring(47, p.getProducto_imagen().length()));
-                             /*  out.print("../imagenes/productos/" + p.getProducto_imagen().substring(98, p.getProducto_imagen().length()));*/%>" width="450" height="600" alt="DETERGENTE" id="imagen"/>
+                             /*  out.print("../imagenes/productos/" + p.getProducto_imagen().substring(98, p.getProducto_imagen().length()));*/%>" width="450" height="500" alt="DETERGENTE" id="imagen"/>
                     </div>
                 </div>
 
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                    <br>
                     <div id="contenedor2">
                         <img src="../imagenes/logo.png" width="70" height="45" alt="kazvel" id="kazvel"/>
                         <h1 id="titulo"><%=p.getProducto_nombre()%></h1>
@@ -309,10 +314,11 @@
                         %>
 
                         <!-- Button trigger modal -->
+                        <center>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             Agregar a lista de deseos
                         </button>
-
+                        </center>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">
@@ -419,10 +425,11 @@
                         %>
 
                         <!-- Button trigger modal -->
+                        <center>
                         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
                             Agregar al carrito
                         </button>
-
+                        </center>
                         <!-- Modal -->
                         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                             <div class="modal-dialog">

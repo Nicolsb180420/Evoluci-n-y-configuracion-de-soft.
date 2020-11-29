@@ -58,6 +58,27 @@ VALUES (@producto_id);*/
         }
         return r;
     }
+ 
+ 
+ public int actualizar(producto p) {
+        try {
+            /* 
+update producto set producto__nombre='prueba', producto_precio=8,producto_caracteristica='aaa',producto_descripcion='aaa',producto_categoria=2,producto_peso=9,producto_tipo_peso='Lt',
+            producto_imagen='aaa' where producto_id=24
+*/
+            con.getSt().executeUpdate("update producto set producto__nombre='"
+                    + p.getProducto_nombre() + "', producto_precio="
+                    + p.getProducto_precio() + ",producto_caracteristica='"
+                    + p.getProducto_caracteristica() + "',producto_descripcion='"
+                    + p.getProducto_descripcion() + "',producto_categoria="
+                    + p.getProducto_categoria() + ",producto_peso="
+                    + p.getProducto_peso() + ",producto_tipo_peso='"
+                    + p.getProducto_tipo_peso() + "',producto_imagen='"
+                    + p.getProducto_imagen() + "' where producto_id=" + p.getProducto_id());
+        } catch (Exception e) {
+        }
+        return r;
+    }
 
     
      /*CONSULTAR*/
@@ -100,6 +121,31 @@ where producto_id=11;*/
                 producto temp1 = new producto(Integer.parseInt(con.getRs().getString(1)),
                         con.getRs().getString(2)
                        );
+                logica_producto.add(temp1);
+            }
+        } catch (Exception e) {
+        }
+    }
+    
+    
+    /*CONSULTAR*/
+    public void consultarListaProductos() { 
+        con.consulta("select * from producto inner join categoria on producto_categoria=categoria_id");
+        logica_producto.clear();
+        try {
+            while (con.getRs().next()) {
+                producto temp1 = new producto(Integer.parseInt(con.getRs().getString(1)),
+                        con.getRs().getString(2),
+                        Float.parseFloat(con.getRs().getString(3)) ,
+                        con.getRs().getString(4),
+                        con.getRs().getString(5),
+                        Integer.parseInt(con.getRs().getString(6)),
+                        Integer.parseInt(con.getRs().getString(11)),
+                        con.getRs().getString(12),
+                        con.getRs().getString(7),
+                        con.getRs().getString(8),
+                        con.getRs().getString(9),
+                        Integer.parseInt(con.getRs().getString(10)));
                 logica_producto.add(temp1);
             }
         } catch (Exception e) {

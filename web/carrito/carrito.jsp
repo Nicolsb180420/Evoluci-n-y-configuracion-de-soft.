@@ -144,13 +144,15 @@
 
                                 %>
                                 <center>
-                                    <div class="btn-group" style="width:100%;">
+                                        <div class="btn-group" style="width:100%;">
+                                            <a href="../busquedas/categorias.jsp?id=<%=temp1.getCategoria_id()%>" class="btn btn-outline-danger" style=" color: #ffffff"> 
+                                                <%=temp1.getCategoria_nombre()%>
+                                            </a>
 
-                                        <a href="menu_principal_trabajador.jsp"><%=temp1.getCategoria_nombre()%></a>
 
 
-                                    </div>
-                                </center>
+                                        </div>
+                                    </center>
                                 <%}%>
 
 
@@ -250,7 +252,9 @@
 
                         %>
 
-                        <img src="../imagenes/carrito.png" width="50" height="50" alt="carrito"/>
+                        <a href="#">
+                            <img src="../imagenes/carrito.png" width="50" height="50" alt="carrito"/>
+                        </a>
                         <label class="h3" ><%out.print("(" + logica_carrito.logica_carrito.size() + ")");%></label>
                         <div class="btn-group ">
 
@@ -339,7 +343,7 @@
                                 <td><%=temp.getCarrito_id()%></td>
 
                                            <td>  <img src="<% out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(47, temp.getProducto_imagen().length()));
-                                    /*  out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(98, temp.getProducto_imagen().length()));*/%>" width="auto" height="100"  class="card-body-top" /></td>
+                                               /*  out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(98, temp.getProducto_imagen().length()));*/%>" width="auto" height="100"  class="card-body-top" /></td>
 
                                 <td><%=temp.getProducto_nombre()%></td>
 
@@ -381,7 +385,10 @@
 
                                 <td>
 
-                                    <a href="controlador_carrito_borrar.jsp?id=<%=temp.getCarrito_id()%>" class="btn btn-outline-danger">quitar</a>
+                                    <a href="controlador_carrito_borrar.jsp?id=<%=temp.getCarrito_id()%>" class="btn btn-outline-danger">
+                                        <img src="../imagenes/icono_borrar.png" width="30" height="30" alt="icono_borrar1"/>
+
+                                    </a>
 
                                 </td>
 
@@ -401,7 +408,7 @@
                 Pago total : S/.<%=pago_total%>
 
             </div>
-            
+
             <div class="col-12">
                 <!-- Button trigger modal -->
                 <br>

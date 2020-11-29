@@ -4,6 +4,8 @@
     Author     : Nicol Samanamud 
 --%>
 
+<%@page import="logica.logica_categoria"%>
+<%@page import="datos.categoria"%>
 <%@page import="logica.logica_departamento"%>
 <%@page import="datos.departamento"%>
 <%@page import="datos.puesto"%>
@@ -105,13 +107,14 @@
     <body>
         <div class="container-fluid">
             <%
-                /*  String cliente_id;
-                HttpSession sesion = request.getSession();
-                cliente_id = sesion.getAttribute("cliente_id").toString();
-                 */
+                String cliente_id;
+                HttpSession sesion_trabajadro = request.getSession();
+                cliente_id = sesion_trabajadro.getAttribute("trabajador_id").toString();
+                String puesto = sesion_trabajadro.getAttribute("trabajador_puesto").toString();
+
                 //out.print(cliente_id);
-               /* categoria temp1 = new categoria();
-                logica.logica_categoria con1 = new logica_categoria();*/
+                categoria temp1 = new categoria();
+                logica.logica_categoria con1 = new logica_categoria();
             %>
 
 
@@ -152,11 +155,111 @@
 
                     </div>
 
+                    <div class="col-12 col-sm-4 col-md-3 col-lg-2 col-xl-1">
+
+
+                        <div class="btn-group   float-right align-self-end"  >
+
+                            <% if (cliente_id.equals("NN")) {%>
+                            <!---------------------------------------------------------------------------------------------------------------------------------->                  
+                            <div class="btn-group ">
+
+                                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
+                                    Registrarse o iniciar sesion 
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
+
+
+                                    <form action="../login/login_controlador.jsp" class="px-4 py-3">
+
+                                        <div class="form-group">
+                                            <label for="exampleDropdownFormEmail1">Correo :</label>
+                                            <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="Correo@ejemplo.com" name="correo" >
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleDropdownFormPassword1">Contraseña :</label>
+                                            <input type="contra" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" name="contra">
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="form-check">
+                                                <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                                <label class="form-check-label" for="dropdownCheck">
+                                                    recordar
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Ingresar</button>
+
+                                    </form>
+
+
+
+
+
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Registrarse</a>
+                                    <a class="dropdown-item" href="#">¿Olvidaste tu contraseña?</a>
+
+                                </div>
+
+
+
+                            </div>
+
+                            <%} else {
+
+                            %>
+
+                            <div class="btn-group ">
+
+                                <center>
+
+
+
+
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
+                                            <%  out.print(sesion_trabajadro.getAttribute("trabajador_nombre").toString() + " " + sesion_trabajadro.getAttribute("trabajador_apellido").toString());  %>
+                                        </button>
+                                        <div class="dropdown-menu dropdown-menu-right">
+
+                                            <!--
+                                            <button class="dropdown-item" type="button">Mis compras</button>
+                                            
+                                            <a href="../lista_deseos/lista_deseos.jsp" class="dropdown-item">Lista de deseos</a>
+                                            <a href="../carrito/carrito.jsp" class="dropdown-item">Carrito de compras</a>
+                                            -->
+                                            <a href="../login/login_cerrar.jsp" class="dropdown-item" type="button">Cerrar sesion</a>
+
+
+                                        </div>
+                                    </div>
+                                </center>
+
+                            </div>
+
+
+                            <%}%>
+
+
+
+
+                            <!---------------------------------------------------------------------------------------------------------------------------------->
+                        </div>
+
+
+
+
+
+                    </div>
+
+                </nav>
+
+
             </div>
-        </nav>
 
 
-    </div>
+        </div>
               
 
 

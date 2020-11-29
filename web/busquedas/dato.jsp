@@ -210,6 +210,11 @@
 
                                 con_car.validar_exixtencia(cliente_id);
                             %>
+                            
+                            <a href="../carrito/carrito.jsp">
+                            <img src="../imagenes/carrito.png" width="50" height="50" alt="carrito"/>
+                            </a>
+                            <label class="h3" ><%out.print("("+logica_carrito.logica_carrito.size()+")");%></label>
                             <div class="btn-group ">
 
                                 <center>

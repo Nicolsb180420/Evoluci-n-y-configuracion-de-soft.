@@ -242,6 +242,10 @@
 
                             con_car.validar_exixtencia(cliente_id);
                         %>
+                        <a href="../carrito/carrito.jsp">
+                            <img src="../imagenes/carrito.png" width="50" height="50" alt="carrito"/>
+                        </a>
+                        <label class="h3" ><%out.print("(" + logica_carrito.logica_carrito.size() + ")");%></label>
                         <div class="btn-group ">
 
                             <center>
@@ -329,8 +333,8 @@
 
                         <td><%=temp.getProducto_id()%></td>
 
-                        <td>  <img src="<% out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(47, temp.getProducto_imagen().length()));
-                                       /*  out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(98, temp.getProducto_imagen().length()));*/%>" width="auto" height="100"  class="card-body-top" /></td>
+                                   <td>  <img src="<% out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(47, temp.getProducto_imagen().length()));
+                            /*  out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(98, temp.getProducto_imagen().length()));*/%>" width="auto" height="100"  class="card-body-top" /></td>
 
                         <td><%=temp.getProducto_nombre()%></td>
 
@@ -346,9 +350,9 @@
                             </a>
 
                         </td>
-                        
+
                         <td>
-                            <a href="../info_producto/producto.jsp?id=<%=temp.getProducto_id() %>" class="btn">
+                            <a href="../info_producto/producto.jsp?id=<%=temp.getProducto_id()%>" class="btn">
                                 <img src="../imagenes/ver_producto.png" width="45" height="45" alt="icono_ver"/>
                             </a>
 

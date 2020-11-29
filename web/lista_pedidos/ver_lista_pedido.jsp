@@ -65,8 +65,8 @@
                 cliente_id = sesion.getAttribute("cliente_id").toString();
 
                 //out.print(cliente_id);
-                 categoria temp1 = new categoria();
-                  logica.logica_categoria con1 = new logica_categoria();
+                categoria temp1 = new categoria();
+                logica.logica_categoria con1 = new logica_categoria();
             %>
 
 
@@ -96,8 +96,7 @@
 
 
                                 <div class="nav-primary">
-                                    <%  
-                                       
+                                    <%
                                         con1.consultarDep();
                                     %>
                                     <%
@@ -107,17 +106,17 @@
                                     %>
                                     <center>
                                         <div class="btn-group" style="width:100%;">
-                                           <a href="../busquedas/categorias.jsp?id=<%=temp1.getCategoria_id()%>" class="btn btn-outline-danger" style=" color: #ffffff"> 
+                                            <a href="../busquedas/categorias.jsp?id=<%=temp1.getCategoria_id()%>" class="btn btn-outline-danger" style=" color: #ffffff"> 
                                                 <%=temp1.getCategoria_nombre()%>
                                             </a>
-                                   
-                                            
+
+
 
                                         </div>
                                     </center>
                                     <%}%>
 
-                                 
+
 
                                     <center>
                                         <div class="btn-group" style="width:100%;   ">
@@ -148,12 +147,12 @@
 
                     <div class="col-8 col-sm-6 col-md-7 col-lg-8 col-xl-9" style="left:14px" >
                         <form action="../busquedas/dato.jsp">
-                        
+
                             <input type="text" name="busqueda"  class="search-for-champion" >
 
-                        <button  class="search-btn" type="submit" style="background: #CE6100   " > <img src="../imagenes/buscar.png" width="45" height="45" alt="buscar"/>
-                        </button>
-                </form>
+                            <button  class="search-btn" type="submit" style="background: #CE6100   " > <img src="../imagenes/buscar.png" width="45" height="45" alt="buscar"/>
+                            </button>
+                        </form>
 
 
                     </div>
@@ -211,23 +210,25 @@
                             </div>
 
                             <%} else {
-                            carrito temp_car = new carrito();
+                                carrito temp_car = new carrito();
                                 logica_carrito con_car = new logica_carrito();
 
                                 con_car.validar_exixtencia(cliente_id);
                             %>
-                            
-                            <img src="../imagenes/carrito.png" width="50" height="50" alt="carrito"/>
-                            <label class="h3" ><%out.print("("+logica_carrito.logica_carrito.size()+")");%></label>
-                            
-                            
+
+                            <a href="../carrito/carrito.jsp">
+                                <img src="../imagenes/carrito.png" width="50" height="50" alt="carrito"/>
+                            </a>
+                            <label class="h3" ><%out.print("(" + logica_carrito.logica_carrito.size() + ")");%></label>
+
+
                             <div class="btn-group ">
 
                                 <center>
-                                    
-                                    
+
+
                                     <div class="btn-group">
-                                       <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
+                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
                                             <%  out.print(sesion.getAttribute("cliente_nombre").toString() + " " + sesion.getAttribute("cliente_apellido").toString());  %>
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-right">
@@ -307,7 +308,7 @@
                                 </thead>
 
                                 <tbody>
-                                    <%  float total = 0;    
+                                    <%  float total = 0;
                                         for (int i = 0; i < logica_lista_pedido.logica_lista_pedido.size(); i++) {
                                             temp_listap = (lista_pedido) logica_lista_pedido.logica_lista_pedido.get(i);
 
@@ -318,7 +319,7 @@
                                         <td><%=temp_listap.getProducto_id()%></td>
 
                                                    <td>  <img src="<% out.print("../imagenes/productos/" + temp_listap.getProducto_imagen().substring(47, temp_listap.getProducto_imagen().length()));
-                                          /*out.print("../imagenes/productos/" + temp_listap.getProducto_imagen().substring(98, temp_listap.getProducto_imagen().length()));*/%>" width="auto" height="100"  class="card-body-top" /></td>
+                                                       /*out.print("../imagenes/productos/" + temp_listap.getProducto_imagen().substring(98, temp_listap.getProducto_imagen().length()));*/%>" width="auto" height="100"  class="card-body-top" /></td>
 
                                         <td><%=temp_listap.getProducto_nombre()%></td>
 
@@ -331,20 +332,20 @@
                                         <td><%=temp_listap.getLista_pedido_cantidad()%></td>
 
                                         <td> 
-                                    <%
-                                        
-                                        total = temp_listap.getLista_pedido_cantidad() * temp_listap.getProducto_precio();
-                                        out.print("S/. " + String.format("%.2f", total));
-                                        
-                                    %>
-                                </td> 
+                                            <%
+
+                                                total = temp_listap.getLista_pedido_cantidad() * temp_listap.getProducto_precio();
+                                                out.print("S/. " + String.format("%.2f", total));
+
+                                            %>
+                                        </td> 
 
                                     </tr>
                                     <%}%>
                                 </tbody>
                             </table>   
-                                
-                                <input type="submit" class="btn btn-danger" value="Volver" name="btnVolver" />
+
+                            <input type="submit" class="btn btn-danger" value="Volver" name="btnVolver" />
                         </div>
                     </div>
 
@@ -352,116 +353,116 @@
 
             </div>
         </form>
-                                
-                                
-                                
- <div class="container-fluid pagina">
+
+
+
+        <div class="container-fluid pagina">
 
 
 
 
 
-        <div class="row" >
+            <div class="row" >
 
-            <div class="col-6 col-sm-12 col-md-12 col-lg-3 col-xl-3" >
-
-
-                <br>
-                <br>
-                <center>
-                    <img src="../imagenes/logo_bn.png" width="250px"  height="149px" />
+                <div class="col-6 col-sm-12 col-md-12 col-lg-3 col-xl-3" >
 
 
-                </center>
+                    <br>
+                    <br>
+                    <center>
+                        <img src="../imagenes/logo_bn.png" width="250px"  height="149px" />
+
+
+                    </center>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                    <br>
+                    <center>
+                        <p class="h5">“Un hogar impecable es nuestra misión"</p>
+                        <br>
+                        <img src="../imagenes/ubicacion.png" width="25" height="25" alt="ubicacion"/>
+
+
+                        Mza H Lote 01 urb. Pro Industrial S.M.P Lima-Perú
+                        <br>
+                        <img src="../imagenes/telefono.png" width="35" height="30" alt="telefono"/>
+
+                        Teléfono:  536-4941
+                        <br>
+                        <img src="../imagenes/celular.png" width="18" height="18" alt="celular"/>
+                        Ventas: 928315913
+                        <br>
+                        <img src="../imagenes/correo.png" width="25" height="25" alt="correo"/>
+
+                        Correo: Ventas@kazvel.com
+                        <br>
+                    </center>
+
+                    <br>
+                </div>
+
+
+
+
+
+                <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                    <br>
+
+
+                    <center>
+
+                        <p class="h3"> CONOCENOS :  </p>
+                        <!--
+                                            NOSOTROS
+                                            <br>
+                        -->        
+                        <a href="../Nosotros/Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
+
+                        <br>
+                        <a href="../Nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDA  </a>   
+                        <br>
+
+                        <a href="../Nosotros/contacto.jsp"style="color: #000">CONTACTANOS</a> 
+
+                        <br>
+
+
+                    </center>
+                    <br>
+
+                </div> 
+
+
+
+                <div class="col-3 col-sm-4 col-md-4 col-lg-3 col-xl-3" >
+                    <br>
+
+                    <center>
+                        <p class="h3"> SIGUENOS EN :  </p>   
+                        <br>
+                        <a href=""><img src="../imagenes/facebook.png" height="40px" width="40px"  /></a> 
+                        <br>
+
+                        <a href=""><img src="../imagenes/twitter.png"  height="40px" width="40px" /></a> 
+                        <br>
+
+                        <a href="https://instagram.com/qkazvel?igshid=nc1l54gp8lh5"><img src="../imagenes/instagram.png" height="40px" width="40px"  /></a> 
+                    </center>
+
+                </div>
+
+
+
             </div>
 
-            <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
-                <br>
-                <center>
-                    <p class="h5">“Un hogar impecable es nuestra misión"</p>
-                    <br>
-                    <img src="../imagenes/ubicacion.png" width="25" height="25" alt="ubicacion"/>
-
-
-                    Mza H Lote 01 urb. Pro Industrial S.M.P Lima-Perú
-                    <br>
-                    <img src="../imagenes/telefono.png" width="35" height="30" alt="telefono"/>
-
-                    Teléfono:  536-4941
-                    <br>
-                    <img src="../imagenes/celular.png" width="18" height="18" alt="celular"/>
-                    Ventas: 928315913
-                    <br>
-                    <img src="../imagenes/correo.png" width="25" height="25" alt="correo"/>
-
-                    Correo: Ventas@kazvel.com
-                    <br>
-                </center>
-
-                <br>
-            </div>
-
-
-
-
-
-            <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
-                <br>
-
-
-                <center>
-
-                    <p class="h3"> CONOCENOS :  </p>
-                    <!--
-                                        NOSOTROS
-                                        <br>
-                    -->        
-                    <a href="../Nosotros/Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
-
-                    <br>
-                    <a href="../Nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDA  </a>   
-                    <br>
-
-                    <a href="../Nosotros/contacto.jsp"style="color: #000">CONTACTANOS</a> 
-
-                    <br>
-
-
-                </center>
-                <br>
-
-            </div> 
-
-
-
-            <div class="col-3 col-sm-4 col-md-4 col-lg-3 col-xl-3" >
-                <br>
-
-                <center>
-                    <p class="h3"> SIGUENOS EN :  </p>   
-                    <br>
-                    <a href=""><img src="../imagenes/facebook.png" height="40px" width="40px"  /></a> 
-                    <br>
-
-                    <a href=""><img src="../imagenes/twitter.png"  height="40px" width="40px" /></a> 
-                    <br>
-
-                    <a href="https://instagram.com/qkazvel?igshid=nc1l54gp8lh5"><img src="../imagenes/instagram.png" height="40px" width="40px"  /></a> 
-                </center>
-
-            </div>
-
-
-
-        </div>
 
 
 
 
 
 
+        </div>                               
 
-    </div>                               
-                                
     </body>
 </html>

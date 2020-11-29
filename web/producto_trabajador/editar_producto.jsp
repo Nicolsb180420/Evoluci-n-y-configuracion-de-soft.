@@ -1,32 +1,27 @@
 <%-- 
-    Document   : editar_vehiculo
-    Created on : 20/11/2020, 03:05:40 PM
+    Document   : editar_producto
+    Created on : 28/11/2020, 10:53:41 AM
     Author     : Nicol Samanamud 
 --%>
 
+<%@page import="logica.logica_producto"%>
+<%@page import="datos.producto"%>
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>
-<%@page import="logica.logica_vehiculo"%>
-<%@page import="datos.vehiculo"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
-        <title>Registrar vehiculo</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
+
         <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
 
 
         <link rel="stylesheet" type="text/css" href="../diceno/css/menu_principal.css">
-
         <%-- despegable movivble y adaptable--%>
+        <link rel="stylesheet" href="../diceno/css/css_des/app.css"/> 
 
-
-        <%-- problemas :C borra esto amigo o no ? 
-       <link rel="stylesheet" href="../diceno/css/css_des/app.css"/> 
-        --%>
 
 
         <link href="../diceno/css/navbar.css" rel="stylesheet">
@@ -51,13 +46,38 @@
         <%--caja de texto--%>
 
         <link rel="stylesheet" href="../diceno/css/caja_text.css">
-        <link rel="stylesheet" href="../diceno/css/estilos.css">
 
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <link rel="stylesheet" href="../diceno/css/ProductoMostrar.css">
+
     </head>
+    <script type="text/javascript">
 
+        function validarExt()
+        {
+            var archivoInput = document.getElementById('archivoInput');
+            var archivoRuta = archivoInput.value;
+            var extPermitidas = /(.jpg)$/i;
+            if (!extPermitidas.exec(archivoRuta)) {
+                alert('Asegurese de haber seleccionado un JPG');
+                archivoInput.value = '';
+                return false;
+            } else
+            {
+                //PRevio de la imagen
+                if (archivoInput.files && archivoInput.files[0])
+                {
+                    var visor = new FileReader();
+                    visor.onload = function (e)
+                    {
+                        document.getElementById('visorArchivo').innerHTML =
+                                '<embed src="' + e.target.result + '" width="300" height="300" />';
+                    };
+                    visor.readAsDataURL(archivoInput.files[0]);
+                }
+            }
+        }
+    </script>
     <body>
-
         <div class="container-fluid">
             <%
                 String cliente_id;
@@ -66,8 +86,7 @@
                 String puesto = sesion_trabajadro.getAttribute("trabajador_puesto").toString();
 
                 //out.print(cliente_id);
-                categoria temp1 = new categoria();
-                logica.logica_categoria con1 = new logica_categoria();
+              
             %>
 
 
@@ -213,205 +232,133 @@
 
 
         </div>
-        <br>  
 
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<form action="../controlador?accion=Actualizar" method="POST" enctype="multipart/form-data">
+    <%
+        int capsula = Integer.parseInt(request.getParameter("id"));
+
+        producto p = new producto();
+        logica.logica_producto con = new logica_producto();
+
+        con.consultarProducto(capsula);
+        for (int i = 0; i < logica_producto.logica_producto.size(); i++) {
+            p = (producto) logica_producto.logica_producto.get(i);
+            if (capsula == p.getProducto_id())
+    %>     
+
+    
         <div class="container">
             <div class="row">
-                <div class="col-12">
-                    <center>
-                        <p class="h3" style="color: #CE6100"> <strong>Registro de vehiculo</strong></p> <br>
-                    </center>
-                </div>
-            </div>
-        </div>
 
 
-        <form action="estados_vehiculo.jsp">
-            <%
-                vehiculo temp = new vehiculo();
-                logica_vehiculo con = new logica_vehiculo();
-                int id_temp = Integer.parseInt(request.getParameter("id"));
-                String marca = null, modelo = null, placa = null, carga = null,
-                        fecha = null;
+                <div class="col-6">
 
-                con.consultar();
-                for (int i = 0; i < logica_vehiculo.Lvehiculos.size(); i++) {
-                    temp = (vehiculo) logica_vehiculo.Lvehiculos.get(i);
-                    if (id_temp == temp.getVehiculo_id()) {
-                        placa = temp.getVehiculo_placa();
-                        marca = temp.getVehiculo_marca();
-                        modelo = temp.getVehiculo_modelo();
-                        carga = temp.getVehiculo_capCarga();
-                        fecha = temp.getVehiculo_fecha_registro();
-                    }
-                }
-
-
-            %>
-
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-6">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text" >ID</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Codigo" name="txtid" value="<%out.print(id_temp); %>">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Nombre</span>
                         </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Placa</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Placa" name="txtplaca" value="<%out.print(placa); %>">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Marca</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Marca" name="txtmarca" value="<%out.print(marca); %>">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Modelo</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Modelo" name="txtmodelo" value="<%out.print(modelo); %>">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Capacidad de carga</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="CapCarga"   name="txtcarga" value="<%out.print(carga); %>">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Fecha Registro</span>
-                            </div>
-                            <input type="date" class="form-control" placeholder="Registro" name="txtregistro" value="<%out.print(fecha); %>">
-                        </div>
+                        <input type="text" class="form-control" placeholder="Nombre" name="nombre" value="<%=p.getProducto_nombre() %>">
                     </div>
-                    <div class="col-6">
-
-                        <div class="row">
-                            <center>
-                               <input type="submit" name="btnActualizar" value="Actualizar" class="btn btn-danger" />
-                            </center>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Precio S/.</span>
                         </div>
+                        <input type="number" class="form-control" placeholder="Precio" name="precio" step="0.01" min="0" value="<%=p.getProducto_precio()%>">
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Caracteristica</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Caracteristica" name="caracteristica" value="<%=p.getProducto_caracteristica()%>"></textarea>
+                    </div>
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Descripcion</span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Descripcion" name="descripcion" value="<%=p.getProducto_descripcion()%>"></textarea>
+                    </div>
 
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Categoria</span>
+                        </div>
+                        <select name="categoria" class="form-control">
+                            <option>Seleccione</option>
+                            <%  categoria temp1 = new categoria();
+                                logica.logica_categoria con1 = new logica_categoria();
+                                con1.consultarDep();
+                            %>
+                            <%
+                                for (int j = 0; j < logica_categoria.logica_categoria.size(); j++) {
+                                    temp1 = (categoria) logica_categoria.logica_categoria.get(j);
+
+                            %>
+                            <option value="<%=temp1.getCategoria_id()%>"><%=temp1.getCategoria_nombre()%></option>
+
+                            <%}%>
+
+                        </select>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">Peso</span>
+                        </div>
+                        <input type="number" class="form-control" placeholder="Peso" name="peso" value="<%=p.getProducto_peso()%>">
+
+                        <select name="tipo_peso" class="form-control" >
+                            <option>Seleccione</option>
+                            <option>Gr</option> 
+                            <option>Kg</option> 
+                            <option>Lt</option>
+
+                        </select>
                     </div>
                 </div>
 
+                <div class="col-6">
+
+                    <section class="text-center" >
+                        <div id="visorArchivo">
+                            <img src="../imagenes/agregar.png" width="300" height="300" alt="agregar"/>
+
+                        </div> 
+                        <br><br>
+                        <input type="file" id="archivoInput" class="col-md-offset-4 col-md-4" onchange="return validarExt()" name="imagen" />
+
+                    </section>
+                </div>
+
             </div>
 
-        </form>
-
-
-
-        <br><br>
-
-
-
-
-        <div class="container-fluid pagina">
-
-
-
-
-
-            <div class="row" >
-
-                <div class="col-6 col-sm-12 col-md-12 col-lg-3 col-xl-3" >
-
-
-                    <br>
-                    <br>
-                    <center>
-                        <img src="../imagenes/logo_bn.png" width="250px"  height="149px" />
-
-
-                    </center>
-                </div>
-
-                <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
-                    <br>
-                    <center>
-                        <p class="h5">“Un hogar impecable es nuestra misión"</p>
-                        <br>
-                        <img src="../imagenes/ubicacion.png" width="25" height="25" alt="ubicacion"/>
-
-
-                        Mza H Lote 01 urb. Pro Industrial S.M.P Lima-Perú
-                        <br>
-                        <img src="../imagenes/telefono.png" width="35" height="30" alt="telefono"/>
-
-                        Teléfono:  536-4941
-                        <br>
-                        <img src="../imagenes/celular.png" width="18" height="18" alt="celular"/>
-                        Ventas: 928315913
-                        <br>
-                        <img src="../imagenes/correo.png" width="25" height="25" alt="correo"/>
-
-                        Correo: Ventas@kazvel.com
-                        <br>
-                    </center>
-
-                    <br>
-                </div>
-
-
-
-
-
-                <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
-                    <br>
-
-
-                    <center>
-
-                        <p class="h3"> CONOCENOS :  </p>
-                        <!--
-                                            NOSOTROS
-                                            <br>
-                        -->        
-                        <a href="../Nosotros/Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
-
-                        <br>
-                        <a href="../Nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDA  </a>   
-                        <br>
-
-                        <a href="../Nosotros/contacto.jsp"style="color: #000">CONTACTANOS</a> 
-
-                        <br>
-
-
-                    </center>
-                    <br>
-
-                </div> 
-
-
-
-                <div class="col-3 col-sm-4 col-md-4 col-lg-3 col-xl-3" >
-                    <br>
-
-                    <center>
-                        <p class="h3"> SIGUENOS EN :  </p>   
-                        <br>
-                        <a href=""><img src="../imagenes/facebook.png" height="40px" width="40px"  /></a> 
-                        <br>
-
-                        <a href=""><img src="../imagenes/twitter.png"  height="40px" width="40px" /></a> 
-                        <br>
-
-                        <a href="https://instagram.com/qkazvel?igshid=nc1l54gp8lh5"><img src="../imagenes/instagram.png" height="40px" width="40px"  /></a> 
-                    </center>
-
-                </div>
-
-
-
-            </div>
         </div>
 
-    </body>
+   
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <center>
+
+                    <button  class="btn" style="background: #CE6100; color: #ffffff" name="accion" value="Actualizar">Actualizar</button> 
+
+                </center>
+            </div>
+        </div>
+    </div> 
+
+    <%}%>
+    <br><br>
+
+ </form>
+
+
+
+</body>
 </html>

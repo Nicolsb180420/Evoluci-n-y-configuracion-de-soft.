@@ -1,67 +1,79 @@
 <%-- 
-    Document   : editar_login
-    Created on : 24/11/2020, 08:13:08 PM
+    Document   : crud_producto
+    Created on : 28/11/2020, 10:53:24 AM
     Author     : Nicol Samanamud 
 --%>
 
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>
-<%@page import="logica.logica_login"%>
-<%@page import="datos.login"%>
-<%@page import="logica.logica_trabajador"%>
-<%@page import="datos.trabajador"%>
-<%@page import="logica.logica_puesto"%>
-<%@page import="datos.puesto"%>
-<%@page import="logica.logica_departamento"%>
-<%@page import="datos.departamento"%>
+<%@page import="logica.logica_producto"%>
+<%@page import="datos.producto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <title>Cambiar contraseña</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+<html>
+    <html>
+        <head>
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+            <title>Productos</title>
 
-        <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
-
-
-        <link rel="stylesheet" type="text/css" href="../diceno/css/menu_principal.css">
-
-        <%-- despegable movivble y adaptable--%>
+            <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
 
 
-        <%-- problemas :C borra esto amigo o no ? 
-       <link rel="stylesheet" href="../diceno/css/css_des/app.css"/> 
-        --%>
+            <link rel="stylesheet" type="text/css" href="../diceno/css/menu_principal.css">
+
+            <link href="../diceno/css/navbar.css" rel="stylesheet">
+
+            <script src="../diceno/js/jquery-3.5.1.min.js"></script>
+            <script src="../diceno/js/popper.min.js"></script>
+            <script src="../diceno/js/bootstrap.min.js"></script>
+            <link rel="stylesheet" href="../diceno/css/css_des/pure-drawer.css"/>
+
+            <script src="../diceno/js/jquery-3.5.1.slim.min.js"></script>
+            <script src="../diceno/js/bootstrap.bundle.min.js"></script>
+            <%--  categoria--%>
+
+            <link rel="stylesheet" type="text/css" href="../diceno/css/slick/slick.css">
+            <link rel="stylesheet" type="text/css" href="../diceno/css/slick/slick-theme.css">
 
 
-        <link href="../diceno/css/navbar.css" rel="stylesheet">
+            <script src="../diceno/js/jquery-2.2.0.min.js" type="text/javascript"></script>
+            <script src="../diceno/css/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+            <link href="../diceno/css/navbar-top-fixed.css" rel="stylesheet">     
 
-        <script src="../diceno/js/jquery-3.5.1.min.js"></script>
-        <script src="../diceno/js/popper.min.js"></script>
-        <script src="../diceno/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href="../diceno/css/css_des/pure-drawer.css"/>
+            <%--caja de texto--%>
 
-        <script src="../diceno/js/jquery-3.5.1.slim.min.js"></script>
-        <script src="../diceno/js/bootstrap.bundle.min.js"></script>
-        <%--  categoria--%>
+            <link rel="stylesheet" href="../diceno/css/caja_text.css">
+            <link rel="stylesheet" href="../diceno/css/categorias.css">
+            <link rel="stylesheet" href="../diceno/css/jquery.dataTables.min.css"/>
+            <script src="../diceno/js/jquery.dataTables.min.js" type="text/javascript"></script>
 
-        <link rel="stylesheet" type="text/css" href="../diceno/css/slick/slick.css">
-        <link rel="stylesheet" type="text/css" href="../diceno/css/slick/slick-theme.css">
+            <script>
+                $(document).ready(function () {
+                    $('#tabla_alumno').DataTable({
+                        "order": [[1, "asc"]], /*ordenar por el nombre*/
+                        "language": {
+                            "lengthMenu": "Mostrar _MENU_ registros por pagina",
+                            "info": "Mostrando pagina _PAGE_ de _PAGES_",
+                            "infoEmpty": "No hay registros disponibles",
+                            "infoFiltered": "(filtrada de _MAX_ registros)",
+                            "loadingRecords": "Cargando...",
+                            "processing": "Procesando...",
+                            "search": "Buscar:",
+                            "zeroRecords": "No se encontraron registros coincidentes",
+                            "paginate": {
+                                "next": "Siguiente",
+                                "previous": "Anterior"
+                            },
+                        }
+                    });
+                });
+            </script>
 
 
-        <script src="../diceno/js/jquery-2.2.0.min.js" type="text/javascript"></script>
-        <script src="../diceno/css/slick/slick.js" type="text/javascript" charset="utf-8"></script>
-        <link href="../diceno/css/navbar-top-fixed.css" rel="stylesheet">     
+        </head>
 
-        <%--caja de texto--%>
-
-        <link rel="stylesheet" href="../diceno/css/caja_text.css">
-        <link rel="stylesheet" href="../diceno/css/estilos.css">
-
+        <%--menu despegable--%>   
     </head>
-
     <body>
         <div class="container-fluid">
             <%
@@ -70,9 +82,7 @@
                 cliente_id = sesion_trabajadro.getAttribute("trabajador_id").toString();
                 String puesto = sesion_trabajadro.getAttribute("trabajador_puesto").toString();
 
-                //out.print(cliente_id);
-                categoria temp1 = new categoria();
-                logica.logica_categoria con1 = new logica_categoria();
+              
             %>
 
 
@@ -218,95 +228,89 @@
 
 
         </div>
-              
-
-
-        <br><br>
-
-
-        <!--  000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000                -->
-
-
-        <div class="container">
-            <%
-                login temp = new login();
-                logica_login con = new logica_login();
-                int id_temp = Integer.parseInt(request.getParameter("id"));
-
-                con.consultar();
-
-                String correo = null;
-
-                for (int i = 0; i < logica_login.logica_login.size(); i++) {
-                    temp = (login) logica_login.logica_login.get(i);
-                    if (id_temp == temp.getLogin_id()) {
-                        correo = temp.getLogin_correo();
-                       //contra = temp.getLogin_contra();
-                    }
-                }%>
 
 
 
-            <div class="row">
-                <div class="col-12">
-                    <center>
-                        <p class="h3" style="color: #CE6100"> <strong>Cambio de contraseña</strong></p> <br>
-                    </center>
-                </div>
-            </div>
+    <br><br>
+    <div class="container">
+
+        <div class="row table-responsive">
+            <table class="display" id="tabla_alumno">
+                <thead style="background: #F38500;">
+                    <tr class="text-center">
+                        <th></th>
+                        <th>ID</th>
+                        <th>IMAGEN</th>
+                        <th>NOMBRE</th>
+                        <th>CATEGORIA</th>
+                        <th>DESCRIPCION</th>
+                        <th>PRECIO</th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <%
+                        producto temp = new producto();
+                        logica_producto con = new logica_producto();
+
+                        con.consultarListaProductos();
+
+                        for (int i = 0; i < logica_producto.logica_producto.size(); i++) {
+                            temp = (producto) logica_producto.logica_producto.get(i);
+
+                    %>
+
+                    <tr>
+                        <td> <input hidden="" value="<%=temp.getProducto_id()%>" /> </td>
+
+                        <td><%=temp.getProducto_id()%></td>
+
+                       
+
+                        <td><%=temp.getProducto_nombre()%></td>
+
+                        <td><%=temp.getProducto_caracteristica()%></td>
+
+                        <td><%=temp.getProducto_descripcion()%></td>
+
+                        <td><%=temp.getCategoria_nombre()%></td>
+
+                        <td><%=temp.getProducto_peso()%><%=temp.getProducto_tipo_peso()%></td>
+
+                        <td><% out.print("S/." + temp.getProducto_precio());%></td>
+
+                        <td>
+                            <a href="ver_producto.jsp?id=<%=temp.getProducto_id()%>" class="btn">
+                                <img src="../imagenes/ver_producto.png" width="45" height="45" alt="icono_borrar"/>
+                            </a>
+
+                        </td>
+
+                        <td>
+                            <a href="editar_producto.jsp?id=<%=temp.getProducto_id()%>" class="btn">
+                                <img src="../imagenes/editar_producto.png" width="45" height="45" alt="icono_ver"/>
+                            </a>
+
+                        </td>
+                    </tr>
+                    <%}%>
+                </tbody>
+            </table>   
+
         </div>
 
-
-        <br>
-
-        <form action="estado_trabajador_edit.jsp" >
-
-            <div class="container">
+    </div>
 
 
-                <div class="row">
-
-                    <div class="col-6">
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">ID</span>
-                            </div>
-                            <input type="text" class="form-control" name="txt_id" value="<%=id_temp%>" >
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Correo</span>
-                            </div>
-                            <input type="text" class="form-control" name="txt_correo" value="<%=correo%>" disabled="">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Contraseña</span>
-                            </div>
-                            <input type="password" class="form-control" name="txt_contrasena" >
-                        </div>
-                    </div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <center>
-
-                                    <input type="submit" value="Cambiar contraseña" name="btnActualizar1" class="btn btn-outline-dark" style="background:  #F38500;"/>
 
 
-                                    <!--      <button type="button" class="btn btn-danger" >Cancelar</button> <br>-->
 
-                                </center>
-                            </div>
-                        </div>
-                    </div> 
-                </div> 
-            </div> 
-        </form>
 
-        <br><br>
 
-        
-
-    </body>
+</body>
 </html>

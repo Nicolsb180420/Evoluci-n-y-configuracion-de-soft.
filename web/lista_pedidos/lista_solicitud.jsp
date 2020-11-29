@@ -4,6 +4,8 @@
     Author     : bryan
 --%>
 
+<%@page import="logica.logica_carrito"%>
+<%@page import="datos.carrito"%>
 <%@page import="logica.logica_pedido"%>
 <%@page import="datos.pedido"%>
 <%@page import="datos.categoria"%>
@@ -230,29 +232,37 @@
 
                             <%} else {
 
-                            %>
-                            <div class="btn-group ">
+                            carrito temp_car = new carrito();
+                            logica_carrito con_car = new logica_carrito();
 
-                                <center>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
-                                            <%  out.print(sesion.getAttribute("cliente_nombre").toString() + " " + sesion.getAttribute("cliente_apellido").toString());  %>
-                                        </button>
-                                        <div class="dropdown-menu dropdown-menu-right">
-                                            <a href="../lista_pedidos/lista_solicitud.jsp" class="dropdown-item">Mis compras</a> 
-                                            <a href="../lista_deseos/lista_deseos.jsp" class="dropdown-item">Lista de deseos</a>
-                                            <a href="../carrito/carrito.jsp" class="dropdown-item">Carrito de compras</a>
+                            con_car.validar_exixtencia(cliente_id);
+                        %>
+                        <a href="../carrito/carrito.jsp">
+                            <img src="../imagenes/carrito.png" width="50" height="50" alt="carrito"/>
+                        </a>
+                        <label class="h3" ><%out.print("(" + logica_carrito.logica_carrito.size() + ")");%></label>
+                        <div class="btn-group ">
 
-                                            <a href="../login/login_cerrar.jsp" class="dropdown-item" type="button">Cerrar sesion</a>
+                            <center>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
+                                        <%  out.print(sesion.getAttribute("cliente_nombre").toString() + " " + sesion.getAttribute("cliente_apellido").toString());  %>
+                                    </button>
+                                    <div class="dropdown-menu dropdown-menu-right">
+                                        <a href="../lista_pedidos/lista_solicitud.jsp" class="dropdown-item">Mis compras</a> 
+                                        <a href="../lista_deseos/lista_deseos.jsp" class="dropdown-item">Lista de deseos</a>
+                                        <a href="../carrito/carrito.jsp" class="dropdown-item">Carrito de compras</a>
 
-                                        </div>
+                                        <a href="../login/login_cerrar.jsp" class="dropdown-item" type="button">Cerrar sesion</a>
+
                                     </div>
-                                </center>
+                                </div>
+                            </center>
 
-                            </div>
+                        </div>
 
 
-                            <%}%>
+                        <%}%>
 
 
 
