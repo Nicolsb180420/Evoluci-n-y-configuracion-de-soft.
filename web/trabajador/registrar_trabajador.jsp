@@ -116,9 +116,7 @@
                 cliente_id = sesion_trabajadro.getAttribute("trabajador_id").toString();
                 String puesto = sesion_trabajadro.getAttribute("trabajador_puesto").toString();
 
-                //out.print(cliente_id);
-                categoria temp1 = new categoria();
-                logica.logica_categoria con1 = new logica_categoria();
+              
             %>
 
 

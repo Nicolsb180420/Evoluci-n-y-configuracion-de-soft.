@@ -441,7 +441,7 @@
                     <% if (temp_pp.getPuesto_permisos_permisos() == 13) {
                     %>
                     <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="#">
+                        <a href="../encomienda/registrar_encomienda.jsp">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/registrar encomienda.png" width="80" height="85" alt="deshumedecedor"/></div> 
                                 <div><h5>Registrar encomienda</h5></div>
