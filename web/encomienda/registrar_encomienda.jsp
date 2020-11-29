@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-         <meta charset="UTF-8">
+        <meta charset="UTF-8">
         <title>Ver pedido</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
@@ -58,8 +58,8 @@
         <link rel="stylesheet" href="../diceno/css/estilos.css">
 
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        
-        
+
+
 
         <script
             src="https://code.jquery.com/jquery-3.5.1.js"
@@ -92,16 +92,18 @@
 
             }
         </script>
-        
-        
+
+
     </head>
     <body>
-<%  HttpSession sesion_trabajadro = request.getSession();
-                                sesion_trabajadro.setAttribute("trabajador_id","9");%>
-                                
-           
-                
-                 <div class="container">
+        <% String cliente_id;
+            HttpSession sesion_trabajadro = request.getSession();
+            cliente_id = sesion_trabajadro.getAttribute("trabajador_id").toString();
+    String puesto = sesion_trabajadro.getAttribute("trabajador_puesto").toString();%>
+
+
+
+        <div class="container">
             <div class="row">
                 <div class="col-12">
                     <div class="form-group">
@@ -112,12 +114,12 @@
                                     <th>NOMBRE</th>
                                     <th>APELLIDO</th>
                                     <th>SEXO</th>
-                               
+
                                     <th>T. IDENT.</th>
                                     <th>N° IDENT.</th>
                                     <th>TELEFONO</th>
-                                     <th>ESTADO</th>
-                                   
+                                    <th>ESTADO</th>
+
                                     <th></th>
                                     <th></th>
                                     <th></th>
@@ -137,29 +139,29 @@
                                 %>
 
                                 <tr>
-                                    <td><%=temp_tra.getTrabajador_id() %></td>
-                                    <td><%=temp_tra.getTrabajador_nombre() %></td>
-                                    <td><%=temp_tra.getTrabajor_apellido() %></td>
-                                    <td><%=temp_tra.getTrabajador_sexo() %></td>
-                                
-                                    <td><%=temp_tra.getTrabajador_tipo_identidad() %></td>
-                                    <td><%=temp_tra.getTrabajador_numero_identidad()  %></td>
-                                    <td><%=temp_tra.getTrabajador_telefono()  %></td>
-                              
-                                    <td><a href="ver_trabajador.jsp?id=<%=temp_tra.getTrabajador_id() %>" class="btn btn-danger">VER</a> </td>
-                                    <td><a href="agregar_trabajador.jsp?id=<%=temp_tra.getTrabajador_id() %>" class="btn btn-danger">agregar</a> </td>
+                                    <td><%=temp_tra.getTrabajador_id()%></td>
+                                    <td><%=temp_tra.getTrabajador_nombre()%></td>
+                                    <td><%=temp_tra.getTrabajor_apellido()%></td>
+                                    <td><%=temp_tra.getTrabajador_sexo()%></td>
+
+                                    <td><%=temp_tra.getTrabajador_tipo_identidad()%></td>
+                                    <td><%=temp_tra.getTrabajador_numero_identidad()%></td>
+                                    <td><%=temp_tra.getTrabajador_telefono()%></td>
+
+                                    <td><a href="ver_trabajador.jsp?id=<%=temp_tra.getTrabajador_id()%>" class="btn btn-danger">VER</a> </td>
+                                    <td><a href="agregar_trabajador.jsp?id=<%=temp_tra.getTrabajador_id()%>" class="btn btn-danger">agregar</a> </td>
                                 </tr>
                                 <%}%>
                             </tbody>
                         </table>   
 
-                            <a href="registrar_trabajador.jsp"><button type="button" class="btn btn-danger">NUEVO</button></a> 
+                        <a href="registrar_trabajador.jsp"><button type="button" class="btn btn-danger">NUEVO</button></a> 
                     </div>
                 </div>
             </div>
-       
-                
-                 <div class="row"> 
+
+
+            <div class="row"> 
                 <div class="col-12">
                     <div class="form-group">
 
@@ -220,7 +222,7 @@
 
 
                                     </td>
-                                    <td><a href="agregar_pedido.jsp?id=<%=temp_listap.getPedido_id() %>" class="btn btn-danger">agregar</a> </td>
+                                    <td><a href="agregar_pedido.jsp?id=<%=temp_listap.getPedido_id()%>" class="btn btn-danger">agregar</a> </td>
 
                                 </tr>
                                 <%}%>
@@ -231,89 +233,89 @@
                 </div>
 
             </div>
-                           
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Registrar venta
-                </button>
 
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Registrar venta</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <form action="operador_registrar.jsp" id="data">
-                                <div class="modal-body">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                Registrar venta
+            </button>
 
-
-                                    
-                                       
-                             
-
-                                    <%
-                                        departamento dep = new departamento();
-                                        logica.logica_departamento con_dep = new logica_departamento();
-                                        con_dep.consultarDep();
-                                    %>
-
-                                    <div class="form-group">
-                                        <label >Distrito :</label>
-                                        <select name="cmbdepartamento" onchange="comboDep()" style="color: #545b62; width: 75%" class="form-control" >
-
-                                            <option value="">SELECCIONAR </option>
-
-                                            <%
-                                                for (int i = 0; i < logica_departamento.logica_departamento.size(); i++) {
-                                                    dep = (departamento) logica_departamento.logica_departamento.get(i);
-
-                                            %>
-                                            <option><%=dep.getDesdep()%></option>
-
-                                            <%}%>
-
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group">
-                                        <label >Provincia :</label>
-                                        <select name="cmbprovincia"  id="id_provi" onchange="comboDistri()" style="color: #545b62; width: 75%" class="form-control" >
-                                            <option value="">SELECCIONAR </option>
-                                        </select>
-
-                                    </div>
-
-                                    <div class="form-group">    
-                                        <label >Distrito :</label>
-                                        <select name="cmbdistrito" id="id_distri" onchange="comboFin()" style="color: #545b62; width: 75%" class="form-control" >
-                                            <option value="">SELECCIONAR </option>
-                                        </select>
-                                    </div> 
-
-                                    
-
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">cancelar</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                </div>
-                            </form>              
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Registrar venta</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
+                        <form action="operador_registrar.jsp" id="data">
+                            <div class="modal-body">
+
+
+
+
+
+
+                                <%
+                                    departamento dep = new departamento();
+                                    logica.logica_departamento con_dep = new logica_departamento();
+                                    con_dep.consultarDep();
+                                %>
+
+                                <div class="form-group">
+                                    <label >Distrito :</label>
+                                    <select name="cmbdepartamento" onchange="comboDep()" style="color: #545b62; width: 75%" class="form-control" >
+
+                                        <option value="">SELECCIONAR </option>
+
+                                        <%
+                                            for (int i = 0; i < logica_departamento.logica_departamento.size(); i++) {
+                                                dep = (departamento) logica_departamento.logica_departamento.get(i);
+
+                                        %>
+                                        <option><%=dep.getDesdep()%></option>
+
+                                        <%}%>
+
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label >Provincia :</label>
+                                    <select name="cmbprovincia"  id="id_provi" onchange="comboDistri()" style="color: #545b62; width: 75%" class="form-control" >
+                                        <option value="">SELECCIONAR </option>
+                                    </select>
+
+                                </div>
+
+                                <div class="form-group">    
+                                    <label >Distrito :</label>
+                                    <select name="cmbdistrito" id="id_distri" onchange="comboFin()" style="color: #545b62; width: 75%" class="form-control" >
+                                        <option value="">SELECCIONAR </option>
+                                    </select>
+                                </div> 
+
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">cancelar</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
+                        </form>              
                     </div>
-                </div>           
-  
-                                
-                           
-                            
+                </div>
+            </div>           
+
+
+
+
 
         </div>  
-        
-        
-        
-        
-        
+
+
+
+
+
     </body>
 </html>

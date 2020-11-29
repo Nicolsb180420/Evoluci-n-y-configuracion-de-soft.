@@ -371,11 +371,11 @@
                             <%
                                 for (int i = 0; i < logica_puesto.logica_puesto.size(); i++) {
                                     temp1 = (puesto) logica_puesto.logica_puesto.get(i);
-
+                                    if(temp1.getPuesto_id()<6){
                             %>
                             <option value="<%=temp1.getPuesto_id()%>" ><%=temp1.getPuesto_nombre()%></option>
 
-                            <%}%>
+                            <%}}%>
 
                         </select>
 

@@ -64,9 +64,6 @@
                 cliente_id = sesion_trabajadro.getAttribute("trabajador_id").toString();
                 String puesto = sesion_trabajadro.getAttribute("trabajador_puesto").toString();
 
-                //out.print(cliente_id);
-                categoria temp1 = new categoria();
-                logica.logica_categoria con1 = new logica_categoria();
             %>
 
 
@@ -169,7 +166,7 @@
 
 
 
-                                    <div class="btn-group">
+                                    <div class="btn-group"  >
                                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background: #CE6100   ">
                                             <%  out.print(sesion_trabajadro.getAttribute("trabajador_nombre").toString() + " " + sesion_trabajadro.getAttribute("trabajador_apellido").toString());  %>
                                         </button>
@@ -371,14 +368,14 @@
 
                     <% if (temp_pp.getPuesto_permisos_permisos() == 9) {
                     %>
-                    <div class="col-md-4 col-xs-12 col-sm-12">
+                 <!--   <div class="col-md-4 col-xs-12 col-sm-12">
                         <a href="#">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/registrar pedido.png" width="80" height="85" alt="deshumedecedor"/></div> 
                                 <div><h5>Registrar pedido</h5></div>
                             </div>
                         </a>
-                    </div>
+                    </div>-->
 
                     <%
                         }

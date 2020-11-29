@@ -259,7 +259,7 @@
 
                     con.insertar(temp);
 
-                    // response.sendRedirect("registrar_trabajador.jsp");
+                     response.sendRedirect("crud_trabajador.jsp");
                 } else {
 
                 }
