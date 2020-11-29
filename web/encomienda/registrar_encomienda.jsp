@@ -207,7 +207,8 @@
                                     <td><%=temp_ct.getTrabajador_telefono()%></td>
 
                                     <td><a href="ver_trabajador.jsp?id=<%=temp_tra.getTrabajador_id()%>" class="btn btn-danger">VER</a> </td>
-                                    <td><a href="<%=temp_tra.getTrabajador_id()%>" class="btn btn-danger">eliminar</a> </td>
+                                    <td><a href="operador_bc_trabajador.jsp?id=<%=temp_ct.getCapsula_trabajador_id()  %>" class="btn btn-danger">ELIMINAR</a> </td>
+                                
                                 </tr>
                                 <%}%>
                             </tbody>
@@ -219,7 +220,7 @@
             </div>     
                             
                             
-                            
+        <!-------------------------------------------------------------------------------------------------------------------------------------------------------->                    
 
 
             <div class="row"> 
@@ -374,10 +375,10 @@
                                         <a href="ver_pedido.jsp?id=<%=temp_listap.getPedido_id()%>">
                                             <center>    <img src="../imagenes/icono_ver.png" width="30" height="30" alt="ver"/>  </center>
                                         </a>
-
+  <td><a href="operador_bc_pedido.jsp?id=<%=temp_cp.getCapsula_pedido_id() %>" class="btn btn-danger">ELIMINAR</a> </td>
 
                                     </td>
-                                    <td><a href="agregar_pedido.jsp?id=<%=temp_listap.getPedido_id()%>" class="btn btn-danger">agregar</a> </td>
+                                  
 
                                 </tr>
                                 <%}%>

@@ -79,6 +79,11 @@ public void ver_capsula_pedido() {
         }
     }
     
+       public void eliminar(int cap_pdedido){
+        try {
+            con.getSt().executeUpdate("delete from capsula_pedido where capsula_pedido_id="+cap_pdedido );
+        } catch (Exception e) {}
+    }
     
 
 

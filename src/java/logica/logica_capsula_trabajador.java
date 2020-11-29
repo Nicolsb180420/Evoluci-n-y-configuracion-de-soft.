@@ -71,6 +71,12 @@ public class logica_capsula_trabajador {
     }
     
     
+       /*eliminar */
+   public void eliminar(int id_temp){
+        try {
+            con.getSt().executeUpdate("delete from capsula_trabajador where capsula_trabajador_id="+id_temp );
+        } catch (Exception e) {}
+    }
     
 
 }
