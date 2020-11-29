@@ -19,8 +19,11 @@ public static ArrayList Lvehiculos= new ArrayList();
 
     public void insertar(vehiculo temp) {
         try {
-            /*insert into vehiculo values('AAA123','Toyota','2014','2T','2018-06-14')*/
-           con2.getSt().executeUpdate("insert into vehiculo values('" + temp.getVehiculo_placa()
+            /*
+insert into vehiculo (vehiculo_placa,vehiculo_marca,vehiculo_modelo,vehiculo_capCarga,vehiculo_fecha_registro) values('AAA123','Toyota','2014','2T','2018-06-14')
+
+*/
+           con2.getSt().executeUpdate("insert into vehiculo (vehiculo_placa,vehiculo_marca,vehiculo_modelo,vehiculo_capCarga,vehiculo_fecha_registro) values('" + temp.getVehiculo_placa()
                     + "','" + temp.getVehiculo_marca()
                     + "','" + temp.getVehiculo_modelo()
                     + "','" + temp.getVehiculo_capCarga()
@@ -83,4 +86,28 @@ WHERE vehiculo_id = '3'*/
         } catch (Exception e) {}
     }
     
+   
+   /*vehiculo disponible */
+   
+   
+      public void vehiculo_disponible() {
+        con2.consulta("select * from vehiculo where vehiculo_estado=0");
+        Lvehiculos.clear();
+        try {
+            while (con2.getRs().next()) {
+                vehiculo temp1 = new vehiculo(Integer.parseInt(con2.getRs().getString(1)),
+                        con2.getRs().getString(2),
+                        con2.getRs().getString(3),
+                        con2.getRs().getString(4),
+                        con2.getRs().getString(5),
+                        con2.getRs().getString(6)
+                        );
+                Lvehiculos.add(temp1);
+            }
+        } catch (Exception e) {
+        }
+    }
+   
+   
+   
 }
