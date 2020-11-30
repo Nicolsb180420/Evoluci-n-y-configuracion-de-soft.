@@ -295,10 +295,7 @@
                                     <th>TELEFONO</th>
                                     <th>ESTADO</th>
 
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
+                                  
                                 </tr>
                             </thead>
                             <tbody>

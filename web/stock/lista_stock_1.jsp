@@ -244,6 +244,7 @@
         <form name="modificar" action="actualizar_stock.jsp">
             <div class="container">
                 <div class="row table-responsive">
+                    
                 <table class="display" id="tabla_alumno">
                     <thead style="background: #F38500;">
                         <tr class="text-center">

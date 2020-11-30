@@ -6,6 +6,7 @@
 package logica;
 
 import datos.producto;
+
 import java.util.ArrayList;
 
 /**
@@ -236,5 +237,30 @@ where producto_id=11;*/
         } catch (Exception e) {
         }
     }
+    
+    
+    
+    /*
+    
+UPDATE producto 
+                  SET producto_valoracion = 1 
+                      WHERE producto_id = 1
+    
+    
+    */
+    
+    
+        public void borrar(int  id_producto) {
+      
+        try {
+            con.getSt().executeUpdate("UPDATE producto SET producto_valoracion = 1 WHERE producto_id ="  + id_producto
+                    );
+        } catch (Exception e) {
+        }
+    }
+    
+    
+    
+    
 
 }

@@ -294,8 +294,8 @@
                                     </td>
 
                                     <td>
-                                        <a href="ver_producto.jsp?id=<%=temp.getProducto_id()%>" class="btn">
-                                            <img src="../imagenes/icono_borrar.png" width="45" height="45" alt="icono_ver"/>
+                                        <a href="controlador_borrar_producto.jsp?id=<%=temp.getProducto_id()%>" class="btn">
+                                            <img src="../imagenes/icono_borrar.png" width="45" height="45" alt=""/>
                                         </a>
 
                                     </td>
