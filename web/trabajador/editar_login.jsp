@@ -19,9 +19,10 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Cambiar contraseña</title>
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Cambiar contraseña</title>
+        <link rel="icon" type="image/png" href="../imagenes/logo.png " />
 
         <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
 

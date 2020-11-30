@@ -31,8 +31,7 @@
                 temp = new vehiculo(request.getParameter("txtplaca"),
                         request.getParameter("txtmarca"),
                         request.getParameter("txtmodelo"),
-                        request.getParameter("txtcarga"),
-                        request.getParameter("txtregistro")
+                        request.getParameter("txtcarga")
                 );
 
                 con.insertar(temp);
@@ -46,8 +45,7 @@
                         request.getParameter("txtplaca"),
                         request.getParameter("txtmarca"),
                         request.getParameter("txtmodelo"),
-                        request.getParameter("txtcarga"),
-                        request.getParameter("txtregistro")
+                        request.getParameter("txtcarga")
                 );
                 con.actualizar(temp);
                response.sendRedirect("lista_vehiculos.jsp");

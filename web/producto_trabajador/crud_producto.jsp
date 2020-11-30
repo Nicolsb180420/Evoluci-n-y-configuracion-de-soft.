@@ -11,69 +11,72 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-    <html>
-        <head>
-            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-            <title>Productos</title>
-
-            <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
-
-
-            <link rel="stylesheet" type="text/css" href="../diceno/css/menu_principal.css">
-
-            <link href="../diceno/css/navbar.css" rel="stylesheet">
-
-            <script src="../diceno/js/jquery-3.5.1.min.js"></script>
-            <script src="../diceno/js/popper.min.js"></script>
-            <script src="../diceno/js/bootstrap.min.js"></script>
-            <link rel="stylesheet" href="../diceno/css/css_des/pure-drawer.css"/>
-
-            <script src="../diceno/js/jquery-3.5.1.slim.min.js"></script>
-            <script src="../diceno/js/bootstrap.bundle.min.js"></script>
-            <%--  categoria--%>
-
-            <link rel="stylesheet" type="text/css" href="../diceno/css/slick/slick.css">
-            <link rel="stylesheet" type="text/css" href="../diceno/css/slick/slick-theme.css">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="#" />  
+        <title>Crud producto</title>
+        <link rel="icon" type="image/png" href="../imagenes/logo.png " />
 
 
-            <script src="../diceno/js/jquery-2.2.0.min.js" type="text/javascript"></script>
-            <script src="../diceno/css/slick/slick.js" type="text/javascript" charset="utf-8"></script>
-            <link href="../diceno/css/navbar-top-fixed.css" rel="stylesheet">     
+        <link rel="stylesheet" type="text/css" href="../diceno/css/menu_principal.css">
 
-            <%--caja de texto--%>
-
-            <link rel="stylesheet" href="../diceno/css/caja_text.css">
-            <link rel="stylesheet" href="../diceno/css/categorias.css">
-            <link rel="stylesheet" href="../diceno/css/jquery.dataTables.min.css"/>
-            <script src="../diceno/js/jquery.dataTables.min.js" type="text/javascript"></script>
-
-            <script>
-                $(document).ready(function () {
-                    $('#tabla_alumno').DataTable({
-                        "order": [[1, "asc"]], /*ordenar por el nombre*/
-                        "language": {
-                            "lengthMenu": "Mostrar _MENU_ registros por pagina",
-                            "info": "Mostrando pagina _PAGE_ de _PAGES_",
-                            "infoEmpty": "No hay registros disponibles",
-                            "infoFiltered": "(filtrada de _MAX_ registros)",
-                            "loadingRecords": "Cargando...",
-                            "processing": "Procesando...",
-                            "search": "Buscar:",
-                            "zeroRecords": "No se encontraron registros coincidentes",
-                            "paginate": {
-                                "next": "Siguiente",
-                                "previous": "Anterior"
-                            },
-                        }
-                    });
-                });
-            </script>
+        <link href="../diceno/css/navbar.css" rel="stylesheet">
 
 
-        </head>
 
-        <%--menu despegable--%>   
+        <link rel="stylesheet" href="../diceno/css/css_des/pure-drawer.css"/>
+
+        <script src="../diceno/js/jquery-3.5.1.slim.min.js"></script>
+        <script src="../diceno/js/bootstrap.bundle.min.js"></script>
+        <%--  categoria--%>
+
+        <link rel="stylesheet" type="text/css" href="../diceno/css/slick/slick.css">
+        <link rel="stylesheet" type="text/css" href="../diceno/css/slick/slick-theme.css">
+
+        <script src="../diceno/css/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+        <link href="../diceno/css/navbar-top-fixed.css" rel="stylesheet">     
+
+        <%--caja de texto--%>
+
+        <link rel="stylesheet" href="../diceno/css/caja_text.css">
+        <link rel="stylesheet" href="../diceno/css/categorias.css">
+
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="../diceno/css/bootstrap.min.css">
+        <!-- CSS personalizado --> 
+        <link rel="stylesheet" href="../diceno/main.css">  
+
+        <!--datables CSS básico-->
+        <link rel="stylesheet" type="text/css" href="../diceno/Datatables/datatables.min.css"/>
+        <!--datables estilo bootstrap 4 CSS-->  
+        <link rel="stylesheet"  type="text/css" href="../diceno/Datatables/DataTables-1.10.22/css/dataTables.bootstrap4.min.css">
+
+        <!--font awesome con CDN-->  
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">  
+
+        <!-- jQuery, Popper.js, Bootstrap JS -->
+        <script src="../diceno/js/jquery-3.5.1.min.js"></script>
+        <script src="../diceno/js/popper.min.js"></script>
+        <script src="../diceno/js/bootstrap.min.js"></script>
+
+        <!-- datatables JS -->
+        <script type="text/javascript" src="../diceno/Datatables/datatables.min.js"></script>    
+
+        <!-- para usar botones en datatables JS -->  
+        <script src="../diceno/Datatables/Buttons-1.6.5/js/dataTables.buttons.min.js"></script>  
+        <script src="../diceno/Datatables/JSZip-2.5.0/jszip.min.js"></script>    
+        <script src="../diceno/Datatables/pdfmake-0.1.36/pdfmake.min.js"></script>    
+        <script src="../diceno/Datatables/pdfmake-0.1.36/vfs_fonts.js"></script>
+        <script src="../diceno/Datatables/Buttons-1.6.5/js/buttons.html5.min.js"></script>
+
+        <!-- código JS propìo-->    
+        <script type="text/javascript" src="../diceno/main.js"></script>  
+
     </head>
+
     <body>
         <div class="container-fluid">
             <%
@@ -82,7 +85,7 @@
                 cliente_id = sesion_trabajadro.getAttribute("trabajador_id").toString();
                 String puesto = sesion_trabajadro.getAttribute("trabajador_puesto").toString();
 
-              
+
             %>
 
 
@@ -229,88 +232,91 @@
 
         </div>
 
+        <div style="height:50px"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive">        
+                        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>ID</th>
+
+                                    <th>NOMBRE</th>
+                                    <th>CARACTERISTICA</th>
+                                    <th>DESCRIPCION</th>
+                                    <th>CATEGORIA</th>
+                                    <th>PESO</th>
+                                    <th>PRECIO</th>
+                                    <th></th>
+                                    <th></th>
+
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                <%
+                                    producto temp = new producto();
+                                    logica_producto con = new logica_producto();
+
+                                    con.consultarListaProductos();
+
+                                    for (int i = 0; i < logica_producto.logica_producto.size(); i++) {
+                                        temp = (producto) logica_producto.logica_producto.get(i);
+                                        if (temp.getProducto_valoracion() == 0) {
+                                %>
+
+                                <tr>
+                                    <td> <input hidden="" value="<%=temp.getProducto_id()%>" /> </td>
+
+                                    <td><%=temp.getProducto_id()%></td>
 
 
-    <br><br>
-    <div class="container">
 
-        <div class="row table-responsive">
-            <table class="display" id="tabla_alumno">
-                <thead style="background: #F38500;">
-                    <tr class="text-center">
-                        <th></th>
-                        <th>ID</th>
-                        <th>IMAGEN</th>
-                        <th>NOMBRE</th>
-                        <th>CATEGORIA</th>
-                        <th>DESCRIPCION</th>
-                        <th>PRECIO</th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                                    <td><%=temp.getProducto_nombre()%></td>
 
-                    </tr>
-                </thead>
+                                    <td><%=temp.getProducto_caracteristica()%></td>
 
-                <tbody>
-                    <%
-                        producto temp = new producto();
-                        logica_producto con = new logica_producto();
+                                    <td><%=temp.getProducto_descripcion()%></td>
 
-                        con.consultarListaProductos();
+                                    <td><%=temp.getCategoria_nombre()%></td>
 
-                        for (int i = 0; i < logica_producto.logica_producto.size(); i++) {
-                            temp = (producto) logica_producto.logica_producto.get(i);
+                                    <td><%=temp.getProducto_peso()%><%=temp.getProducto_tipo_peso()%></td>
 
-                    %>
+                                    <td><% out.print("S/." + temp.getProducto_precio());%></td>
 
-                    <tr>
-                        <td> <input hidden="" value="<%=temp.getProducto_id()%>" /> </td>
+                                    <td>
+                                        <a href="ver_producto.jsp?id=<%=temp.getProducto_id()%>" class="btn">
+                                            <img src="../imagenes/ver_producto.png" width="45" height="45" alt="icono_borrar"/>
+                                        </a>
 
-                        <td><%=temp.getProducto_id()%></td>
+                                    </td>
 
-                       
+                                    <td>
+                                        <a href="ver_producto.jsp?id=<%=temp.getProducto_id()%>" class="btn">
+                                            <img src="../imagenes/icono_borrar.png" width="45" height="45" alt="icono_ver"/>
+                                        </a>
 
-                        <td><%=temp.getProducto_nombre()%></td>
+                                    </td>
+                                </tr>
+                                <%}
+                                    }%>
+                            </tbody>
+                        </table>   
 
-                        <td><%=temp.getProducto_caracteristica()%></td>
+                    </div>
 
-                        <td><%=temp.getProducto_descripcion()%></td>
-
-                        <td><%=temp.getCategoria_nombre()%></td>
-
-                        <td><%=temp.getProducto_peso()%><%=temp.getProducto_tipo_peso()%></td>
-
-                        <td><% out.print("S/." + temp.getProducto_precio());%></td>
-
-                        <td>
-                            <a href="ver_producto.jsp?id=<%=temp.getProducto_id()%>" class="btn">
-                                <img src="../imagenes/ver_producto.png" width="45" height="45" alt="icono_borrar"/>
-                            </a>
-
-                        </td>
-
-                       <!-- <td>
-                            <a href="editar_producto.jsp?id=<%=temp.getProducto_id()%>" class="btn">
-                                <img src="../imagenes/editar_producto.png" width="45" height="45" alt="icono_ver"/>
-                            </a>
-
-                        </td>-->
-                    </tr>
-                    <%}%>
-                </tbody>
-            </table>   
-
+                </div>
+            </div>
+            <a href="registrar_producto.jsp"><button type="button" class="btn btn-danger">NUEVO</button></a> 
         </div>
 
-    </div>
 
 
 
+        <br><br>
 
 
-
-
-</body>
+    </body>
 </html>

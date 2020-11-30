@@ -7,6 +7,7 @@ package logica;
 
 import datos.vehiculo;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 /**
  *
@@ -17,6 +18,17 @@ public static ArrayList Lvehiculos= new ArrayList();
     public static int estado;
     private conexion con2 = new conexion();
 
+    public String hallar_fecha() {
+
+        Calendar fecha = Calendar.getInstance();
+        int anio_actual = fecha.get(Calendar.YEAR);
+        int mes_actual = fecha.get(Calendar.MONTH) + 1;
+        int dia_actual = fecha.get(Calendar.DAY_OF_MONTH);
+
+        return anio_actual + "-" + mes_actual + "-" + dia_actual;
+
+    }
+    
     public void insertar(vehiculo temp) {
         try {
             /*
@@ -27,7 +39,7 @@ insert into vehiculo (vehiculo_placa,vehiculo_marca,vehiculo_modelo,vehiculo_cap
                     + "','" + temp.getVehiculo_marca()
                     + "','" + temp.getVehiculo_modelo()
                     + "','" + temp.getVehiculo_capCarga()
-                    + "','" + temp.getVehiculo_fecha_registro() 
+                    + "','" + hallar_fecha() 
                     + "')");
         } catch (Exception e) {
         }
@@ -41,11 +53,13 @@ insert into vehiculo (vehiculo_placa,vehiculo_marca,vehiculo_modelo,vehiculo_cap
         try {
             while (con2.getRs().next()) {
                 vehiculo temp1 = new vehiculo(Integer.parseInt(con2.getRs().getString(1)),
+                        Integer.parseInt(con2.getRs().getString(7)),
                         con2.getRs().getString(2),
                         con2.getRs().getString(3),
                         con2.getRs().getString(4),
                         con2.getRs().getString(5),
                         con2.getRs().getString(6)
+                        
                         );
                 Lvehiculos.add(temp1);
             }
@@ -70,7 +84,7 @@ WHERE vehiculo_id = '3'*/
                     + "', vehiculo_capCarga='"
                     + temp.getVehiculo_capCarga()
                     + "', vehiculo_fecha_registro='"
-                    + temp.getVehiculo_fecha_registro()
+                    + hallar_fecha()
                     + "' WHERE vehiculo_id = '"
                     + temp.getVehiculo_id()
                     + "'");
@@ -108,6 +122,26 @@ WHERE vehiculo_id = '3'*/
         }
     }
    
+      
+ 
    
+      //INSERTAR VEHICULO A ENCOMIENDA
+      /*create trigger cambio_estado_vehiculo	
+on encomienda for insert 
+as 
+set 
+nocount on 
+update vehiculo set vehiculo_estado=1 from inserted
+inner join vehiculo on vehiculo.vehiculo_id = inserted.encomienda_vehiculo*/
+      
+      
+      //ELIMINAR ENCOMIENDA
+      /*create trigger cambio_estado_vehiculo_borrarEn	
+on encomienda for delete 
+as 
+set 
+nocount on 
+update vehiculo set vehiculo_estado=0 from deleted
+inner join vehiculo on vehiculo.vehiculo_id = deleted.encomienda_vehiculo*/
    
 }

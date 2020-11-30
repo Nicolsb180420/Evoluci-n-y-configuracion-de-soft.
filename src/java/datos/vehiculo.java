@@ -18,10 +18,37 @@ vehiculo_capCarga	varchar(50)	Unchecked
 vehiculo_fecha_registro	varchar(50)	Unchecked
 		Unchecked*/
     
-    private int vehiculo_id;
+    private int vehiculo_id,estado;
     private String vehiculo_placa,vehiculo_marca,vehiculo_modelo,vehiculo_capCarga,vehiculo_fecha_registro;
 
     public vehiculo() {
+    }
+
+    public vehiculo(int vehiculo_id, int estado, String vehiculo_placa, String vehiculo_marca, String vehiculo_modelo, String vehiculo_capCarga, String vehiculo_fecha_registro) {
+        this.vehiculo_id = vehiculo_id;
+        this.estado = estado;
+        this.vehiculo_placa = vehiculo_placa;
+        this.vehiculo_marca = vehiculo_marca;
+        this.vehiculo_modelo = vehiculo_modelo;
+        this.vehiculo_capCarga = vehiculo_capCarga;
+        this.vehiculo_fecha_registro = vehiculo_fecha_registro;
+    }
+    
+
+    public vehiculo(int vehiculo_id, String vehiculo_placa, String vehiculo_marca, String vehiculo_modelo, String vehiculo_capCarga) {
+        this.vehiculo_id = vehiculo_id;
+        this.vehiculo_placa = vehiculo_placa;
+        this.vehiculo_marca = vehiculo_marca;
+        this.vehiculo_modelo = vehiculo_modelo;
+        this.vehiculo_capCarga = vehiculo_capCarga;
+    }
+
+    public vehiculo(String vehiculo_placa, String vehiculo_marca, String vehiculo_modelo, String vehiculo_capCarga) {
+        this.vehiculo_placa = vehiculo_placa;
+        this.vehiculo_marca = vehiculo_marca;
+        this.vehiculo_modelo = vehiculo_modelo;
+        this.vehiculo_capCarga = vehiculo_capCarga;
+       
     }
 
     public vehiculo(int vehiculo_id, String vehiculo_placa, String vehiculo_marca, String vehiculo_modelo, String vehiculo_capCarga, String vehiculo_fecha_registro) {
@@ -33,12 +60,19 @@ vehiculo_fecha_registro	varchar(50)	Unchecked
         this.vehiculo_fecha_registro = vehiculo_fecha_registro;
     }
 
-    public vehiculo(String vehiculo_placa, String vehiculo_marca, String vehiculo_modelo, String vehiculo_capCarga, String vehiculo_fecha_registro) {
-        this.vehiculo_placa = vehiculo_placa;
-        this.vehiculo_marca = vehiculo_marca;
-        this.vehiculo_modelo = vehiculo_modelo;
-        this.vehiculo_capCarga = vehiculo_capCarga;
-        this.vehiculo_fecha_registro = vehiculo_fecha_registro;
+    public vehiculo(int vehiculo_id, int estado) {
+        this.vehiculo_id = vehiculo_id;
+        this.estado = estado;
+    }
+    
+    
+
+    public int getEstado() {
+        return estado;
+    }
+
+    public void setEstado(int estado) {
+        this.estado = estado;
     }
 
     

@@ -14,20 +14,13 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Quimica Kazvel</title>
+        <link rel="icon" type="image/png" href="../imagenes/logo.png " />
 
         <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
 
 
         <link rel="stylesheet" type="text/css" href="../diceno/css/menu_principal.css">
-
-        <%-- despegable movivble y adaptable--%>
-
-
-        <%-- problemas :C borra esto amigo o no ? 
-       <link rel="stylesheet" href="../diceno/css/css_des/app.css"/> 
-        --%>
-
 
         <link href="../diceno/css/navbar.css" rel="stylesheet">
 
@@ -210,8 +203,7 @@
 
         </div>
 
-        <br><br>
-
+        <br>
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -309,6 +301,14 @@
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/stock.png" width="80" height="85" alt="deshumedecedor"/></div> 
                                 <div><h5>Actualizar stock</h5></div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 col-xs-12 col-sm-12">
+                        <a href="../stock/reporte_stock_actual.jsp">
+                            <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
+                                <div><img src="../imagenes/reporte de pedidos.png" width="80" height="85" alt="deshumedecedor"/></div> 
+                                <div><h5>Reporte stock</h5></div>
                             </div>
                         </a>
                     </div>

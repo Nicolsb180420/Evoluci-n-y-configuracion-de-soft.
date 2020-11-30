@@ -13,9 +13,10 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Registrar vehiculo</title>
+       
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Actualizar vehiculo</title>
+        <link rel="icon" type="image/png" href="../imagenes/logo.png " />
         <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
 
 
@@ -283,12 +284,7 @@
                             </div>
                             <input type="text" class="form-control" placeholder="CapCarga"   name="txtcarga" value="<%out.print(carga); %>">
                         </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Fecha Registro</span>
-                            </div>
-                            <input type="date" class="form-control" placeholder="Registro" name="txtregistro" value="<%out.print(fecha); %>">
-                        </div>
+                      
                     </div>
                     <div class="col-6">
 

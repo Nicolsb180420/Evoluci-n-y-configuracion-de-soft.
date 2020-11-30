@@ -50,15 +50,26 @@ public class logica_encomienda {
             while (con.getRs().next()) {
                 encomienda temp1 = new encomienda(Integer.parseInt(con.getRs().getString(1)),
                         Integer.parseInt(con.getRs().getString(2)),
-                        con.getRs().getString(2),
-                        Integer.parseInt(con.getRs().getString(7)),
-                        con.getRs().getString(8),
+                        con.getRs().getString(7),
+                        Integer.parseInt(con.getRs().getString(8)),
                         con.getRs().getString(3),
                         con.getRs().getString(4),
-                        con.getRs().getString(5)
+                        con.getRs().getString(5),
+                        con.getRs().getString(6)
                        );
                 logica_encomienda.add(temp1);
             }
+        } catch (Exception e) {
+        }
+    }
+    
+    
+    public void actualizar_estado(encomienda temp) {
+        try {
+            con.getSt().executeUpdate(
+                    "UPDATE encomienda  SET encomienda_estado ="+temp.getEncomienda_distrito()
+                    + "    WHERE encomienda_id = "+temp.getEncomienda_vehiculo()+";"
+            );
         } catch (Exception e) {
         }
     }

@@ -16,8 +16,9 @@
     <head>
         <meta charset="UTF-8">
         <title>Crud pedidos</title>
+        <link rel="icon" type="image/png" href="../imagenes/logo.png " />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+
         <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
 
 
@@ -241,83 +242,84 @@
         <br><br>
         <div class="container">
             <div class="row table-responsive">
-            <table class="display" id="tabla_alumno">
-                <thead style="background: #F38500;">
-                    <tr class="text-center">
+                <table class="display" id="tabla_alumno">
+                    <thead style="background: #F38500;">
+                        <tr class="text-center">
 
-                                    <th>ID</th>
-                                    <th>NOMBRE</th>
-                                    <th>APELLIDO</th>
-                                    <th>TELEFONO</th>
-                                    <th>DISTRITO</th>
-                                    <th>DIRECCION</th>
-                                    <th>FECHA PEDIDO</th>
-                                    <th>PAGO</th>
-                                    <th>ESTADO</th>
-                                    <th></th>
-                                    <th></th>
-                                </tr>
-                            </thead>
+                            <th>ID</th>
+                            <th>NOMBRE</th>
+                            <th>APELLIDO</th>
+                            <th>TELEFONO</th>
+                            <th>DISTRITO</th>
+                            <th>DIRECCION</th>
+                            <th>FECHA PEDIDO</th>
+                            <th>PAGO</th>
+                            <th>ESTADO</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
 
-                            <tbody>
-                                <%
-                                    pedido temp_listap = new pedido();
-                                    logica_pedido con = new logica_pedido();
+                    <tbody>
+                        <%
+                            pedido temp_listap = new pedido();
+                            logica_pedido con = new logica_pedido();
 
-                                    con.VerPedidosDeClientes();
-                                    for (int i = 0; i < logica_pedido.logica_pedido.size(); i++) {
-                                        temp_listap = (pedido) logica_pedido.logica_pedido.get(i);
+                            con.VerPedidosDeClientes();
+                            for (int i = 0; i < logica_pedido.logica_pedido.size(); i++) {
+                                temp_listap = (pedido) logica_pedido.logica_pedido.get(i);
+                                if (temp_listap.getPedido_estado() == 0 || temp_listap.getPedido_estado() == 1) {
+                        %>
 
-                                %>
+                        <tr>
 
-                                <tr>
+                            <td><%=temp_listap.getPedido_id()%></td>
 
-                                    <td><%=temp_listap.getPedido_id()%></td>
+                            <td><%=temp_listap.getCliente_nombre()%></td>
 
-                                    <td><%=temp_listap.getCliente_nombre()%></td>
+                            <td><%=temp_listap.getCliente_apellido()%></td>
 
-                                    <td><%=temp_listap.getCliente_apellido()%></td>
+                            <td><%=temp_listap.getPedido_telefono()%></td>
 
-                                    <td><%=temp_listap.getPedido_telefono()%></td>
+                            <td><%=temp_listap.getDesdist()%></td>
 
-                                    <td><%=temp_listap.getDesdist()%></td>
+                            <td><%=temp_listap.getPedido_ubicacion()%></td>
 
-                                    <td><%=temp_listap.getPedido_ubicacion()%></td>
+                            <td><%=temp_listap.getPedido_fecha()%></td>
 
-                                    <td><%=temp_listap.getPedido_fecha()%></td>
+                            <td><% out.print("S/." + temp_listap.getPedido_pago());%></td>
 
-                                    <td><% out.print("S/." + temp_listap.getPedido_pago());%></td>
-
-                                    <td><%=temp_listap.getPedido_estado()%></td>
-                                    <td>
-
-
-                                        <a href="ver_pedido.jsp?id=<%=temp_listap.getPedido_id()%>">
-                                            <center>    <img src="../imagenes/icono_ver.png" width="30" height="30" alt="ver"/>  </center>
-                                        </a>
+                            <td><%=temp_listap.getPedido_estado()%></td>
+                            <td>
 
 
-                                    </td>
-                                    <td>
+                                <a href="ver_pedido.jsp?id=<%=temp_listap.getPedido_id()%>">
+                                    <center>    <img src="../imagenes/icono_ver.png" width="30" height="30" alt="ver"/>  </center>
+                                </a>
 
 
-                                        <form action="cambiar_estado.jsp">
-                                            <input  name="id_pedido" value="<%=temp_listap.getPedido_id()%>" hidden />
-                                            <input  name="cambiar_estado" value="<%=temp_listap.getPedido_estado()%>" hidden />  
-                                            <center><button type="submit" class="btn"><img src="../imagenes/icono_cambiar.png" width="30" height="25" alt="ver"/></button></center>
-                                        </form> 
+                            </td>
+                            <td>
 
 
-                                    </td>
+                                <form action="cambiar_estado.jsp">
+                                    <input  name="id_pedido" value="<%=temp_listap.getPedido_id()%>" hidden />
+                                    <input  name="cambiar_estado" value="<%=temp_listap.getPedido_estado()%>" hidden />  
+                                    <center><button type="submit" class="btn"><img src="../imagenes/icono_cambiar.png" width="30" height="25" alt="ver"/></button></center>
+                                </form> 
 
-                                </tr>
-                                <%}%>
-                            </tbody>
-                        </table>   
 
-                    </div>
-                </div>
-                  
+                            </td>
+
+                        </tr>
+                        <%}
+                                    }%>
+                    </tbody>
+                </table>   
+
+            </div>
+        </div>
+
 
 
 

@@ -1,8 +1,3 @@
-<%-- 
-    Document   : operador_registrar
-    Created on : 28/11/2020, 07:19:13 PM
-    Author     : bryan
---%>
 
 <%@page import="logica.logica_capsula_trabajador"%>
 <%@page import="datos.capsula_trabajador"%>
@@ -21,6 +16,11 @@
     </head>
     <body>
         <%
+            int trabajador_id;
+            HttpSession sesion_trabajadro = request.getSession();
+
+            trabajador_id = Integer.parseInt(sesion_trabajadro.getAttribute("trabajador_id").toString());
+
             int id_distrito;
 
             vehiculo temp2 = new vehiculo();
@@ -40,8 +40,6 @@
             id_distrito = Integer.parseInt(request.getParameter("cmbdistrito"));
 
             out.print(temp2.getVehiculo_id());
-
-           
 
             /*
             
@@ -116,15 +114,38 @@ end
                 //    out.print(temp_ct.getCapsula_trabajador_id() + " " + temp_ct.getCapsula_trabajador_repartidor() + " " + temp_ct.getCapsula_trabajador_trabajador() + "<br>");
 
             }
- temp_en = new encomienda(temp2.getVehiculo_id(), id_distrito);
- con_en.insertar_encomienda(temp_en, consulta_trabajador, consulta_pedido);
+            temp_en = new encomienda(temp2.getVehiculo_id(), id_distrito);
+
+            con_en.insertar_encomienda(temp_en, consulta_trabajador, consulta_pedido);
 
         %>
 
 
 
 
+        <%//borrar capsulas 
+        /*
 
+
+             */
+
+         /*
+        create trigger cambio_estado_vehiculo	
+        on encomienda for insert 
+        as 
+        set 
+        nocount on 
+        update vehiculo set vehiculo_estado=1 from inserted
+        inner join vehiculo on vehiculo.vehiculo_id = inserted.encomienda_vehiculo
+
+             */
+            con_cp.eliminar_capsula(trabajador_id);
+            con_ct.eliminar_capsula(trabajador_id);
+
+            response.sendRedirect("registrar_encomienda.jsp");
+
+
+        %>
 
 
 

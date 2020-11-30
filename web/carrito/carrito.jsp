@@ -15,7 +15,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Carrito de compras</title>
+        <link rel="icon" type="image/png" href="../imagenes/logo.png " />
 
         <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
 

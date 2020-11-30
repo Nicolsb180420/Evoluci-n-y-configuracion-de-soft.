@@ -191,7 +191,8 @@ where trabajador_id=5*/
     
    
     public void consultar_repartidor() {
-        con.consulta("select trabajador_id,trabajador_nombre,trabajador_apellido,trabajador_sexo,trabajador_tipo_identidad,trabajador_numero_identidad,trabajador_telefono from trabajador where trabajador_puesto = 4");
+        con.consulta(/*"select trabajador_id,trabajador_nombre,trabajador_apellido,trabajador_sexo,trabajador_tipo_identidad,trabajador_numero_identidad,trabajador_telefono from trabajador where trabajador_puesto = 4"*/
+                 "select trabajador_id,trabajador_nombre,trabajador_apellido,trabajador_sexo,trabajador_tipo_identidad,trabajador_numero_identidad,trabajador_telefono from trabajador where trabajador_puesto = 3");
         logica_trabajador.clear();
         try {
             while (con.getRs().next()) {

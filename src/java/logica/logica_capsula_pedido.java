@@ -85,6 +85,11 @@ public void ver_capsula_pedido() {
         } catch (Exception e) {}
     }
     
-
+public void eliminar_capsula(int d) {
+        try {
+            con.getSt().executeUpdate("DELETE FROM capsula_pedido WHERE capsula_pedido_trabajador ='" + d + "'");
+        } catch (Exception e) {
+        }
+    }
 
 }

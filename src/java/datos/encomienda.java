@@ -76,8 +76,8 @@ public class encomienda {
         this.desdep = desdep;
     }
     
-    /*insertar*/
-    public encomienda(int encomienda_vehiculo, int encomienda_distrito) {
+    /*insertar y cambiar estado*/
+   public encomienda(int encomienda_vehiculo, int encomienda_distrito) {
         this.encomienda_vehiculo = encomienda_vehiculo;
         this.encomienda_distrito = encomienda_distrito;
     }
@@ -89,6 +89,8 @@ public class encomienda {
         this.encomienda_fecha = encomienda_fecha;
         this.encomienda_estado = encomienda_estado;
     }
+
+ 
 
     public vehiculo getFK_vehiculo() {
         return FK_vehiculo;

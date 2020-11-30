@@ -21,7 +21,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Quimica Kazvel</title>
+        <link rel="icon" type="image/png" href="../imagenes/logo.png " />
 
         <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
 
@@ -231,7 +232,7 @@
 
 
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Registrarse</a>
+                                    <a class="dropdown-item" href="../cliente/Registrar usuario.jsp">Registrarse</a>
                                     <a class="dropdown-item" href="#">¿Olvidaste tu contraseña?</a>
 
                                 </div>
@@ -247,7 +248,7 @@
                                 con_car.validar_exixtencia(cliente_id);
                             %>
                             <a href="../carrito/carrito.jsp">
-                            <img src="../imagenes/carrito.png" width="50" height="50" alt="carrito"/>
+                                <img src="../imagenes/carrito.png" width="50" height="50" alt="carrito"/>
                             </a>
                             <label class="h3" ><%out.print("(" + logica_carrito.logica_carrito.size() + ")");%></label>
 
@@ -424,13 +425,13 @@
 
                     for (int i = 0; i < logica_producto.logica_producto.size(); i++) {
                         p = (producto) logica_producto.logica_producto.get(i);
-
+                       
                 %>   
 
 
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
 
-                         <img src="<% out.print("../imagenes/productos/" + p.getProducto_imagen().substring(47, p.getProducto_imagen().length()));
+                    <img src="<% out.print("../imagenes/productos/" + p.getProducto_imagen().substring(47, p.getProducto_imagen().length()));
                              /*81*/ /*out.print("../imagenes/productos/" + p.getProducto_imagen().substring(98, p.getProducto_imagen().length()));*/%>" width="auto" height="150"  class="card-body-top" />
 
 
@@ -443,7 +444,8 @@
                         <a href="../info_producto/producto.jsp?id=<%=p.getProducto_id()%>" class="btn btn-danger">mas informacion</a>
                     </div>
                 </div>
-                <%}%>      
+                <%
+                    }%>      
 
 
 
@@ -477,7 +479,7 @@
 
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
 
-                         <img src="<% out.print("../imagenes/productos/" + l.getProducto_imagen().substring(47, l.getProducto_imagen().length()));
+                    <img src="<% out.print("../imagenes/productos/" + l.getProducto_imagen().substring(47, l.getProducto_imagen().length()));
                              /*81*/ /*out.print("../imagenes/productos/" + l.getProducto_imagen().substring(98, l.getProducto_imagen().length()));*/%>" width="auto" height="150"  class="card-body-top" />
 
 

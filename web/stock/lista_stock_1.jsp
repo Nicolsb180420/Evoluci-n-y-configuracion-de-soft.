@@ -13,9 +13,11 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8">
-        <title>Stock</title>
+        <title>Actualizar stock</title>
+        <link rel="icon" type="image/png" href="../imagenes/logo.png " />
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        
 
         <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
 

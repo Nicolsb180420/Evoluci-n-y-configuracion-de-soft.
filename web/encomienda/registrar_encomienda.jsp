@@ -22,8 +22,9 @@
     <head>
         <meta charset="UTF-8">
         <title>Registro encomienda</title>
+        <link rel="icon" type="image/png" href="../imagenes/logo.png " />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+
         <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
 
 
@@ -105,9 +106,9 @@
             trabajador_id = sesion_trabajadro.getAttribute("trabajador_id").toString();
             String puesto = sesion_trabajadro.getAttribute("trabajador_puesto").toString();%>
 
-            <br><br>
+        <br><br>
 
-<div class="container-fluid">
+        <div class="container-fluid">
 
 
             <!-- Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop -->
@@ -252,6 +253,29 @@
 
 
         </div>
+
+
+        <%
+            vehiculo temp_v = new vehiculo();
+            logica_vehiculo con_v = new logica_vehiculo();
+
+            con_v.vehiculo_disponible();
+
+            if (logica_vehiculo.Lvehiculos.size() == 0) {
+        %>
+        <div class="alert alert-danger" role="alert">
+            <h4 class="alert-heading">ERROR!</h4>
+            <p>actual mente no se encuentra vehiculos disponibles para los pedidos </p>
+            <hr>
+            <p class="mb-0">AVISO : no se podra registrar ninguna encomienda </p>
+        </div>             
+
+        <%
+            } else {
+
+            }
+
+        %>                           
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -276,8 +300,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <%
-                                    trabajador temp_tra = new trabajador();
+                                <%                                    trabajador temp_tra = new trabajador();
                                     logica_trabajador con_tra = new logica_trabajador();
 
                                     con_tra.consultar_repartidor();
@@ -336,7 +359,7 @@
                                         logica_capsula_trabajador con_ct = new logica_capsula_trabajador();
 
                                         con_ct.mostrar_capsula_trabajador(trabajador_id);
-    //out.print(logica_capsula_trabajador.logica_capsula_trabajador.size());
+                                        //out.print(logica_capsula_trabajador.logica_capsula_trabajador.size());
                                         for (int i = 0; i < logica_capsula_trabajador.logica_capsula_trabajador.size(); i++) {
                                             temp_ct = (capsula_trabajador) logica_capsula_trabajador.logica_capsula_trabajador.get(i);
 

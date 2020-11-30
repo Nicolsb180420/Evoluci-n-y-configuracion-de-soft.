@@ -16,8 +16,11 @@
     <head>
         <meta charset="UTF-8">
         <title>Registrar trabajador</title>
+       
+        <link rel="icon" type="image/png" href="../imagenes/logo.png " />
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        
 
         <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
 
@@ -232,7 +235,7 @@
                 con.consultar();
 
                 String nombre = null, apellido = null, sexo = null, fechanac = null, tipident = null,
-                        numident = null, telefono = null, contacto = null, telcontacto = null, puesto = null, ingreso = null,
+                        numident = null, telefono = null, contacto = null, telcontacto = null, puesto1 = null, ingreso = null,
                         correo = null, contra = null;
                 int login_id;
 
@@ -248,7 +251,7 @@
                         telefono = temp.getTrabajador_telefono();
                         contacto = temp.getTrabajador_contacto();
                         telcontacto = temp.getTrabajador_contacto_telefono();
-                        puesto = temp.getPuesto_nombre();
+                        puesto1 = temp.getPuesto_nombre();
                         ingreso = temp.getTrabajador_dia();
                         login_id = temp.getLogin_id();
                         correo = temp.getLogin_correo();
@@ -321,14 +324,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">Puesto</span>
                             </div>
-                            <input type="text" class="form-control" name="txt_puesto" value="<%=puesto%>" disabled="">
-                        </div>
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Puesto</span>
-                            </div>
-                            <input type="text" class="form-control" name="txt_puesto" value="<%=puesto%>" disabled="">
+                            <input type="text" class="form-control" name="txt_puesto" value="<%=puesto1%>" disabled="">
                         </div>
 
                     </div>

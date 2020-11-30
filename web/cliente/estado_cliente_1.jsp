@@ -17,7 +17,8 @@
 
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Quimica Kazvel</title>
+        <link rel="icon" type="image/png" href="../imagenes/logo.png " />
 
         <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
 
@@ -169,7 +170,7 @@
                     //out.print("no guardo ; esta bien niño lo lograste pero estas seguro de hacer esto ? ");
                 }
 
-                // response.sendRedirect("Registrar usuario.jsp");
+                 response.sendRedirect("../menu_principal/login.jsp");
             }
         %> 
 
