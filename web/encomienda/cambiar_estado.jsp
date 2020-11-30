@@ -5,6 +5,8 @@
 --%>
 
 
+<%@page import="logica.logica_vehiculo"%>
+<%@page import="datos.vehiculo"%>
 <%@page import="datos.encomienda"%>
 <%@page import="logica.logica_encomienda"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -28,7 +30,11 @@
             encomienda temp = new encomienda();
             logica_encomienda con = new logica_encomienda();
             
-          
+            
+            vehiculo temp_v = new vehiculo();
+            logica_vehiculo con_v = new logica_vehiculo();
+            
+          out.print(id_vehiculo+"<br>");
 
             if (logica_encomienda.estado == 1) {
                 out.print("estado apagado");
@@ -36,7 +42,7 @@
                 temp = new encomienda(id_encomienda, 1);
             
                 con.actualizar_estado(temp);
-             
+             con_v.vehiculo_libre(id_vehiculo);
                response.sendRedirect("reporte_encomienda.jsp");
             }
 
@@ -44,7 +50,9 @@
                 out.print("estado prendido");
                 temp = new encomienda(id_encomienda, 0);
                 con.actualizar_estado(temp);
+                  con_v.vehiculo_ocupado(id_vehiculo);
                response.sendRedirect("reporte_encomienda.jsp");
+             
 
             }
 

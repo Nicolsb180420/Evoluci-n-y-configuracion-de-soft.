@@ -52,8 +52,6 @@
     </head>
     <body>
        <%
-       
-           
            
               HttpSession sesion = request.getSession();
                                 sesion.setAttribute("cliente_id","NN");

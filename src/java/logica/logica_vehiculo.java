@@ -144,4 +144,28 @@ nocount on
 update vehiculo set vehiculo_estado=0 from deleted
 inner join vehiculo on vehiculo.vehiculo_id = deleted.encomienda_vehiculo*/
    
+      
+      
+      
+       public void vehiculo_ocupado(int id_vehiculo) {
+        try {
+            con2.getSt().executeUpdate(
+                    "UPDATE vehiculo  SET vehiculo_estado = 1"
+                    + "    WHERE vehiculo_id = "+id_vehiculo+";"
+            );
+        } catch (Exception e) {
+        }
+    }
+       
+       
+        public void vehiculo_libre(int id_vehiculo) {
+        try {
+            con2.getSt().executeUpdate(
+                    "UPDATE vehiculo  SET vehiculo_estado = 0"
+                    + "    WHERE vehiculo_id = "+id_vehiculo+";"
+            );
+        } catch (Exception e) {
+        }
+    }
+      
 }

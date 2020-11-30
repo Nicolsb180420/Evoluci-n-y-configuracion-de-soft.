@@ -271,9 +271,11 @@
         </div>             
 
         <%
+          //  int sin_carro =1;
+            
             } else {
 
-            }
+            
 
         %>                           
         <div class="container">
@@ -302,9 +304,12 @@
                             <tbody>
                                 <%                                    trabajador temp_tra = new trabajador();
                                     logica_trabajador con_tra = new logica_trabajador();
+                                   
 
                                     con_tra.consultar_repartidor();
-
+                                    
+                                    
+                                    
                                     for (int i = 0; i < logica_trabajador.logica_trabajador.size(); i++) {
                                         temp_tra = (trabajador) logica_trabajador.logica_trabajador.get(i);
 
@@ -330,8 +335,9 @@
                     </div>
                 </div>
             </div>
+                             
 
-            <div class="container">
+          
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
@@ -640,7 +646,7 @@
 
 
 
-
+<%}%>
 
     </body>
 </html>

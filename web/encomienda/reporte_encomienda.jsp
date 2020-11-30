@@ -4,6 +4,7 @@
     Author     : Nicol Samanamud 
 --%>
 
+<%@page import="datos.capsula_trabajador"%>
 <%@page import="logica.logica_encomienda"%>
 <%@page import="datos.encomienda"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -260,6 +261,8 @@
                                 <%
                                     encomienda temp = new encomienda();
                                     logica_encomienda con = new logica_encomienda();
+                                    
+                                   
 
                                     con.consultar();
 
@@ -290,7 +293,8 @@
 
                                         <form action="cambiar_estado.jsp">
                                             <input  name="id_encomienda" value="<%=temp.getEncomienda()%>" hidden />
-                                            <input  name="id_vehiculo" value="<%=temp.getVehiculo_id() %>" hidden />
+                                            <input  name="id_vehiculo" value="<%=temp.getEncomienda_vehiculo() %>" hidden />
+                                            
                                             <input  name="cambiar_estado" value="<%=temp.getEncomienda_estado()%>" hidden />  
                                             <center><button type="submit" class="btn"><img src="../imagenes/icono_cambiar.png" width="30" height="25" alt="ver"/></button></center>
                                         </form> 

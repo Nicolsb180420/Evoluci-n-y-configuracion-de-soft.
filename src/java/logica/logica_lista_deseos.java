@@ -73,7 +73,8 @@ public class logica_lista_deseos {
         }
     }
 
-    /*create view masVendidos
+    /*
+create view masVendidos
 as
 select top 10
 producto_id, producto__nombre, producto_descripcion, producto_imagen,
@@ -84,6 +85,7 @@ where producto_id=lista_deseos_producto
 group by 
 producto_id, producto__nombre, producto_descripcion, producto_imagen
 order by cantidad desc*/
+    
     public void masVendidos() {
         con.consulta("select * from masVendidos");
         logica_lista_deseos.clear();
