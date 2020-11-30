@@ -135,6 +135,19 @@ lista_pedido_cantidad	int	Unchecked
         this.categoria_nombre = categoria_nombre;
         this.producto_imagen = producto_imagen;
     }
+
+    public lista_pedido(int lista_pedidos_id, int pedido_id, int pedido__cliente, String cliente_nombre, String cliente_apellido, int pedido_telefono, String desdist, String pedido_ubicacion, String pedido_fecha) {
+        this.lista_pedidos_id = lista_pedidos_id;
+        this.pedido_id = pedido_id;
+        this.pedido__cliente = pedido__cliente;
+        this.cliente_nombre = cliente_nombre;
+        this.cliente_apellido = cliente_apellido;
+        this.pedido_telefono = pedido_telefono;
+        this.desdist = desdist;
+        this.pedido_ubicacion = pedido_ubicacion;
+        this.pedido_fecha = pedido_fecha;
+    }
+
     
     
 

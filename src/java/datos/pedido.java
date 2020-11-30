@@ -101,7 +101,6 @@ public class pedido {
         this.pedido_distrito = pedido_distrito;
         this.pedido_ubicacion = pedido_ubicacion;
         this.pedido_pago = pedido_pago;
-
     }
     
     /* ver pedido*/

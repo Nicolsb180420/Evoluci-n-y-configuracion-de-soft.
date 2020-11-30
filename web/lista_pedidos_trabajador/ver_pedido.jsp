@@ -11,7 +11,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-      <head>
+    <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -84,7 +84,7 @@
                 cliente_id = sesion_trabajadro.getAttribute("trabajador_id").toString();
                 String puesto = sesion_trabajadro.getAttribute("trabajador_puesto").toString();
 
-               
+
             %>
 
 
@@ -243,23 +243,79 @@
             </div>
         </div>                       
         <%
+            pedido temp = new pedido();
+            logica_pedido con1 = new logica_pedido();
+
             lista_pedido temp_listap = new lista_pedido();
             logica_lista_pedido con = new logica_lista_pedido();
             int id_temp = Integer.parseInt(request.getParameter("id"));
 
             con.ver_lista_pedido(id_temp);
-
+            con1.ver_datos_cliente(id_temp);
         %>  
 
         <form action="Lista_pedidos_completos.jsp">
 
             <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="table-responsive">        
-                        <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
-                            <thead>
-                                <tr>
+                <div class="row">
+                    <%
+                        for (int i = 0; i < logica_pedido.logica_pedido.size(); i++) {
+                            temp = (pedido) logica_pedido.logica_pedido.get(i);
+
+                    %>
+
+                    <div class="col-sm-12 col-lg-6">
+
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" >Nombre</span>
+                            </div>
+                            <input type="text" class="form-control" value="<%=temp.getCliente_nombre()%>" disabled="">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Apellido</span>
+                            </div>
+                            <input type="text" class="form-control"  value="<%=temp.getCliente_apellido()%>" disabled="">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Telefono</span>
+                            </div>
+                            <input type="text" class="form-control"  value="<%=temp.getPedido_telefono()%>" disabled="">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Distrito</span>
+                            </div>
+                            <input type="text" class="form-control"  value="<%=temp.getDesdist()%>" disabled="">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Ubicacion</span>
+                            </div>
+                            <input type="text" class="form-control"  value="<%=temp.getPedido_ubicacion()%>" disabled="">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Fecha</span>
+                            </div>
+                            <input type="text" class="form-control"  value="<%=temp.getPedido_fecha()%>" disabled="">
+                        </div>
+                    </div>
+                    <%
+                        }
+                    %>       
+
+                    <div class="col-lg-12">
+                        <div class="table-responsive">        
+                            <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                                <thead>
+                                    <tr>
 
                                         <th>ID</th>
                                         <th>IMAGEN</th>

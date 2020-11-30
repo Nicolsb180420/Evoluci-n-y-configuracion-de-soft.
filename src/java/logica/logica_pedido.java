@@ -194,7 +194,28 @@ inner join distritos on distritos.id_distrito=pedido_distrito*/
    
      
      
-     
+     public void ver_datos_cliente(int pedido_id) {
+        con.consulta("select * from VistaPedidosComp where pedido_id="+pedido_id);
+        logica_pedido.clear();
+        try {
+            while (con.getRs().next()) {
+                pedido temp = new pedido(
+                        Integer.parseInt(con.getRs().getString(1)),
+                        Integer.parseInt(con.getRs().getString(2)),
+                        con.getRs().getString(3),
+                        con.getRs().getString(4),
+                        Integer.parseInt(con.getRs().getString(5)),
+                        con.getRs().getString(6),
+                        con.getRs().getString(7),
+                        Float.parseFloat(con.getRs().getString(9)),
+                        con.getRs().getString(8),
+                        Integer.parseInt(con.getRs().getString(10)));
+
+                logica_pedido.add(temp);
+            }
+        } catch (Exception e) {
+        }
+    }
      
      
    
