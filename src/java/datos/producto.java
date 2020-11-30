@@ -85,6 +85,14 @@ public class producto {
         this.producto_id = producto_id;
         this.producto_nombre = producto_nombre;
     }
+
+    public producto(int producto_id, String producto_nombre, String producto_descripcion, String producto_imagen, int producto_valoracion) {
+        this.producto_id = producto_id;
+        this.producto_nombre = producto_nombre;
+        this.producto_descripcion = producto_descripcion;
+        this.producto_imagen = producto_imagen;
+        this.producto_valoracion = producto_valoracion;
+    }
     
     
     

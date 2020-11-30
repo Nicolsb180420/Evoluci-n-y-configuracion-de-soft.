@@ -1,7 +1,7 @@
 <%-- 
     Document   : menu_principal_segundo
     Created on : 26/10/2020, 07:11:33 PM
-    Author     : bryan
+    Author     : Nicol Samanamud 
 --%>
 <%@page import="logica.logica_carrito"%>
 <%@page import="datos.carrito"%>
@@ -29,14 +29,6 @@
 
 
         <link rel="stylesheet" type="text/css" href="../diceno/css/menu_principal.css">
-
-        <%-- despegable movivble y adaptable--%>
-
-
-        <%-- problemas :C borra esto amigo o no ? 
-       <link rel="stylesheet" href="../diceno/css/css_des/app.css"/> 
-        --%>
-
 
         <link href="../diceno/css/navbar.css" rel="stylesheet">
 
@@ -110,6 +102,7 @@
 
 
                                 <div class="nav-primary">
+                                    <br>
                                     <%
                                         con1.consultarDep();
                                     %>
@@ -196,7 +189,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleDropdownFormPassword1">Contraseña :</label>
-                                            <input type="contra" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" name="contra">
+                                            <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" name="contra">
                                         </div>
                                         <div class="form-group">
                                             <div class="form-check">
@@ -215,7 +208,7 @@
 
 
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Registrarse</a>
+                                    <a class="dropdown-item" href="../cliente/Registrar usuario.jsp">Registrarse</a>
                                     <a class="dropdown-item" href="#">¿Olvidaste tu contraseña?</a>
 
                                 </div>
@@ -722,7 +715,7 @@
                         <a href="../Nosotros/Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
 
                         <br>
-                        <a href="../Nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDA  </a>   
+                        <a href="../Nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDAD  </a>   
                         <br>
 
                         <a href="../Nosotros/contacto.jsp"style="color: #000">CONTACTANOS</a> 

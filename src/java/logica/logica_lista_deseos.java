@@ -87,7 +87,7 @@ producto_id, producto__nombre, producto_descripcion, producto_imagen
 order by cantidad desc*/
     
     public void masVendidos() {
-        con.consulta("select * from masVendidos");
+        con.consulta("select TOP (9) * from masVendidos ORDER BY cantidad DESC");
         logica_lista_deseos.clear();
         try {
             while (con.getRs().next()) {
@@ -95,7 +95,8 @@ order by cantidad desc*/
                         Integer.parseInt(con.getRs().getString(1)),
                         con.getRs().getString(2),
                         con.getRs().getString(3),
-                        con.getRs().getString(4));
+                        con.getRs().getString(4),
+                Integer.parseInt(con.getRs().getString(6)));
                 logica_lista_deseos.add(temp1);
             }
         } catch (Exception e) {

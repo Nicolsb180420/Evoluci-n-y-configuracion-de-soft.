@@ -89,6 +89,17 @@ public class lista_deseos {
         this.producto_imagen = producto_imagen;
     }
 
+    public lista_deseos(int producto_id, String producto_nombre, String producto_descripcion, String producto_imagen, int producto_valoracion) {
+        this.producto_id = producto_id;
+        this.producto_nombre = producto_nombre;
+        this.producto_descripcion = producto_descripcion;
+        this.producto_imagen = producto_imagen;
+        this.producto_valoracion = producto_valoracion;
+    }
+    
+    
+    
+
     public lista_deseos(int lista_deseos_id, int producto_id, String producto_nombre, float producto_precio, String producto_descripcion, String categoria_nombre, String producto_imagen, int cliente_id) {
         this.lista_deseos_id = lista_deseos_id;
         this.producto_id = producto_id;

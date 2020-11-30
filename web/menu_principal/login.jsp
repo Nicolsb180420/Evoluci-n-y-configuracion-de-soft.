@@ -129,7 +129,8 @@
 
 
                                 <div class="nav-primary">
-                                    <%                                        con1.consultarDep();
+                                    <br>
+                                    <%  con1.consultarDep();
                                     %>
                                     <%
                                         for (int i = 0; i < logica_categoria.logica_categoria.size(); i++) {
@@ -213,7 +214,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleDropdownFormPassword1">Contraseña :</label>
-                                            <input type="contra" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" name="contra">
+                                            <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" name="contra">
                                         </div>
                                         <div class="form-group">
                                             <div class="form-check">
@@ -425,14 +426,14 @@
 
                     for (int i = 0; i < logica_producto.logica_producto.size(); i++) {
                         p = (producto) logica_producto.logica_producto.get(i);
-                       
+                        if (p.getProducto_valoracion() == 0) {
                 %>   
 
 
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
 
-                    <img src="<% out.print("../imagenes/productos/" + p.getProducto_imagen().substring(47, p.getProducto_imagen().length()));
-                             /*81*/ /*out.print("../imagenes/productos/" + p.getProducto_imagen().substring(98, p.getProducto_imagen().length()));*/%>" width="auto" height="150"  class="card-body-top" />
+                         <img src="<% out.print("../imagenes/productos/" + p.getProducto_imagen().substring(47, p.getProducto_imagen().length()));
+                        /*81*/ /*out.print("../imagenes/productos/" + p.getProducto_imagen().substring(98, p.getProducto_imagen().length()));*/%>" width="auto" height="150"  class="card-body-top" />
 
 
 
@@ -445,6 +446,7 @@
                     </div>
                 </div>
                 <%
+                        }
                     }%>      
 
 
@@ -473,14 +475,14 @@
 
                     for (int i = 0; i < logica_lista_deseos.logica_lista_deseos.size(); i++) {
                         l = (lista_deseos) logica_lista_deseos.logica_lista_deseos.get(i);
-
+                        if (l.getProducto_valoracion() == 0) {
                 %>   
 
 
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
 
-                    <img src="<% out.print("../imagenes/productos/" + l.getProducto_imagen().substring(47, l.getProducto_imagen().length()));
-                             /*81*/ /*out.print("../imagenes/productos/" + l.getProducto_imagen().substring(98, l.getProducto_imagen().length()));*/%>" width="auto" height="150"  class="card-body-top" />
+                         <img src="<% out.print("../imagenes/productos/" + l.getProducto_imagen().substring(47, l.getProducto_imagen().length()));
+                        /*81*/ /*out.print("../imagenes/productos/" + l.getProducto_imagen().substring(98, l.getProducto_imagen().length()));*/%>" width="auto" height="150"  class="card-body-top" />
 
 
                     <div class="card-body">
@@ -490,7 +492,8 @@
                         <a href="../info_producto/producto.jsp?id=<%=l.getProducto_id()%>" class="btn btn-danger">mas informacion</a>
                     </div>
                 </div>
-                <%}%>      
+                <%}
+                    }%>      
 
 
 

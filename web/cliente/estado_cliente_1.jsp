@@ -4,6 +4,8 @@
     Author     : Nicol Samanamud 
 --%>
 
+<%@page import="datos.categoria"%>
+<%@page import="logica.logica_categoria"%>
 <%@page import="logica.logica_login"%>
 <%@page import="datos.login"%>
 <%@page import="datos.cliente"%>
@@ -25,13 +27,7 @@
 
         <link rel="stylesheet" type="text/css" href="../diceno/css/menu_principal.css">
 
-        <%-- despegable movivble y adaptable--%>
-
-
-        <%-- problemas :C borra esto amigo o no ? 
-       <link rel="stylesheet" href="../diceno/css/css_des/app.css"/> 
-        --%>
-
+        
 
         <link href="../diceno/css/navbar.css" rel="stylesheet">
 
@@ -162,6 +158,7 @@
                     );
 
                     con.insertar(temp);
+                    response.sendRedirect("../menu_principal/login.jsp");
                     //   out.print(request.getParameter("txtemail")+"<br>");
                     // out.print(request.getParameter("txtcontrasena1")+"<br>");
 
@@ -170,11 +167,9 @@
                     //out.print("no guardo ; esta bien niño lo lograste pero estas seguro de hacer esto ? ");
                 }
 
-                 response.sendRedirect("../menu_principal/login.jsp");
+                 
             }
         %> 
-
-
 
 
         <%
@@ -212,38 +207,43 @@
 
 
                                 <div class="nav-primary">
+                                    <br>
+                                    <%
+                                        categoria temp1 = new categoria();
+                                        logica.logica_categoria con1 = new logica_categoria();
+                                        con1.consultarDep();
+                                    %>
+                                    <%
+                                        for (int i = 0; i < logica_categoria.logica_categoria.size(); i++) {
+                                            temp1 = (categoria) logica_categoria.logica_categoria.get(i);
 
+                                    %>
                                     <center>
                                         <div class="btn-group" style="width:100%;">
-                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                categorias
-                                            </button>
-                                            <div class="dropdown-menu" style="width:100%;">
+                                            <a href="../busquedas/categorias.jsp?id=<%=temp1.getCategoria_id()%>" class="btn btn-outline-danger" style=" color: #ffffff"> 
+                                                <%=temp1.getCategoria_nombre()%>
+                                            </a>
 
-                                                <a class="dropdown-item" href="#" style="color: #000;" >Action</a>
-                                                <a class="dropdown-item" href="#">Another action</a>
-                                                <a class="dropdown-item" href="#">Something else here</a>
-                                                <div class="dropdown-divider"></div>
-                                                <a class="dropdown-item" href="#">Separated link</a>
-                                            </div>
+
+
                                         </div>
                                     </center>
-
+                                    <%}%>
 
 
 
                                     <center>
                                         <div class="btn-group" style="width:100%;   ">
-                                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                conocenos
+                                            <button type="button" class="btn btn-danger dropdown-toggle" style="background: #CE6100; color: #ffffff" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Conócenos
                                             </button>
                                             <div class="dropdown-menu" style="width:100%;">
 
 
-                                                <a class="dropdown-item" href="../Nosotros/Preguntas.jsp">PREGUNTAS FRECUENTES</a>
-                                                <a class="dropdown-item" href="../Nosotros/Politica.jsp">POLITICA PRIVACIDA </a>
+                                                <a class="dropdown-item" href="../Nosotros/Preguntas.jsp">Preguntas Frecuentes</a>
+                                                <a class="dropdown-item" href="../Nosotros/Politica.jsp">Politica de privacidad </a>
 
-                                                <a class="dropdown-item" href="../Nosotros/contacto.jsp">CONTACTANOS</a>
+                                                <a class="dropdown-item" href="../Nosotros/contacto.jsp">Contactanos</a>
                                             </div>
                                         </div>
                                     </center>
@@ -613,7 +613,7 @@
                         <a href="../Nosotros/Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
 
                         <br>
-                        <a href="../Nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDA  </a>   
+                        <a href="../Nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDAD  </a>   
                         <br>
 
                         <a href="../Nosotros/contacto.jsp"style="color: #000">CONTACTANOS</a> 

@@ -1,8 +1,4 @@
-<%-- 
-    Document   : controlador_comentario
-    Created on : 24/11/2020, 05:33:16 PM
-    Author     : bryan
---%>
+
 
 <%@page import="datos.comentario"%>
 <%@page import="logica.logica_comentario"%>

@@ -4,6 +4,8 @@
     Author     : Nicol Samanamud 
 --%>
 
+<%@page import="logica.logica_pedido"%>
+<%@page import="datos.pedido"%>
 <%@page import="logica.logica_lista_pedido"%>
 <%@page import="datos.lista_pedido"%>
 <%@page import="logica.logica_categoria"%>
@@ -23,13 +25,6 @@
 
 
         <link rel="stylesheet" type="text/css" href="../diceno/css/menu_principal.css">
-
-        <%-- despegable movivble y adaptable--%>
-
-
-        <%-- problemas :C borra esto amigo o no ? 
-       <link rel="stylesheet" href="../diceno/css/css_des/app.css"/> 
-        --%>
 
 
         <link href="../diceno/css/navbar.css" rel="stylesheet">
@@ -97,6 +92,7 @@
 
 
                                 <div class="nav-primary">
+                                    <br>
                                     <%
                                         con1.consultarDep();
                                     %>
@@ -182,7 +178,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleDropdownFormPassword1">Contraseña :</label>
-                                            <input type="contra" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" name="contra">
+                                            <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" name="contra">
                                         </div>
                                         <div class="form-group">
                                             <div class="form-check">
@@ -201,7 +197,7 @@
 
 
                                     <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Registrarse</a>
+                                    <a class="dropdown-item" href="../cliente/Registrar usuario.jsp">Registrarse</a>
                                     <a class="dropdown-item" href="#">¿Olvidaste tu contraseña?</a>
 
                                 </div>
@@ -278,18 +274,75 @@
             </div>
         </div>                       
         <%
+            pedido temp = new pedido();
+            logica_pedido con2 = new logica_pedido();
+            
             lista_pedido temp_listap = new lista_pedido();
             logica_lista_pedido con = new logica_lista_pedido();
             int id_temp = Integer.parseInt(request.getParameter("id"));
 
             con.ver_lista_pedido(id_temp);
-
+            con2.ver_datos_cliente(id_temp);
         %>  
 
         <form action="lista_solicitud.jsp">
 
             <div class="container">
                 <div class="row">
+                     <%
+                        for (int i = 0; i < logica_pedido.logica_pedido.size(); i++) {
+                            temp = (pedido) logica_pedido.logica_pedido.get(i);
+
+                    %>
+
+                    <div class="col-sm-12 col-lg-6">
+
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" >Nombre</span>
+                            </div>
+                            <input type="text" class="form-control" value="<%=temp.getCliente_nombre()%>" disabled="">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Apellido</span>
+                            </div>
+                            <input type="text" class="form-control"  value="<%=temp.getCliente_apellido()%>" disabled="">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Telefono</span>
+                            </div>
+                            <input type="text" class="form-control"  value="<%=temp.getPedido_telefono()%>" disabled="">
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 col-lg-6">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Distrito</span>
+                            </div>
+                            <input type="text" class="form-control"  value="<%=temp.getDesdist()%>" disabled="">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Ubicacion</span>
+                            </div>
+                            <input type="text" class="form-control"  value="<%=temp.getPedido_ubicacion()%>" disabled="">
+                        </div>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Fecha</span>
+                            </div>
+                            <input type="text" class="form-control"  value="<%=temp.getPedido_fecha()%>" disabled="">
+                        </div>
+                    </div>
+                    <%
+                        }
+                    %>    
+                    
+                    
                     <div class="col-12">
                         <div class="form-group">
 
@@ -421,7 +474,7 @@
                         <a href="../Nosotros/Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
 
                         <br>
-                        <a href="../Nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDA  </a>   
+                        <a href="../Nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDAD  </a>   
                         <br>
 
                         <a href="../Nosotros/contacto.jsp"style="color: #000">CONTACTANOS</a> 

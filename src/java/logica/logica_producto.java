@@ -13,14 +13,15 @@ import java.util.ArrayList;
  * @author bryan
  */
 public class logica_producto {
-        public static ArrayList logica_producto = new ArrayList();
+
+    public static ArrayList logica_producto = new ArrayList();
 
     public static int estado;
     private conexion con = new conexion();
-    
-     int r = 0;
 
- public int agregar(producto p) {
+    int r = 0;
+
+    public int agregar(producto p) {
         try {
             /* 
 create procedure insertar_producto
@@ -58,14 +59,13 @@ VALUES (@producto_id);*/
         }
         return r;
     }
- 
- 
- public int actualizar(producto p) {
+
+    public int actualizar(producto p) {
         try {
             /* 
 update producto set producto__nombre='prueba', producto_precio=8,producto_caracteristica='aaa',producto_descripcion='aaa',producto_categoria=2,producto_peso=9,producto_tipo_peso='Lt',
             producto_imagen='aaa' where producto_id=24
-*/
+             */
             con.getSt().executeUpdate("update producto set producto__nombre='"
                     + p.getProducto_nombre() + "', producto_precio="
                     + p.getProducto_precio() + ",producto_caracteristica='"
@@ -80,22 +80,21 @@ update producto set producto__nombre='prueba', producto_precio=8,producto_caract
         return r;
     }
 
-    
-     /*CONSULTAR*/
+    /*CONSULTAR*/
     public void consultarProducto(int id) {
-    /*select * from producto
-where producto_id=11;*/  
-    /*select * from producto
+        /*select * from producto
+where producto_id=11;*/
+ /*select * from producto
 inner join categoria on categoria.categoria_id=producto.producto_categoria
-where producto_id=11;*/  
-    
-        con.consulta("select * from producto inner join categoria on categoria.categoria_id=producto.producto_categoria where producto_id=" + id );
+where producto_id=11;*/
+
+        con.consulta("select * from producto inner join categoria on categoria.categoria_id=producto.producto_categoria where producto_id=" + id);
         logica_producto.clear();
         try {
             while (con.getRs().next()) {
                 producto temp1 = new producto(Integer.parseInt(con.getRs().getString(1)),
                         con.getRs().getString(2),
-                        Float.parseFloat(con.getRs().getString(3)) ,
+                        Float.parseFloat(con.getRs().getString(3)),
                         con.getRs().getString(4),
                         con.getRs().getString(5),
                         Integer.parseInt(con.getRs().getString(6)),
@@ -110,33 +109,31 @@ where producto_id=11;*/
         } catch (Exception e) {
         }
     }
-    
-    
+
     /*CONSULTAR*/
-    public void consultar() { 
+    public void consultar() {
         con.consulta("select producto_id,producto__nombre from producto");
         logica_producto.clear();
         try {
             while (con.getRs().next()) {
                 producto temp1 = new producto(Integer.parseInt(con.getRs().getString(1)),
                         con.getRs().getString(2)
-                       );
+                );
                 logica_producto.add(temp1);
             }
         } catch (Exception e) {
         }
     }
-    
-    
+
     /*CONSULTAR*/
-    public void consultarListaProductos() { 
+    public void consultarListaProductos() {
         con.consulta("select * from producto inner join categoria on producto_categoria=categoria_id");
         logica_producto.clear();
         try {
             while (con.getRs().next()) {
                 producto temp1 = new producto(Integer.parseInt(con.getRs().getString(1)),
                         con.getRs().getString(2),
-                        Float.parseFloat(con.getRs().getString(3)) ,
+                        Float.parseFloat(con.getRs().getString(3)),
                         con.getRs().getString(4),
                         con.getRs().getString(5),
                         Integer.parseInt(con.getRs().getString(6)),
@@ -151,15 +148,15 @@ where producto_id=11;*/
         } catch (Exception e) {
         }
     }
-    
-   public void ultimo_registro() {
-    /*select * from producto
-where producto_id=11;*/  
-    /*select * from producto
+
+    public void ultimo_registro() {
+        /*select * from producto
+where producto_id=11;*/
+ /*select * from producto
 inner join categoria on categoria.categoria_id=producto.producto_categoria
-where producto_id=11;*/  
-    
-        con.consulta("select top(12) producto_id,producto__nombre,producto_descripcion,producto_imagen from producto order by producto_id desc;");
+where producto_id=11;*/
+
+        con.consulta("select top(12) producto_id,producto__nombre,producto_descripcion,producto_imagen, producto_valoracion from producto order by producto_id desc;");
         logica_producto.clear();
         try {
             while (con.getRs().next()) {
@@ -167,17 +164,17 @@ where producto_id=11;*/
                         Integer.parseInt(con.getRs().getString(1)),
                         con.getRs().getString(2),
                         con.getRs().getString(3),
-                        
-                       con.getRs().getString(4));
+                        con.getRs().getString(4),
+                        Integer.parseInt(con.getRs().getString(5)));
                 logica_producto.add(temp1);
             }
         } catch (Exception e) {
         }
     }
-    
+
     public void mostrarCategorias(int id) {
-   
-           con.consulta("select producto_id,producto__nombre,producto_descripcion,producto_imagen from producto where producto_categoria=" + id);
+
+        con.consulta("select producto_id,producto__nombre,producto_descripcion,producto_imagen from producto where producto_categoria=" + id);
         logica_producto.clear();
         try {
             while (con.getRs().next()) {
@@ -185,15 +182,13 @@ where producto_id=11;*/
                         Integer.parseInt(con.getRs().getString(1)),
                         con.getRs().getString(2),
                         con.getRs().getString(3),
-                        
-                       con.getRs().getString(4));
+                        con.getRs().getString(4));
                 logica_producto.add(temp1);
             }
         } catch (Exception e) {
         }
     }
-    
-    
+
     public void CajadeTexto(String busqueda) {
         /*
         select producto_id,producto__nombre,producto_descripcion,producto_imagen 
@@ -202,11 +197,11 @@ inner join categoria on producto.producto_categoria=categoria.categoria_id
 where categoria_nombre like '%a%' or producto__nombre like '%a%' 
 or producto_caracteristica like '%a%' or producto_descripcion like '%a%'
 or producto_peso like '%5%' or producto_tipo_peso like '%t%'
-        */
-   
-           con.consulta("select producto_id,producto__nombre,producto_descripcion,producto_imagen from producto inner join categoria on producto.producto_categoria=categoria.categoria_id "
-                   + " where categoria_nombre like '%" + busqueda + "%' or producto__nombre like '%" + busqueda + "%' or producto_caracteristica like '% "
-           + busqueda + "%' or producto_descripcion like '%" + busqueda + "%' or producto_peso like '%" + busqueda + "%' or producto_tipo_peso like '%" + busqueda + "%'");
+         */
+
+        con.consulta("select producto_id,producto__nombre,producto_descripcion,producto_imagen from producto inner join categoria on producto.producto_categoria=categoria.categoria_id "
+                + " where categoria_nombre like '%" + busqueda + "%' or producto__nombre like '%" + busqueda + "%' or producto_caracteristica like '% "
+                + busqueda + "%' or producto_descripcion like '%" + busqueda + "%' or producto_peso like '%" + busqueda + "%' or producto_tipo_peso like '%" + busqueda + "%'");
         logica_producto.clear();
         try {
             while (con.getRs().next()) {
@@ -214,37 +209,32 @@ or producto_peso like '%5%' or producto_tipo_peso like '%t%'
                         Integer.parseInt(con.getRs().getString(1)),
                         con.getRs().getString(2),
                         con.getRs().getString(3),
-                        
-                       con.getRs().getString(4));
+                        con.getRs().getString(4));
                 logica_producto.add(temp1);
             }
         } catch (Exception e) {
         }
     }
-    
-    
-     public void productos_semejantes(int id_categoria) {
-    /*select * from producto
-where producto_id=11;*/  
-    /*select * from producto
+
+    public void productos_semejantes(int id_categoria) {
+        /*select * from producto
+where producto_id=11;*/
+ /*select * from producto
 inner join categoria on categoria.categoria_id=producto.producto_categoria
-where producto_id=11;*/  
-    
-        con.consulta("select top 5 producto_id,producto__nombre,producto_descripcion,producto_imagen from producto  where producto_categoria="+id_categoria+" order by NEWID()" );
+where producto_id=11;*/
+
+        con.consulta("select top 5 producto_id,producto__nombre,producto_descripcion,producto_imagen from producto  where producto_categoria=" + id_categoria + " order by NEWID()");
         logica_producto.clear();
         try {
             while (con.getRs().next()) {
-                producto temp1 = new producto(   Integer.parseInt(con.getRs().getString(1)),
+                producto temp1 = new producto(Integer.parseInt(con.getRs().getString(1)),
                         con.getRs().getString(2),
                         con.getRs().getString(3),
-                        
-                       con.getRs().getString(4));
+                        con.getRs().getString(4));
                 logica_producto.add(temp1);
             }
         } catch (Exception e) {
         }
     }
-    
+
 }
-    
-   

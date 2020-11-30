@@ -1,8 +1,3 @@
-<%-- 
-    Document   : controlador_carrito
-    Created on : 24/11/2020, 01:56:26 AM
-    Author     : bryan
---%>
 
 <%@page import="datos.carrito"%>
 <%@page import="logica.logica_carrito"%>
