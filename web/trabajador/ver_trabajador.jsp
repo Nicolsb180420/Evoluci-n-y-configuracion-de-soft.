@@ -343,20 +343,7 @@
                 <br>
 
             </div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-12">
-                        <center>
-
-                            <input type="submit" value="Aceptar" class="btn btn-outline-dark" style="background:  #F38500;"/>
-
-
-                            <!--      <button type="button" class="btn btn-danger" >Cancelar</button> <br>-->
-
-                        </center>
-                    </div>
-                </div>
-            </div> 
+            
 
         </form>
 

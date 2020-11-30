@@ -461,21 +461,7 @@
                     %> 
 
 
-                    <% if (temp_pp.getPuesto_permisos_permisos() == 16) {
-                    %>
-
-                    <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="#">
-                            <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
-                                <div><img src="../imagenes/ver encomienda.png" width="80" height="85" alt="deshumedecedor"/></div> 
-                                <div><h5>Ver encomienda</h5></div>
-                            </div>
-                        </a>
-                    </div>
-                    <%
-                        }
-                    %> 
-
+                
 
                     <%
                         }

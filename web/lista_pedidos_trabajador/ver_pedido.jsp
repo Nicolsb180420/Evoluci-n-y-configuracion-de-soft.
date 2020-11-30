@@ -342,7 +342,7 @@
                                 </tbody>
                             </table>   
 
-                            <input type="submit" class="btn btn-danger" value="Volver" name="btnVolver" />
+                           
                         </div>
                     </div>
 
