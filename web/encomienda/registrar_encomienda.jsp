@@ -273,8 +273,7 @@
                                     <th>T. IDENT.</th>
                                     <th>N° IDENT.</th>
                                     <th>TELEFONO</th>
-                                    <th>ESTADO</th>
-
+                                   
                                   
                                 </tr>
                             </thead>
@@ -302,7 +301,7 @@
                                     <td><%=temp_tra.getTrabajador_numero_identidad()%></td>
                                     <td><%=temp_tra.getTrabajador_telefono()%></td>
 
-                                    <td><a href="ver_trabajador.jsp?id=<%=temp_tra.getTrabajador_id()%>" class="btn btn-danger">VER</a> </td>
+                                    <td><a href="../trabajador/ver_trabajador.jsp?id=<%=temp_tra.getTrabajador_id()%>" class="btn btn-danger">VER</a> </td>
                                     <td><a href="agregar_trabajador.jsp?id=<%=temp_tra.getTrabajador_id()%>" class="btn btn-danger">agregar</a> </td>
                                 </tr>
                                 <%}%>
@@ -315,6 +314,9 @@
                              
 
           
+                            
+                            
+                            
                 <div class="row">
                     <div class="col-12">
                         <div class="form-group">
@@ -464,10 +466,11 @@
                                         <th>APELLIDO</th>
                                         <th>TELEFONO</th>
                                         <th>DISTRITO</th>
-                                        <th>DIRECCION</th>
-                                        <th>FECHA PEDIDO</th>
-                                        <th>PAGO</th>
-                                        <th>ESTADO</th>
+                                        <th>PROVINCIA</th>
+                                        <th>DEPARTAMENTO</th>
+                                        
+                                        <th>FECHA DE PEDIDO</th>
+                                      
                                         <th></th>
                                         <th></th>
                                     </tr>
@@ -486,13 +489,11 @@
 
                                     <tr>
 
-                                        <td><%=temp_cp.getCapsula_pedido_id()%></td>
+                                      
 
-                                        <td><%=temp_cp.getCapsula_pedido_pedido()%></td>
+                              
 
                                         <td><%=temp_cp.getPedido_id()%></td>
-
-                                        <td><%=temp_cp.getPedido__cliente()%></td>
 
                                         <td><%=temp_cp.getCliente_nombre()%></td>
 
@@ -500,24 +501,16 @@
 
                                         <td><%=temp_cp.getPedido_telefono()%></td>
 
-                                        <td><%=temp_cp.getId_distrito()%></td>
-
-
                                         <td><%=temp_cp.getDesdist()%></td>
 
-                                        <td><%=temp_cp.getProvincia_id()%></td>
-
                                         <td><%=temp_cp.getDespro()%></td>
-
-                                        <td><%=temp_cp.getDepartamento_id()%></td>
 
                                         <td><%=temp_cp.getDesdep()%></td>
 
                                         <td><%=temp_cp.getPedido_fecha()%></td>
 
-                                        <td><%=temp_cp.getPedido_estado()%></td>
 
-                                        <td><%=temp_cp.getCapsula_pedido_trabajador()%></td>
+                                     
 
 
                                         <td>
@@ -543,7 +536,7 @@
 
 
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    Registrar venta
+                    Registrar Encomienda
                 </button>
 
                 <!-- Modal -->
