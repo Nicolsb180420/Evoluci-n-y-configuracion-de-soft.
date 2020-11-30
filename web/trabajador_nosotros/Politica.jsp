@@ -1,25 +1,29 @@
 <%-- 
-    Document   : registrar_proveedor
-    Created on : 20/11/2020, 02:31:11 PM
+    Document   : Politica
+    Created on : 08/11/2020, 08:51:58 PM
     Author     : Nicol Samanamud 
 --%>
 
+
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>
-<%@page import="logica.logica_departamento"%>
-<%@page import="datos.departamento"%>
-<%@page import="logica.logica_proveedor"%>
-<%@page import="datos.proveedor"%>
+<%@page import="logica.logica_carrito"%>
+<%@page import="datos.carrito"%>
+<%
+    String correo = request.getParameter("correo");
+    String contra = request.getParameter("contra");
+%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="es">
+<html>
     <head>
         <meta charset="UTF-8">
-        <title>Registrar proveedor</title>
+        <title>Politica de privacidad</title>
         <link rel="icon" type="image/png" href="../imagenes/logo.png " />
+        
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
-
         <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
 
 
@@ -35,52 +39,28 @@
 
         <script src="../diceno/js/jquery-3.5.1.slim.min.js"></script>
         <script src="../diceno/js/bootstrap.bundle.min.js"></script>
-       
+        <%--  categoria--%>
+
 
 
         <script src="../diceno/js/jquery-2.2.0.min.js" type="text/javascript"></script>
-        
+      
         <link href="../diceno/css/navbar-top-fixed.css" rel="stylesheet">     
 
-       
+        <%--caja de texto--%>
+
+        <link rel="stylesheet" href="../diceno/css/caja_text.css">
         <link rel="stylesheet" href="../diceno/css/estilos.css">
 
-
-        <script
-            src="https://code.jquery.com/jquery-3.5.1.js"
-            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-        crossorigin="anonymous"></script>
-
-        <script type="text/javascript">
-            function comboDep() {
-                //alert("hola mundo");
-                $("#f_opc").val("1");
-                $.post("../combos/combo_provincia.jsp", $("#data").serialize(), function (data)
-                {
-                    $("#id_provi").html(data);
-                });
-            }
-
-
-        </script>
-
-
-
-        <script type="text/javascript">
-            function comboDistri() {
-                // alert("hola mundo");
-                $("#x_opc").val("1");
-                $.post("../combos/combo_distrito.jsp", $("#data").serialize(), function (data)
-                {
-                    $("#id_distri").html(data);
-                });
-
-            }
-        </script>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     </head>
 
+    <%--menu despegable--%>   
+
+
+
     <body>
-        <div class="container-fluid">
+    <div class="container-fluid">
             <%
                 String cliente_id;
                 HttpSession sesion_trabajadro = request.getSession();
@@ -217,124 +197,62 @@
 
         </div>
 
+
+
         <br>
-        <br>
-        
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <center>
-                        <p class="h3" style="color: #CE6100"> <strong>Registro de proveedor</strong></p> <br>
-                    </center>
+
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="https://kazvel.com/wp-content/uploads/2019/09/politica-de-privacidad-banner.jpg" width="1500" height="100" class="d-block w-100" alt="...">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-body">
+                            <h2>Razón Social:</h2>
+                            <p><strong>Empresa:</strong> Quimica Kazvel S.A.C.</p>
+                            <h2><strong>POLÍTICA DE PRIVACIDAD</strong></h2>
+                            <div class="card">
+                                <p>El presente Política de Privacidad establece los términos en que&nbsp;<strong>Quimica Kazvel S.A.C.</strong>&nbsp;usa y protege la información que es proporcionada por sus usuarios al momento de utilizar su sitio web. Esta compañía está comprometida con la seguridad de los datos de sus usuarios. Cuando le pedimos llenar los campos de información personal con la cual usted pueda ser identificado, lo hacemos asegurando que sólo se empleará de acuerdo con los términos de este documento.</p>
+                                <p>Sin embargo esta Política de Privacidad puede cambiar con el tiempo o ser actualizada por lo que le recomendamos y enfatizamos revisar continuamente esta página para asegurarse que está de acuerdo con dichos cambios.</p>
+                            </div>
+                            <h3><strong>Información que es recogida</strong></h3>
+                            <div class="card">
+                                <p>Nuestro sitio web podrá recoger información personal por ejemplo: Nombre,&nbsp; información de contacto como&nbsp; su dirección de correo electrónica e información demográfica. Así mismo cuando sea necesario podrá ser requerida información específica para procesar algún pedido o realizar una entrega o facturación.</p> 
+                            </div>
+                            <h3>Cookies</h3>
+                            <div class="card">
+                                <p>Una cookie se refiere a un fichero que es enviado con la finalidad de solicitar permiso para almacenarse en su ordenador, al aceptar dicho fichero se crea y la cookie sirve entonces para tener información respecto al tráfico web, y también facilita las futuras visitas a una web recurrente. Otra función que tienen las cookies es que con ellas las web pueden reconocerte individualmente y por tanto brindarte el mejor servicio personalizado de su web.</p>
+                                <p>Nuestro sitio web emplea las cookies para poder identificar las páginas que son visitadas y su frecuencia. Esta información es empleada únicamente para análisis estadístico y después la información se elimina de forma permanente. Usted puede eliminar las cookies en cualquier momento desde su ordenador. Sin embargo las cookies ayudan a proporcionar un mejor servicio de los sitios web, estás no dan acceso a información de su ordenador ni de usted, a menos de que usted así lo quiera y la proporcione directamente, Usted puede aceptar o negar el uso de cookies, sin embargo la mayoría de navegadores aceptan cookies automáticamente pues sirve para tener un mejor servicio web.</p>
+                                <p>También usted puede cambiar la configuración de su ordenador para declinar las cookies. Si se declinan es posible que no pueda utilizar algunos de nuestros servicios.</p>
+                            </div>
+                            <h3><strong>Enlaces a Terceros</strong></h3>
+                            <div class="card">
+                                <p>Este sitio web pudiera contener en laces a otros sitios que pudieran ser de su interés. Una vez que usted de clic en estos enlaces y abandone nuestra página, ya no tenemos control sobre al sitio al que es redirigido y por lo tanto no somos responsables de los términos o privacidad ni de la protección de sus datos en esos otros sitios terceros. Dichos sitios están sujetos a sus propias políticas de privacidad por lo cual es recomendable que los consulte para confirmar que usted está de acuerdo con estas.</p>
+                            </div>
+                            <h2><strong>Control de su información personal</strong></h2>
+                            <div class="card">
+                                <p>En cualquier momento usted puede restringir la recopilación o el uso de la información personal que es proporcionada a nuestro sitio web.&nbsp; Cada vez que se le solicite rellenar un formulario, como el de alta de usuario, puede marcar o desmarcar la opción de recibir información por correo electrónico. &nbsp;En caso de que haya marcado la opción de recibir nuestro boletín o publicidad usted puede cancelarla en cualquier momento.</p>
+                                <p class="politica"><strong>Quimica Kazvel S.A.C.</strong>&nbsp;Se reserva el derecho de cambiar los términos de la presente Política de Privacidad en cualquier momento.</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
 
 
-        <form action="estados_proveedor.jsp" method="post" id="data">
-            <div class="container">
-                <div class="row">
 
-                    <div class="col-6">
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Razon Social</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Razon social" name="txtrazonsocial" required="">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">RUC</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Ruc" name="txtruc" maxlength="11" required="">
-                        </div>
-
-                        <%
-                            departamento temp2 = new departamento();
-                            logica.logica_departamento con2 = new logica_departamento();
-                            con2.consultarDep();
-                        %>
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Departamento</span>
-                            </div>
-                            <select name="cmbdepartamento" onchange="comboDep()" style="color: #545b62; width: 75%" class="form-control" required="">
-
-                                <option value="">SELECCIONAR </option>
-
-                                <%
-                                    for (int i = 0; i < logica_departamento.logica_departamento.size(); i++) {
-                                        temp2 = (departamento) logica_departamento.logica_departamento.get(i);
-
-                                %>
-                                <option><%=temp2.getDesdep()%></option>
-
-                                <%}%>
-
-                            </select>
-                        </div>
-
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Provincia</span>
-                            </div>     
-                            <select name="cmbprovincia"  id="id_provi" onchange="comboDistri()" style="color: #545b62; width: 75%" class="form-control" required="">
-                                <option value="">SELECCIONAR </option>
-                            </select>
-                        </div>
-
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Distrito</span>
-                            </div>     
-                            <select name="cmbdistrito" id="id_distri" onchange="comboFin()" style="color: #545b62; width: 75%" class="form-control" required="">
-                                <option value="">SELECCIONAR </option>
-                            </select>
-                        </div>        
-
-                    </div>
-                    <div class="col-6">
-                        <div class="row">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Direccion</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Direccion" name="txtdireccion" required="">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">E-mail</span>
-                                </div>
-                                <input type="email" class="form-control" placeholder="E-mail" name="txtemail" required="">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Telefono</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Telefono" name="txttelefono" maxlength="9" required="">
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <center>
-                                <input type="submit" class="btn" style="background: #CE6100; color: #ffffff" name="btnGuardar" value="Guardar" />
-                               <!--  <input type="submit" class="btn btn-danger" name="" value="Cancelar" /> -->
-                            </center>
-                        </div>
-   
-                    </div>
-                </div>
-
-            </div>
-
-        </form>
-
-
-        <br><br>
+        <br><br><br>
 
 
         <footer>
@@ -399,13 +317,13 @@
                                                 NOSOTROS
                                                 <br>
                             -->        
-                            <a href="../trabajador_nosotros/Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
+                            <a href="Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
 
                             <br>
-                            <a href="../trabajador_nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDAD  </a>   
+                            <a href="Politica.jsp"style="color: #000" > POLITICA PRIVACIDAD  </a>   
                             <br>
 
-                            <a href="../trabajador_nosotros/contacto.jsp"style="color: #000">CONTACTANOS</a> 
+                            <a href="contacto.jsp"style="color: #000">CONTACTANOS</a> 
 
                             <br>
 
@@ -446,5 +364,11 @@
 
             </div>
         </footer>
+
+
+
+
+
+
     </body>
 </html>

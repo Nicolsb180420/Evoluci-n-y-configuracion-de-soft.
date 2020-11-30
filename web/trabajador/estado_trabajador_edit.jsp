@@ -47,7 +47,7 @@
                         Integer.parseInt(request.getParameter("cmbpuesto"))
                 );
                 con.actualizar(temp);
-                response.sendRedirect("crud_trabajador.jsp");
+               // response.sendRedirect("crud_trabajador.jsp");
             }
             
             login temp1 = new login();

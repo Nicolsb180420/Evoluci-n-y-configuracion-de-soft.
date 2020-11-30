@@ -38,19 +38,13 @@
 
         <script src="../diceno/js/jquery-3.5.1.slim.min.js"></script>
         <script src="../diceno/js/bootstrap.bundle.min.js"></script>
-        <%--  categoria--%>
-
-        <link rel="stylesheet" type="text/css" href="../diceno/css/slick/slick.css">
-        <link rel="stylesheet" type="text/css" href="../diceno/css/slick/slick-theme.css">
-
+       
 
         <script src="../diceno/js/jquery-2.2.0.min.js" type="text/javascript"></script>
-        <script src="../diceno/css/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+        
         <link href="../diceno/css/navbar-top-fixed.css" rel="stylesheet">     
 
-        <%--caja de texto--%>
-
-        <link rel="stylesheet" href="../diceno/css/caja_text.css">
+       
         <link rel="stylesheet" href="../diceno/css/estilos.css">
 
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">

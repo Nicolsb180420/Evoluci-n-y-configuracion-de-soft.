@@ -1,29 +1,33 @@
 <%-- 
-    Document   : registrar_proveedor
-    Created on : 20/11/2020, 02:31:11 PM
+    Document   : Preguntas
+    Created on : 08/11/2020, 08:59:50 PM
     Author     : Nicol Samanamud 
 --%>
 
+
+<%@page import="logica.logica_carrito"%>
+<%@page import="datos.carrito"%>
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>
-<%@page import="logica.logica_departamento"%>
-<%@page import="datos.departamento"%>
-<%@page import="logica.logica_proveedor"%>
-<%@page import="datos.proveedor"%>
+<%
+    String correo = request.getParameter("correo");
+    String contra = request.getParameter("contra");
+%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="es">
+<html>
     <head>
         <meta charset="UTF-8">
-        <title>Registrar proveedor</title>
+        <title>Preguntas frecuentes</title>
         <link rel="icon" type="image/png" href="../imagenes/logo.png " />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        
 
         <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
 
 
         <link rel="stylesheet" type="text/css" href="../diceno/css/menu_principal.css">
+
 
 
         <link href="../diceno/css/navbar.css" rel="stylesheet">
@@ -35,52 +39,28 @@
 
         <script src="../diceno/js/jquery-3.5.1.slim.min.js"></script>
         <script src="../diceno/js/bootstrap.bundle.min.js"></script>
-       
+        <%--  categoria--%>
 
+      
 
         <script src="../diceno/js/jquery-2.2.0.min.js" type="text/javascript"></script>
-        
+  
         <link href="../diceno/css/navbar-top-fixed.css" rel="stylesheet">     
 
-       
+        <%--caja de texto--%>
+
+        <link rel="stylesheet" href="../diceno/css/caja_text.css">
         <link rel="stylesheet" href="../diceno/css/estilos.css">
 
-
-        <script
-            src="https://code.jquery.com/jquery-3.5.1.js"
-            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-        crossorigin="anonymous"></script>
-
-        <script type="text/javascript">
-            function comboDep() {
-                //alert("hola mundo");
-                $("#f_opc").val("1");
-                $.post("../combos/combo_provincia.jsp", $("#data").serialize(), function (data)
-                {
-                    $("#id_provi").html(data);
-                });
-            }
-
-
-        </script>
-
-
-
-        <script type="text/javascript">
-            function comboDistri() {
-                // alert("hola mundo");
-                $("#x_opc").val("1");
-                $.post("../combos/combo_distrito.jsp", $("#data").serialize(), function (data)
-                {
-                    $("#id_distri").html(data);
-                });
-
-            }
-        </script>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     </head>
 
+    <%--menu despegable--%>   
+
+
+
     <body>
-        <div class="container-fluid">
+    <div class="container-fluid">
             <%
                 String cliente_id;
                 HttpSession sesion_trabajadro = request.getSession();
@@ -217,125 +197,39 @@
 
         </div>
 
-        <br>
-        <br>
-        
-        <div class="container">
+
+
+
+        <div class="container" style="height: 110vh">
             <div class="row">
-                <div class="col-12">
-                    <center>
-                        <p class="h3" style="color: #CE6100"> <strong>Registro de proveedor</strong></p> <br>
-                    </center>
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <br>
+                    <p class="h2 text-danger">Preguntas Frecuentes</p>   
+                    <hr>
+                    <p class="h4 text-danger">INFORMACIÓN DE COMPRA</p>
+                    <strong>¿Cómo hago un pedido?</strong><br>
+                    Por el momento no contamos con un pago dentro de nuestra tienda virtual, por lo cual si quiere comprar alguno de nuestros productos no dude en ponerse en contacto con nosotros mediante nuestro correo o directamente desde el boton de whatsapp que tenemos en nuestra pagina web.<br>
+                    <br>
+                    <strong>¿Es necesario tener una cuenta para comprar?</strong><br>
+                    Puede hacer su pedido sin tener una cuenta dentro de nuestra tienda con tan solo dejarnos un mensaje en nuestro whatsapp o llamarnos directamente preguntando por el producto que desea comprar.<br>
+                    <br>
+                    <p class="h4 text-danger">CONSULTA DE PEDIDO</p>
+                    <strong>¿Cuánto tiempo tardare en recibir mi pedido?</strong><br>
+                    El tiempo de entrega de los productos sera coordinado con nuestra área de entregas, el tiempo de envió de nuestros productos no sera mayor al tiempo pactado con el cliente.<br>
+                    <br>
+                    <strong>¿Cuáles son las opciones de pago?</strong><br>
+                    Las opciones de pago que contamos son mediante : Contraentrega, aceptamos efectivo y todas las tarjetas de crédito.<br>
+                </div>
+
+                <div class="col-sm-12 col-md-12 col-lg-6">
+                    <br><br><br><br>
+                    <img src="../imagenes/pedido.jpg" width="600" height="400" alt="pedido"/>
+
                 </div>
             </div>
         </div>
 
-
-        <form action="estados_proveedor.jsp" method="post" id="data">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-6">
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Razon Social</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Razon social" name="txtrazonsocial" required="">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">RUC</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Ruc" name="txtruc" maxlength="11" required="">
-                        </div>
-
-                        <%
-                            departamento temp2 = new departamento();
-                            logica.logica_departamento con2 = new logica_departamento();
-                            con2.consultarDep();
-                        %>
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Departamento</span>
-                            </div>
-                            <select name="cmbdepartamento" onchange="comboDep()" style="color: #545b62; width: 75%" class="form-control" required="">
-
-                                <option value="">SELECCIONAR </option>
-
-                                <%
-                                    for (int i = 0; i < logica_departamento.logica_departamento.size(); i++) {
-                                        temp2 = (departamento) logica_departamento.logica_departamento.get(i);
-
-                                %>
-                                <option><%=temp2.getDesdep()%></option>
-
-                                <%}%>
-
-                            </select>
-                        </div>
-
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Provincia</span>
-                            </div>     
-                            <select name="cmbprovincia"  id="id_provi" onchange="comboDistri()" style="color: #545b62; width: 75%" class="form-control" required="">
-                                <option value="">SELECCIONAR </option>
-                            </select>
-                        </div>
-
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Distrito</span>
-                            </div>     
-                            <select name="cmbdistrito" id="id_distri" onchange="comboFin()" style="color: #545b62; width: 75%" class="form-control" required="">
-                                <option value="">SELECCIONAR </option>
-                            </select>
-                        </div>        
-
-                    </div>
-                    <div class="col-6">
-                        <div class="row">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Direccion</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Direccion" name="txtdireccion" required="">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">E-mail</span>
-                                </div>
-                                <input type="email" class="form-control" placeholder="E-mail" name="txtemail" required="">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Telefono</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Telefono" name="txttelefono" maxlength="9" required="">
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <center>
-                                <input type="submit" class="btn" style="background: #CE6100; color: #ffffff" name="btnGuardar" value="Guardar" />
-                               <!--  <input type="submit" class="btn btn-danger" name="" value="Cancelar" /> -->
-                            </center>
-                        </div>
-   
-                    </div>
-                </div>
-
-            </div>
-
-        </form>
-
-
-        <br><br>
-
+        <br><br><br>
 
         <footer>
             <div class="container-fluid pagina">
@@ -399,13 +293,13 @@
                                                 NOSOTROS
                                                 <br>
                             -->        
-                            <a href="../trabajador_nosotros/Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
+                            <a href="Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
 
                             <br>
-                            <a href="../trabajador_nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDAD  </a>   
+                            <a href="Politica.jsp"style="color: #000" > POLITICA PRIVACIDAD  </a>   
                             <br>
 
-                            <a href="../trabajador_nosotros/contacto.jsp"style="color: #000">CONTACTANOS</a> 
+                            <a href="contacto.jsp"style="color: #000">CONTACTANOS</a> 
 
                             <br>
 
@@ -446,5 +340,6 @@
 
             </div>
         </footer>
+
     </body>
 </html>

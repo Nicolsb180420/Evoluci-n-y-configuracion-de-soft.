@@ -1,30 +1,33 @@
 <%-- 
-    Document   : registrar_proveedor
-    Created on : 20/11/2020, 02:31:11 PM
+    Document   : AcercaDeNosotros2
+    Created on : 08/11/2020, 08:25:52 PM
     Author     : Nicol Samanamud 
 --%>
 
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>
-<%@page import="logica.logica_departamento"%>
-<%@page import="datos.departamento"%>
-<%@page import="logica.logica_proveedor"%>
-<%@page import="datos.proveedor"%>
+<%@page import="logica.logica_carrito"%>
+<%@page import="datos.carrito"%>
+<%
+    String correo = request.getParameter("correo");
+    String contra = request.getParameter("contra");
+%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="es">
+<html>
     <head>
         <meta charset="UTF-8">
-        <title>Registrar proveedor</title>
+        <title>Nosotros</title>
         <link rel="icon" type="image/png" href="../imagenes/logo.png " />
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         
-
         <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
 
 
         <link rel="stylesheet" type="text/css" href="../diceno/css/menu_principal.css">
 
+      
 
         <link href="../diceno/css/navbar.css" rel="stylesheet">
 
@@ -35,52 +38,28 @@
 
         <script src="../diceno/js/jquery-3.5.1.slim.min.js"></script>
         <script src="../diceno/js/bootstrap.bundle.min.js"></script>
-       
+        <%--  categoria--%>
 
+     
 
         <script src="../diceno/js/jquery-2.2.0.min.js" type="text/javascript"></script>
-        
+     
         <link href="../diceno/css/navbar-top-fixed.css" rel="stylesheet">     
 
-       
+        <%--caja de texto--%>
+
+        <link rel="stylesheet" href="../diceno/css/caja_text.css">
         <link rel="stylesheet" href="../diceno/css/estilos.css">
 
-
-        <script
-            src="https://code.jquery.com/jquery-3.5.1.js"
-            integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
-        crossorigin="anonymous"></script>
-
-        <script type="text/javascript">
-            function comboDep() {
-                //alert("hola mundo");
-                $("#f_opc").val("1");
-                $.post("../combos/combo_provincia.jsp", $("#data").serialize(), function (data)
-                {
-                    $("#id_provi").html(data);
-                });
-            }
-
-
-        </script>
-
-
-
-        <script type="text/javascript">
-            function comboDistri() {
-                // alert("hola mundo");
-                $("#x_opc").val("1");
-                $.post("../combos/combo_distrito.jsp", $("#data").serialize(), function (data)
-                {
-                    $("#id_distri").html(data);
-                });
-
-            }
-        </script>
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     </head>
 
+    <%--menu despegable--%>   
+
+
+
     <body>
-        <div class="container-fluid">
+          <div class="container-fluid">
             <%
                 String cliente_id;
                 HttpSession sesion_trabajadro = request.getSession();
@@ -217,127 +196,67 @@
 
         </div>
 
-        <br>
-        <br>
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <center>
-                        <p class="h3" style="color: #CE6100"> <strong>Registro de proveedor</strong></p> <br>
-                    </center>
-                </div>
-            </div>
-        </div>
 
 
-        <form action="estados_proveedor.jsp" method="post" id="data">
+
+            <br><br><br>
             <div class="container">
                 <div class="row">
 
-                    <div class="col-6">
+                    <div class="col-sm-12 col-md-12 col-lg-6">
+                        <p class="h4 text-danger">QUIMICA KAZVEL</p>
+                        <hr>
+                        Somos una empresa peruana con más de 10 años en el mercado. Nos dedicamos a la compra y venta de una gran variedad de productos para la limpieza profesional.
+                        <br><br>
+                        Dedicamos nuestro esfuerzo, imaginación y vocación para desarrollar productos y accesorios que satisfagan tus necesidades. 
+                        <br><br>
+                        Kazvel presenta su linea de productos de limpieza del hogar, empresas y oficinas, productos de alta calidad y amigable con el medio ambiente.
 
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Razon Social</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Razon social" name="txtrazonsocial" required="">
-                        </div>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">RUC</span>
-                            </div>
-                            <input type="text" class="form-control" placeholder="Ruc" name="txtruc" maxlength="11" required="">
-                        </div>
+                        <p class="h5 text-danger">Visión:</p>
+                        - Fomentar el desarrollo de sus colaboradores. <br>
+                        - Consolidar la confianza de sus clientes. <br>
+                        - Velar por la preservación del medio ambiente. <br>
 
-                        <%
-                            departamento temp2 = new departamento();
-                            logica.logica_departamento con2 = new logica_departamento();
-                            con2.consultarDep();
-                        %>
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Departamento</span>
-                            </div>
-                            <select name="cmbdepartamento" onchange="comboDep()" style="color: #545b62; width: 75%" class="form-control" required="">
-
-                                <option value="">SELECCIONAR </option>
-
-                                <%
-                                    for (int i = 0; i < logica_departamento.logica_departamento.size(); i++) {
-                                        temp2 = (departamento) logica_departamento.logica_departamento.get(i);
-
-                                %>
-                                <option><%=temp2.getDesdep()%></option>
-
-                                <%}%>
-
-                            </select>
-                        </div>
-
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Provincia</span>
-                            </div>     
-                            <select name="cmbprovincia"  id="id_provi" onchange="comboDistri()" style="color: #545b62; width: 75%" class="form-control" required="">
-                                <option value="">SELECCIONAR </option>
-                            </select>
-                        </div>
-
-
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">Distrito</span>
-                            </div>     
-                            <select name="cmbdistrito" id="id_distri" onchange="comboFin()" style="color: #545b62; width: 75%" class="form-control" required="">
-                                <option value="">SELECCIONAR </option>
-                            </select>
-                        </div>        
-
+                        <p class="h5 text-danger">Misión:</p>
+                        Ofrecer a nuestros clientes un alto estándar de calidad en la fabricación y distribución de productos para limpieza profesional, respaldado por su personal calificado, utilizando tecnología de avanzada y garantizado por certificaciones internacionales.
                     </div>
                     <div class="col-6">
-                        <div class="row">
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Direccion</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Direccion" name="txtdireccion" required="">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">E-mail</span>
-                                </div>
-                                <input type="email" class="form-control" placeholder="E-mail" name="txtemail" required="">
-                            </div>
-                            <div class="input-group mb-3">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">Telefono</span>
-                                </div>
-                                <input type="text" class="form-control" placeholder="Telefono" name="txttelefono" maxlength="9" required="">
-                            </div>
-                        </div>
-                        
-                        <div class="row">
-                            <center>
-                                <input type="submit" class="btn" style="background: #CE6100; color: #ffffff" name="btnGuardar" value="Guardar" />
-                               <!--  <input type="submit" class="btn btn-danger" name="" value="Cancelar" /> -->
-                            </center>
-                        </div>
-   
+                        <img src="https://kazvel.com/wp-content/uploads/2019/09/nosotros-1.jpg" width="500" height="500"/>
                     </div>
                 </div>
+            </div>           
 
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-6">
+                        <p class="h5 text-danger">Comunicate con nosotros:</p>   
+                        Correo: Ventas@kazvel.com <br>
+                        Telefono: 536-4941 <br>
+                        Ventas: 928315913 <br>
+                    </div>
+                    <div class="col-6">
+                        <p class="h5 text-danger">Nuestra ubicación:</p>   
+                        En Lima <br>
+                        Mza H Lote 01 urb. Pro <br>
+                        Industrial <br>
+                        S.M.P Lima-Peru <br>
+                    </div>
+                </div>
             </div>
 
-        </form>
+            <br><br>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div style="width: 100%;"><iframe src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=es&amp;q=-11.927667,-77.072284+(Mi%20nombre%20de%20egocios)&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="300" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe></div>
+                    </div>
+                </div>
+            </div>
 
+            <br><br><br>
+          
 
-        <br><br>
-
-
-        <footer>
+    <footer>
             <div class="container-fluid pagina">
 
 
@@ -399,13 +318,13 @@
                                                 NOSOTROS
                                                 <br>
                             -->        
-                            <a href="../trabajador_nosotros/Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
+                            <a href="Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
 
                             <br>
-                            <a href="../trabajador_nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDAD  </a>   
+                            <a href="Politica.jsp"style="color: #000" > POLITICA PRIVACIDAD  </a>   
                             <br>
 
-                            <a href="../trabajador_nosotros/contacto.jsp"style="color: #000">CONTACTANOS</a> 
+                            <a href="contacto.jsp"style="color: #000">CONTACTANOS</a> 
 
                             <br>
 
@@ -446,5 +365,8 @@
 
             </div>
         </footer>
+
+
+
     </body>
 </html>

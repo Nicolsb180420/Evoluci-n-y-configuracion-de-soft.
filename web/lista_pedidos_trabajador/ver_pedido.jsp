@@ -30,17 +30,12 @@
 
         <script src="../diceno/js/jquery-3.5.1.slim.min.js"></script>
         <script src="../diceno/js/bootstrap.bundle.min.js"></script>
-        <%--  categoria--%>
 
-        <link rel="stylesheet" type="text/css" href="../diceno/css/slick/slick.css">
-        <link rel="stylesheet" type="text/css" href="../diceno/css/slick/slick-theme.css">
 
         <script src="../diceno/css/slick/slick.js" type="text/javascript" charset="utf-8"></script>
         <link href="../diceno/css/navbar-top-fixed.css" rel="stylesheet">     
 
-        <%--caja de texto--%>
 
-        <link rel="stylesheet" href="../diceno/css/caja_text.css">
         <link rel="stylesheet" href="../diceno/css/categorias.css">
 
 
@@ -92,40 +87,21 @@
             <div class="row">
                 <nav class="navbar navbar-expand-md navbar-dark fixed-top" style="background-color:#FFAA2E  ">
 
-                    <div class="col-4 col-sm-2 col-md-2 col-lg-2 col-xl-2" style="left:40px">
+                    <div class="col-1 col-sm-1 col-md-1 col-lg-1 col-xl-1" >
 
                         <div class="pure-container" data-effect="pure-effect-push">
 
 
-                            <input type="checkbox" id="pure-toggle-left" class="pure-toggle" data-toggle="left"/>
 
-                            <label class="pure-toggle-label" for="pure-toggle-left" data-toggle-label="left" style="width: 50px; height:  50px;"  > <span class="pure-toggle-icon" ></span> </label>
-
-                            <div >
-                                <a href="../menu_principal/menu_principal_trabajador.jsp"><img src="../imagenes/logo.png" width="100" height="60" /> </a>  
-
-                            </div>
-
-                            <nav class="pure-drawer" data-position="left" style="background:  #F38500;">
-
-                                <br>
-                                <br>
-                                <br>
+                            <a href="../menu_principal/menu_principal_trabajador.jsp"><img src="../imagenes/logo.png" width="100" height="60" /> </a>  
 
 
-                                <div class="nav-primary">
-
-
-                                </div> 
-                            </nav>
-
-                            <label class="pure-overlay" for="pure-toggle-left" data-overlay="left"></label> 
                         </div>  
 
 
                     </div>
 
-                    <div class="col-12 col-sm-4 col-md-3 col-lg-2 col-xl-1">
+                    <div class="col-11 col-sm-11 col-md-11 col-lg-11 col-xl-11">
 
 
                         <div class="btn-group   float-right align-self-end"  >
@@ -256,7 +232,7 @@
 
         <form action="Lista_pedidos_completos.jsp">
 
-            <div class="container">
+            <div class="container" style="min-height: 55vh; width: auto">
                 <div class="row">
                     <%
                         for (int i = 0; i < logica_pedido.logica_pedido.size(); i++) {
@@ -339,7 +315,7 @@
 
                                         <td><%=temp_listap.getProducto_id()%></td>
 
-                                                   <td>  <img src="<% out.print("../imagenes/productos/" + temp_listap.getProducto_imagen().substring(47, temp_listap.getProducto_imagen().length()));
+                                        <td>  <img src="<% out.print("../imagenes/productos/" + temp_listap.getProducto_imagen().substring(47, temp_listap.getProducto_imagen().length()));
                                                        /*  out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(98, temp.getProducto_imagen().length()));*/%>" width="auto" height="100"  class="card-body-top" /></td>
 
                                         <td><%=temp_listap.getProducto_nombre()%></td>
@@ -374,6 +350,114 @@
 
             </div>
         </form>
+        <footer>
+            <div class="container-fluid pagina">
 
+
+
+
+
+                <div class="row" >
+
+                    <div class="col-6 col-sm-12 col-md-12 col-lg-3 col-xl-3" >
+
+
+                        <br>
+                        <br>
+                        <center>
+                            <img src="../imagenes/logo_bn.png" width="250px"  height="149px" />
+
+
+                        </center>
+                    </div>
+
+                    <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                        <br>
+                        <center>
+                            <p class="h5">“Un hogar impecable es nuestra misión"</p>
+                            <br>
+                            <img src="../imagenes/ubicacion.png" width="25" height="25" alt="ubicacion"/>
+
+
+                            Mza H Lote 01 urb. Pro Industrial S.M.P Lima-Perú
+                            <br>
+                            <img src="../imagenes/telefono.png" width="35" height="30" alt="telefono"/>
+
+                            Teléfono:  536-4941
+                            <br>
+                            <img src="../imagenes/celular.png" width="18" height="18" alt="celular"/>
+                            Ventas: 928315913
+                            <br>
+                            <img src="../imagenes/correo.png" width="25" height="25" alt="correo"/>
+
+                            Correo: Ventas@kazvel.com
+                            <br>
+                        </center>
+
+                        <br>
+                    </div>
+
+
+
+
+
+                    <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                        <br>
+
+
+                        <center>
+
+                            <p class="h3"> CONOCENOS :  </p>
+                            <!--
+                                                NOSOTROS
+                                                <br>
+                            -->        
+                            <a href="../trabajador_nosotros/Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
+
+                            <br>
+                            <a href="../trabajador_nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDAD  </a>   
+                            <br>
+
+                            <a href="../trabajador_nosotros/contacto.jsp"style="color: #000">CONTACTANOS</a> 
+
+                            <br>
+
+
+                        </center>
+                        <br>
+
+                    </div> 
+
+
+
+                    <div class="col-3 col-sm-4 col-md-4 col-lg-3 col-xl-3" >
+                        <br>
+
+                        <center>
+                            <p class="h3"> SIGUENOS EN :  </p>   
+                            <br>
+                            <a href=""><img src="../imagenes/facebook.png" height="40px" width="40px"  /></a> 
+                            <br>
+
+                            <a href=""><img src="../imagenes/twitter.png"  height="40px" width="40px" /></a> 
+                            <br>
+
+                            <a href="https://instagram.com/qkazvel?igshid=nc1l54gp8lh5"><img src="../imagenes/instagram.png" height="40px" width="40px"  /></a> 
+                        </center>
+
+                    </div>
+
+
+
+                </div>
+
+
+
+
+
+
+
+            </div>
+        </footer>
     </body>
 </html>
