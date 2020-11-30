@@ -282,7 +282,7 @@
 
 
         <div style="height:50px"></div>
-        <div class="container">
+        <div class="container" style="min-height: 49vh; width: auto">
 
             <div class="row table-responsive">
                 <table class="display" id="tabla_alumno">

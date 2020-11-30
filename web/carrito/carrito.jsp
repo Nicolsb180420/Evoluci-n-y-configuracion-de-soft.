@@ -294,7 +294,7 @@
     <br>
     <br>
 
-    <div class="container" style="height: calc(100vh - 100px -300px)">
+    <div class="container" style="min-height: 49vh; width: auto">
         <div class="row">
             <div class="col-12">
                 <div class="form-group">
