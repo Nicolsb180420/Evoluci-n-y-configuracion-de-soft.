@@ -1,8 +1,4 @@
-<%-- 
-    Document   : combo_distrito
-    Created on : 11/11/2020, 10:06:44 PM
-    Author     : bryan
---%>
+
 
 <%@page import="logica.logica_distrito"%>
 <%@page import="datos.distrito"%>

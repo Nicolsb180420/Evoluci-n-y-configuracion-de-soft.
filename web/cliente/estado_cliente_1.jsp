@@ -1,5 +1,4 @@
 
-
 <%@page import="datos.categoria"%>
 <%@page import="logica.logica_categoria"%>
 <%@page import="logica.logica_login"%>

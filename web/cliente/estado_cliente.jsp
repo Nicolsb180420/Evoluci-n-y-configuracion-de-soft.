@@ -1,5 +1,4 @@
 
-
 <%@page import="datos.cliente"%>
 <%@page import="logica.logica_cliente"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

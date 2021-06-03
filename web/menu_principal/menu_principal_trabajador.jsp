@@ -1,5 +1,4 @@
 
-
 <%@page import="logica.logica_puesto_permisos"%>
 <%@page import="datos.puesto_permisos"%>
 <%@page import="logica.logica_categoria"%>
@@ -268,7 +267,7 @@
                     %>
 
                     <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="../stock/lista_stock_1.jsp">
+                        <a href="#">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/stock.png" width="80" height="85" alt="deshumedecedor"/></div> 
                                 <div><h5>Actualizar stock</h5></div>
@@ -276,7 +275,7 @@
                         </a>
                     </div>
                     <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="../stock/reporte_stock_actual.jsp">
+                        <a href="#">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/reporte de pedidos.png" width="80" height="85" alt="deshumedecedor"/></div> 
                                 <div><h5>Reporte stock</h5></div>
@@ -357,7 +356,7 @@
                     <% if (temp_pp.getPuesto_permisos_permisos() == 10) {
                     %>
                     <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="../proveedor/crud_proveedor.jsp">
+                        <a href="#">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/lista proveedores.png" width="85" height="85" alt="detergente"/></div> 
                                 <div><h5>Crud proveedor</h5></div>
@@ -375,7 +374,7 @@
                     %>
 
                     <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="../proveedor/registrar_proveedor.jsp">
+                        <a href="#">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/proveedor.png" width="85" height="85" alt="protector"/></div> 
                                 <div><h5>Registrar proveedor</h5></div>
@@ -393,7 +392,7 @@
                     %>
 
                     <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="../encomienda/reporte_encomienda.jsp">
+                        <a href="#">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/crud encomienda.png" width="80" height="85" alt="deshumedecedor"/></div> 
                                 <div><h5>Reporte encomienda</h5></div>
@@ -409,7 +408,7 @@
                     <% if (temp_pp.getPuesto_permisos_permisos() == 13) {
                     %>
                     <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="../encomienda/registrar_encomienda.jsp">
+                        <a href="#">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/registrar encomienda.png" width="80" height="85" alt="deshumedecedor"/></div> 
                                 <div><h5>Registrar encomienda</h5></div>
@@ -426,7 +425,7 @@
                     <% if (temp_pp.getPuesto_permisos_permisos() == 14) {
                     %>
                     <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="../vehiculo/lista_vehiculos.jsp">
+                        <a href="#">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/lista vehiculo.png" width="85" height="85" alt="lejia"/></div> 
                                 <div><h5>Crud vehiculo</h5></div>
@@ -443,7 +442,7 @@
                     <% if (temp_pp.getPuesto_permisos_permisos() == 15) {
                     %>
                     <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="../vehiculo/registrar_vehiculo.jsp">
+                        <a href="#">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/vehiculo.png " width="70" height="85" alt="deshumedecedor"/></div> 
                                 <div><h5>Registrar vehiculo</h5></div>
