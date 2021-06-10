@@ -10,6 +10,11 @@
         <h1>Hello World!</h1>
         <%
             
+            /*este proceso sirve para resetiar
+            las variables globales en su estado 
+            inicial haciendo que se cierre la sesion */
+            
+            
                HttpSession sesion = request.getSession();
                                 sesion.setAttribute("cliente_id","NN");
                                 sesion.setAttribute("cliente_nombre", "NN");
