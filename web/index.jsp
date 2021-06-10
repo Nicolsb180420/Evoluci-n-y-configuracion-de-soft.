@@ -17,9 +17,10 @@
                         
              //      request.getRequestDispatcher("menu_principal/login.jsp?accion=0").forward(request, response);            
                     response.sendRedirect("menu_principal/login.jsp");
-       
+       //agregando comentario - prueba
        %>
 
 
     </body>
 </html>
+
