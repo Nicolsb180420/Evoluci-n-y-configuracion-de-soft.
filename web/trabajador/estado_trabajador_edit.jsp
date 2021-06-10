@@ -12,6 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <!-- cambioamos el los datos del trabaajdor-->
         <%
 
             if (request.getParameter("btnActualizar") != null) {

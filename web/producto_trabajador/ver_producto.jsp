@@ -176,7 +176,7 @@
 
     <br>
     <div class="container">
-
+<!--- hacemos la consuta para ver -->
         <%
             int capsula = Integer.parseInt(request.getParameter("id"));
 

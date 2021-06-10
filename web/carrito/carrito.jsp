@@ -363,6 +363,7 @@
 
                                 </td>
                                 <td> 
+                                    <!-- podemos ver el precio total     -->
                                     <%
                                         total = temp.getCarrito_cantidad() * temp.getProducto_precio();
                                         out.print("S/. " + String.format("%.2f", total));

@@ -9,6 +9,7 @@
         <title>JSP Page</title>
     </head>
     <body>
+        <!-- aca usamos el jsp para modificar el estado del pedido -->
        <%
            
         if (request.getParameter("cambiar_estado").equals("0")) {

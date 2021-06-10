@@ -221,6 +221,7 @@
                     <div class="table-responsive">        
                         <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                             <thead>
+                                     <!--  se muestra el crud trabajador                -->
                                 <tr>
                                     <th>ID</th>
                                     <th>NOMBRE</th>

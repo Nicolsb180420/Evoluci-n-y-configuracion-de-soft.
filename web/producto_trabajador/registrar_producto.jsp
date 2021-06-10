@@ -254,6 +254,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Categoria</span>
                         </div>
+                         <!aqui se registra el producto->
                         <select name="categoria" class="form-control">
                             <%  categoria temp1 = new categoria();
                                 logica.logica_categoria con1 = new logica_categoria();

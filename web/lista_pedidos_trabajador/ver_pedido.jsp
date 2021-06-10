@@ -212,7 +212,8 @@
                     </center>
                 </div>
             </div>
-        </div>                       
+        </div>     
+        <!--hacemos la consulta para el pedido -->
         <%
             pedido temp = new pedido();
             logica_pedido con1 = new logica_pedido();
