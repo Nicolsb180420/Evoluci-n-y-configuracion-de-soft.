@@ -1,8 +1,3 @@
-<%-- 
-    Document   : crud_trabajador
-    Created on : 24/11/2020, 05:27:14 PM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>

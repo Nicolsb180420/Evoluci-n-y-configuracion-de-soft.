@@ -1,8 +1,3 @@
-<%-- 
-    Document   : registrar_vehiculo
-    Created on : 18/11/2020, 05:38:56 PM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>

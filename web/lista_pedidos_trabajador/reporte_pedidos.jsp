@@ -1,8 +1,3 @@
-<%-- 
-    Document   : reporte_pedidos
-    Created on : 29/11/2020, 01:24:35 AM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_pedido"%>
 <%@page import="datos.pedido"%>

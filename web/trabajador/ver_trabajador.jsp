@@ -1,8 +1,3 @@
-<%-- 
-    Document   : ver_trabajador
-    Created on : 24/11/2020, 06:23:04 PM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>

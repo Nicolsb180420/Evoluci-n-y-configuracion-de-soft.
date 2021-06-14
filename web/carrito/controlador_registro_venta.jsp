@@ -1,8 +1,3 @@
-<%-- 
-    Document   : controlador_registro_venta
-    Created on : 26/11/2020, 11:45:53 AM
-    Author     : bryan
---%>
 
 <%@page import="logica.logica_pedido"%>
 <%@page import="datos.pedido"%>

@@ -1,8 +1,3 @@
-<%-- 
-    Document   : reporte_encomienda
-    Created on : 29/11/2020, 03:42:41 AM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="datos.capsula_trabajador"%>
 <%@page import="logica.logica_encomienda"%>

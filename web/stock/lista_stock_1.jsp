@@ -1,8 +1,3 @@
-<%-- 
-    Document   : lista_stock_1
-    Created on : 25/11/2020, 12:19:00 AM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>

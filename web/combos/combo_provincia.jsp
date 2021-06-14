@@ -1,8 +1,4 @@
-<%-- 
-    Document   : combo_provincia
-    Created on : 11/11/2020, 10:06:30 PM
-    Author     : bryan
---%>
+
 
 <%@page import="logica.logica_provincia"%>
 <%@page import="datos.provincia"%>

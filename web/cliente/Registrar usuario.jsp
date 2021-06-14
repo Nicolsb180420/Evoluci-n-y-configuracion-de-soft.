@@ -1,8 +1,4 @@
-<%-- 
-    Document   : Registrar usuario
-    Created on : 10/11/2020, 01:41:13 PM
-    Author     : Nicol Samanamud 
---%>
+
 
 <%@page import="logica.logica_carrito"%>
 <%@page import="datos.carrito"%>

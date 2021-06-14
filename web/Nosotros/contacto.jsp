@@ -1,8 +1,3 @@
-<%-- 
-    Document   : AcercaDeNosotros2
-    Created on : 08/11/2020, 08:25:52 PM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>

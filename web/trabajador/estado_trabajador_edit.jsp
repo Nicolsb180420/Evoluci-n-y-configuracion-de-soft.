@@ -1,8 +1,3 @@
-<%-- 
-    Document   : estado_trabajador_edit
-    Created on : 24/11/2020, 07:42:34 PM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_login"%>
 <%@page import="datos.login"%>

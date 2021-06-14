@@ -1,8 +1,4 @@
-<%-- 
-    Document   : Lista_pedidos_completos
-    Created on : 27/11/2020, 10:30:05 PM
-    Author     : Nicol Samanamud 
---%>
+
 
 <%@page import="logica.logica_pedido"%>
 <%@page import="datos.pedido"%>

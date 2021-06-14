@@ -1,8 +1,3 @@
-<%-- 
-    Document   : lista_deseos
-    Created on : 27/11/2020, 12:52:27 PM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_carrito"%>
 <%@page import="datos.carrito"%>

@@ -1,8 +1,3 @@
-<%-- 
-    Document   : registrar_producto
-    Created on : 10/11/2020, 06:45:40 PM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>

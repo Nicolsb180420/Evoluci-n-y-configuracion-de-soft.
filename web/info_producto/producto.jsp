@@ -1,8 +1,4 @@
-<%-- 
-    Document   : menu_principal_segundo
-    Created on : 26/10/2020, 07:11:33 PM
-    Author     : Nicol Samanamud 
---%>
+
 <%@page import="logica.logica_carrito"%>
 <%@page import="datos.carrito"%>
 <%@page import="logica.logica_comentario"%>

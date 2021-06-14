@@ -1,8 +1,3 @@
-<%-- 
-    Document   : registrar_proveedor
-    Created on : 20/11/2020, 02:31:11 PM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>

@@ -1,8 +1,4 @@
-<%-- 
-    Document   : editar_trabajador
-    Created on : 24/11/2020, 06:23:30 PM
-    Author     : Nicol Samanamud 
---%>
+
 
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>

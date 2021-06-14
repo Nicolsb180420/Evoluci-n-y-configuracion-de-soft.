@@ -1,8 +1,4 @@
-<%-- 
-    Document   : login_cerrar
-    Created on : 23/11/2020, 12:14:20 AM
-    Author     : bryan
---%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

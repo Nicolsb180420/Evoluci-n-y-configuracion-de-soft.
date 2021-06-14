@@ -1,8 +1,4 @@
-<%-- 
-    Document   : contolador_carrito
-    Created on : 25/11/2020, 11:41:56 AM
-    Author     : bryan
---%>
+
 
 <%@page import="datos.carrito"%>
 <%@page import="logica.logica_carrito"%>

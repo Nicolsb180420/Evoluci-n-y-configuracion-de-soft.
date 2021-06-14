@@ -1,8 +1,3 @@
-<%-- 
-    Document   : index
-    Created on : 23/10/2020, 04:09:38 PM
-    Author     : bryan
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>

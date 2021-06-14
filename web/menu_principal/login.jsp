@@ -1,8 +1,3 @@
-<%-- 
-    Document   : login
-    Created on : 18/11/2020, 11:13:52 PM
-    Author     : bryan
---%>
 
 <%@page import="logica.logica_carrito"%>
 <%@page import="datos.carrito"%>

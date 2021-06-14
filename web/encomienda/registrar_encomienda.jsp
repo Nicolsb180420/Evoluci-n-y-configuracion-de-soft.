@@ -1,8 +1,4 @@
-<%-- 
-    Document   : registrar_encomienda
-    Created on : 28/11/2020, 10:35:38 AM
-    Author     : bryan
---%>
+
 
 <%@page import="logica.logica_capsula_pedido"%>
 <%@page import="datos.capsula_pedido"%>

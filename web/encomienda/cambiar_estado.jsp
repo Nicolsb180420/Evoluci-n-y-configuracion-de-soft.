@@ -1,8 +1,3 @@
-<%-- 
-    Document   : cambiar_estado
-    Created on : 27/11/2020, 11:05:00 PM
-    Author     : Nicol Samanamud 
---%>
 
 
 <%@page import="logica.logica_vehiculo"%>

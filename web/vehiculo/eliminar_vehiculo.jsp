@@ -1,8 +1,4 @@
-<%-- 
-    Document   : eliminar_vehiculo
-    Created on : 20/11/2020, 04:49:55 PM
-    Author     : Nicol Samanamud 
---%>
+
 
 <%@page import="logica.logica_vehiculo"%>
 <%@page import="datos.vehiculo"%>

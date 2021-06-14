@@ -1,8 +1,4 @@
-<%-- 
-    Document   : ver_producto
-    Created on : 28/11/2020, 10:54:16 AM
-    Author     : Nicol Samanamud 
---%>
+
 
 <%@page import="logica.logica_producto"%>
 <%@page import="datos.producto"%>

@@ -1,8 +1,3 @@
-<%-- 
-    Document   : lista_vehiculos
-    Created on : 20/11/2020, 02:57:12 PM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>

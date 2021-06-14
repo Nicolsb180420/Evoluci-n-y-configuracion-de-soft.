@@ -1,8 +1,3 @@
-<%-- 
-    Document   : operador_bt_trabajador
-    Created on : 29/11/2020, 03:53:30 AM
-    Author     : bryan
---%>
 
 <%@page import="logica.logica_capsula_trabajador"%>
 <%@page import="datos.capsula_trabajador"%>

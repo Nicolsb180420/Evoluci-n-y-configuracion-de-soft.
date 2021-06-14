@@ -1,8 +1,3 @@
-<%-- 
-    Document   : ver_lista_pedido
-    Created on : 27/11/2020, 06:15:21 PM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_pedido"%>
 <%@page import="datos.pedido"%>

@@ -1,8 +1,3 @@
-<%-- 
-    Document   : editar_login
-    Created on : 24/11/2020, 08:13:08 PM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>

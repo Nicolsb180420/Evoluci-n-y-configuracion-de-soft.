@@ -1,8 +1,3 @@
-<%-- 
-    Document   : login_controlador
-    Created on : 22/11/2020, 09:44:56 AM
-    Author     : bryan
---%>
 
 <%@page import="logica.logica_trabajador"%>
 <%@page import="datos.trabajador"%>

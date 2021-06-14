@@ -1,8 +1,3 @@
-<%-- 
-    Document   : agregar trabajador
-    Created on : 28/11/2020, 04:12:26 PM
-    Author     : bryan
---%>
 
 <%@page import="logica.logica_capsula_trabajador"%>
 <%@page import="datos.capsula_trabajador"%>

@@ -1,8 +1,3 @@
-<%-- 
-    Document   : eliminar_proveedor
-    Created on : 24/11/2020, 10:51:02 AM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_proveedor"%>
 <%@page import="datos.proveedor"%>

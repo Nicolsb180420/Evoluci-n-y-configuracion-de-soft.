@@ -1,8 +1,4 @@
-<%-- 
-    Document   : estado_cliente
-    Created on : 11/11/2020, 09:33:02 PM
-    Author     : Nicol Samanamud 
---%>
+
 
 <%@page import="datos.categoria"%>
 <%@page import="logica.logica_categoria"%>

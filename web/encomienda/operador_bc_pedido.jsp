@@ -1,8 +1,3 @@
-<%-- 
-    Document   : operador_bc_pedido
-    Created on : 29/11/2020, 03:54:05 AM
-    Author     : bryan
---%>
 
 <%@page import="logica.logica_capsula_pedido"%>
 <%@page import="datos.capsula_pedido"%>

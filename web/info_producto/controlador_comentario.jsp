@@ -1,5 +1,4 @@
 
-
 <%@page import="datos.comentario"%>
 <%@page import="logica.logica_comentario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -1,8 +1,4 @@
-<%-- 
-    Document   : actualizar_stock
-    Created on : 24/11/2020, 10:36:16 PM
-    Author     : Nicol Samanamud 
---%>
+
 
 <%@page import="logica.logica_stock"%>
 <%@page import="datos.stock"%>

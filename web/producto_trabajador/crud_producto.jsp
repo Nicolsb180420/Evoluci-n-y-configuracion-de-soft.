@@ -1,8 +1,3 @@
-<%-- 
-    Document   : crud_producto
-    Created on : 28/11/2020, 10:53:24 AM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>

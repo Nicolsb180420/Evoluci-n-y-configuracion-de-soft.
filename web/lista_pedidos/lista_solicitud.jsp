@@ -1,8 +1,4 @@
-<%-- 
-    Document   : lista_solicitud
-    Created on : 26/11/2020, 06:01:20 PM
-    Author     : bryan
---%>
+
 
 <%@page import="logica.logica_carrito"%>
 <%@page import="datos.carrito"%>

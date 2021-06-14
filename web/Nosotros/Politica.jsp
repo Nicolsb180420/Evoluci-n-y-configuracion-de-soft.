@@ -1,8 +1,3 @@
-<%-- 
-    Document   : Politica
-    Created on : 08/11/2020, 08:51:58 PM
-    Author     : Nicol Samanamud 
---%>
 
 
 <%@page import="logica.logica_categoria"%>

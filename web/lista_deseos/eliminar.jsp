@@ -1,8 +1,3 @@
-<%-- 
-    Document   : eliminar
-    Created on : 27/11/2020, 02:22:04 PM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_lista_deseos"%>
 <%@page import="datos.lista_deseos"%>

@@ -1,9 +1,3 @@
-<%-- 
-    Document   : menu_principal_trabajador
-    Created on : 18/11/2020, 09:49:45 PM
-    Author     : Nicol Samanamud 
---%>
-
 
 <%@page import="logica.logica_puesto_permisos"%>
 <%@page import="datos.puesto_permisos"%>

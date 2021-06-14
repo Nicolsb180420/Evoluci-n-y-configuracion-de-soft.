@@ -1,8 +1,3 @@
-<%-- 
-    Document   : estados_proveedor
-    Created on : 20/11/2020, 02:32:01 PM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="datos.proveedor"%>
 <%@page import="logica.logica_proveedor"%>

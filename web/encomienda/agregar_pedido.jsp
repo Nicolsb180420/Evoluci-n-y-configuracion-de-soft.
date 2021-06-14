@@ -1,8 +1,3 @@
-<%-- 
-    Document   : agregar_pedido
-    Created on : 28/11/2020, 05:36:24 PM
-    Author     : bryan
---%>
 
 <%@page import="logica.logica_capsula_pedido"%>
 <%@page import="datos.capsula_pedido"%>

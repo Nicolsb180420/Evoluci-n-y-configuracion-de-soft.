@@ -1,5 +1,4 @@
 
-
 <%@page import="logica.logica_producto"%>
 <%@page import="datos.producto"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

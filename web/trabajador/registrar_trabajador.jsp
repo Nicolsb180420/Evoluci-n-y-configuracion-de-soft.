@@ -1,8 +1,3 @@
-<%-- 
-    Document   : registrar_trabajador
-    Created on : 10/11/2020, 09:38:03 PM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>

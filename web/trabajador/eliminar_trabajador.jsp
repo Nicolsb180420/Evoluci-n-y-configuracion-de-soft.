@@ -1,8 +1,3 @@
-<%-- 
-    Document   : eliminar_trabajador
-    Created on : 24/11/2020, 06:23:18 PM
-    Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_trabajador"%>
 <%@page import="datos.trabajador"%>
