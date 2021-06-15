@@ -1,8 +1,4 @@
-<%-- 
-    Document   : reporte_stock_actual
-    Created on : 29/11/2020, 07:02:03 PM
-    Author     : Nicol Samanamud 
---%>
+
 
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>
