@@ -267,7 +267,7 @@
                     %>
 
                     <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="#">
+                        <a href="../stock/lista_stock_1.jsp">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/stock.png" width="80" height="85" alt="deshumedecedor"/></div> 
                                 <div><h5>Actualizar stock</h5></div>
@@ -275,7 +275,7 @@
                         </a>
                     </div>
                     <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="#">
+                        <a href="../stock/reporte_stock_actual.jsp">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/reporte de pedidos.png" width="80" height="85" alt="deshumedecedor"/></div> 
                                 <div><h5>Reporte stock</h5></div>
@@ -424,8 +424,8 @@
 
                     <% if (temp_pp.getPuesto_permisos_permisos() == 14) {
                     %>
-                    <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="#">
+                     <div class="col-md-4 col-xs-12 col-sm-12">
+                        <a href="../vehiculo/lista_vehiculos.jsp">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/lista vehiculo.png" width="85" height="85" alt="lejia"/></div> 
                                 <div><h5>Crud vehiculo</h5></div>
@@ -442,7 +442,7 @@
                     <% if (temp_pp.getPuesto_permisos_permisos() == 15) {
                     %>
                     <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="#">
+                        <a href="../vehiculo/registrar_vehiculo.jsp">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/vehiculo.png " width="70" height="85" alt="deshumedecedor"/></div> 
                                 <div><h5>Registrar vehiculo</h5></div>
