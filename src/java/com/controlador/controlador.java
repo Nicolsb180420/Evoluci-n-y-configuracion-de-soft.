@@ -45,7 +45,8 @@ public class controlador extends HttpServlet {
                             /*D:\escritorio-nexus\Universidad\sistemas inteligentes\nuevo\proyecto_final\web\imagenes*/
                             // File f = new File("D:\\escritorio-nexus\\Universidad\\sistemas inteligentes\\nuevo\\proyecto_final\\web\\imagenes\\productos\\" + fileItem.getName());
                             //   File f = new File("D:\\escritorio-nexus\\Universidad\\diseño web\\proyecto_final\\web\\imagenes\\productos\\" + fileItem.getName());
-                            File f = new File("C:\\Sowad\\proyecto_final\\web\\imagenes\\productos\\" + fileItem.getName());
+                            //File f = new File("C:\\Sowad\\proyecto_final\\web\\imagenes\\productos\\" + fileItem.getName());
+                            File f = new File("C:\\Users\\magna\\Dropbox\\Mi PC (LAPTOP-T588JKLS)\\Desktop\\Nueva Carpeta (5)\\" + fileItem.getName());
                             fileItem.write(f);
                             p.setProducto_imagen(f.getAbsolutePath());
                         } else {
