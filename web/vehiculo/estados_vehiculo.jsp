@@ -1,8 +1,4 @@
-<%-- 
-    Document   : estados_vehiculo
-    Created on : 20/11/2020, 03:26:25 PM
-    Author     : Nicol Samanamud 
---%>
+
 
 <%@page import="datos.vehiculo"%>
 <%@page import="logica.logica_vehiculo"%>
