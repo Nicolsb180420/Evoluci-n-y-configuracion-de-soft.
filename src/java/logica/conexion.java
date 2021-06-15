@@ -29,7 +29,7 @@ public class conexion {
         }
     
      */ 
-        url="jdbc:sqlserver://LAPTOP-9QUQO2HP:1433;databaseName=proyecto_final";
+        url="jdbc:sqlserver://DESKTOP-HOMHNJ7:1433;databaseName=proyecto_final";
         try {
            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             con=DriverManager.getConnection(url,"sa","samanamudbartra");
