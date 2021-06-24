@@ -1,8 +1,3 @@
-<%-- 
-   Document   : crud_proveedor
-   Created on : 20/11/2020, 02:30:49 PM
-   Author     : Nicol Samanamud 
---%>
 
 <%@page import="logica.logica_categoria"%>
 <%@page import="datos.categoria"%>
