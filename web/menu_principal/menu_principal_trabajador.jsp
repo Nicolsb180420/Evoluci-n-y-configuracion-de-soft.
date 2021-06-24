@@ -356,7 +356,7 @@
                     <% if (temp_pp.getPuesto_permisos_permisos() == 10) {
                     %>
                     <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="#">
+                        <a href="../proveedor/crud_proveedor.jsp">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/lista proveedores.png" width="85" height="85" alt="detergente"/></div> 
                                 <div><h5>Crud proveedor</h5></div>
@@ -374,7 +374,7 @@
                     %>
 
                     <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="#">
+                        <a href="../proveedor/registrar_proveedor.jsp">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/proveedor.png" width="85" height="85" alt="protector"/></div> 
                                 <div><h5>Registrar proveedor</h5></div>
@@ -392,7 +392,7 @@
                     %>
 
                     <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="#">
+                        <a href="../encomienda/reporte_encomienda.jsp">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/crud encomienda.png" width="80" height="85" alt="deshumedecedor"/></div> 
                                 <div><h5>Reporte encomienda</h5></div>
@@ -408,7 +408,7 @@
                     <% if (temp_pp.getPuesto_permisos_permisos() == 13) {
                     %>
                     <div class="col-md-4 col-xs-12 col-sm-12">
-                        <a href="#">
+                        <a href="../encomienda/registrar_encomienda.jsp">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/registrar encomienda.png" width="80" height="85" alt="deshumedecedor"/></div> 
                                 <div><h5>Registrar encomienda</h5></div>
@@ -424,7 +424,7 @@
 
                     <% if (temp_pp.getPuesto_permisos_permisos() == 14) {
                     %>
-                     <div class="col-md-4 col-xs-12 col-sm-12">
+                    <div class="col-md-4 col-xs-12 col-sm-12">
                         <a href="../vehiculo/lista_vehiculos.jsp">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/lista vehiculo.png" width="85" height="85" alt="lejia"/></div> 

@@ -322,7 +322,7 @@
 
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
 
-                    <img src="<%out.print("../imagenes/productos/" + p.getProducto_imagen().substring(85, p.getProducto_imagen().length()));
+                    <img src="<%out.print("../imagenes/productos/" + p.getProducto_imagen().substring(47, p.getProducto_imagen().length()));
                              /* out.print("../imagenes/productos/"+p.getProducto_imagen().substring(81,p.getProducto_imagen().length()));*/%>" width="auto" height="150"  class="card-body-top" />
 
 
