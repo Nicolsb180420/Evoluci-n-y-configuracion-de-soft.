@@ -81,7 +81,7 @@
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
 
 
-                                    <form action="../login/login_controlador.jsp" class="px-4 py-3">
+                                    <form action="../login/login_controlador.jsp" class="px-4 py-3" method="post">
 
                                         <div class="form-group">
                                             <label for="exampleDropdownFormEmail1">Correo :</label>
@@ -240,7 +240,7 @@
                         <a href="../trabajador/crud_trabajador.jsp">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/lista trabajador.png" width="150" height="85" alt="ambientador"/></div> 
-                                <div><h5>Crud trabajador</h5></div>
+                                <div><h5>Mantener trabajador</h5></div>
                             </div>
                         </a>
                     </div>
@@ -309,7 +309,7 @@
                         <a href="../producto_trabajador/crud_producto.jsp">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/crud producto.png" width="80" height="85" alt="deshumedecedor"/></div> 
-                                <div><h5>Crud producto</h5></div>
+                                <div><h5>Mantener producto</h5></div>
                             </div>
                         </a>
                     </div>  
@@ -326,7 +326,7 @@
                         <a href="../lista_pedidos_trabajador/Lista_pedidos_completos.jsp">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/crud pedido.png" width="80" height="85" alt="deshumedecedor"/></div> 
-                                <div><h5>Crud pedido</h5></div>
+                                <div><h5>Mantener pedido</h5></div>
                             </div>
                         </a>
                     </div>
@@ -359,7 +359,7 @@
                         <a href="../proveedor/crud_proveedor.jsp">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/lista proveedores.png" width="85" height="85" alt="detergente"/></div> 
-                                <div><h5>Crud proveedor</h5></div>
+                                <div><h5>Mantener proveedor</h5></div>
                             </div>
                         </a>
                     </div>
@@ -428,7 +428,7 @@
                         <a href="../vehiculo/lista_vehiculos.jsp">
                             <div class="category-item" style="background: url(../imagenes/fondo-productos.png)">
                                 <div><img src="../imagenes/lista vehiculo.png" width="85" height="85" alt="lejia"/></div> 
-                                <div><h5>Crud vehiculo</h5></div>
+                                <div><h5>Mantener vehiculo</h5></div>
                             </div>
                         </a>
                     </div>
@@ -466,7 +466,7 @@
                 </div>
             </div>
         </div>
-        <br><br>
+        <br><br><br><br><br>
         <footer>
             <div class="container-fluid pagina">
 

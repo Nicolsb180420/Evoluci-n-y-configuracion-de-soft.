@@ -111,7 +111,7 @@
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
 
 
-                                    <form action="../login/login_controlador.jsp" class="px-4 py-3">
+                                    <form action="../login/login_controlador.jsp" class="px-4 py-3" method="post">
 
                                         <div class="form-group">
                                             <label for="exampleDropdownFormEmail1">Correo :</label>
@@ -225,7 +225,7 @@
             con1.ver_datos_cliente(id_temp);
         %>  
 
-        <form action="Lista_pedidos_completos.jsp">
+        <form action="Lista_pedidos_completos.jsp" method="post">
 
             <div class="container" style="min-height: 55vh; width: auto">
                 <div class="row">
@@ -310,7 +310,7 @@
 
                                         <td><%=temp_listap.getProducto_id()%></td>
 
-                                        <td>  <img src="<% out.print("../imagenes/productos/" + temp_listap.getProducto_imagen().substring(47, temp_listap.getProducto_imagen().length()));
+                                        <td>  <img src="<% out.print("../imagenes/productos/" + temp_listap.getProducto_imagen().substring(81, temp_listap.getProducto_imagen().length()));
                                                        /*  out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(98, temp.getProducto_imagen().length()));*/%>" width="auto" height="100"  class="card-body-top" /></td>
 
                                         <td><%=temp_listap.getProducto_nombre()%></td>

@@ -25,10 +25,10 @@
 
         <script src="../diceno/js/jquery-3.5.1.slim.min.js"></script>
         <script src="../diceno/js/bootstrap.bundle.min.js"></script>
-        
+
         <link href="../diceno/css/navbar-top-fixed.css" rel="stylesheet">     
 
-       
+
         <link rel="stylesheet" href="../diceno/css/categorias.css">
 
 
@@ -88,10 +88,10 @@
                         <div class="pure-container" data-effect="pure-effect-push">
 
 
-                            
-                                <a href="../menu_principal/menu_principal_trabajador.jsp"><img src="../imagenes/logo.png" width="100" height="60" /> </a>  
 
-                            
+                            <a href="../menu_principal/menu_principal_trabajador.jsp"><img src="../imagenes/logo.png" width="100" height="60" /> </a>  
+
+
                         </div>  
 
 
@@ -112,7 +112,7 @@
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
 
 
-                                    <form action="../login/login_controlador.jsp" class="px-4 py-3">
+                                    <form action="../login/login_controlador.jsp" class="px-4 py-3" method="post">
 
                                         <div class="form-group">
                                             <label for="exampleDropdownFormEmail1">Correo :</label>
@@ -206,7 +206,7 @@
 
 
         <div style="height:50px"></div>
-        
+
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -216,7 +216,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="container" style="min-height: 55vh; width: auto">
             <div class="row">
                 <div class="col-lg-12">
@@ -241,8 +241,6 @@
                                 <%
                                     encomienda temp = new encomienda();
                                     logica_encomienda con = new logica_encomienda();
-                                    
-                                   
 
                                     con.consultar();
 
@@ -266,15 +264,30 @@
 
                                     <td><%=temp.getEncomienda_fecha()%></td>
 
-                                    <td><%=temp.getEncomienda_estado()%></td>
+                                    
+
+                                    <%
+                                        if (temp.getEncomienda_estado() == 0) {
+                                    %>
+                                    <td>En camino</td>
+                                    <%
+                                        }
+                                        if (temp.getEncomienda_estado() == 1) {
+                                    %>
+                                    <td>Entregado</td>
+                                    <%
+                                        }
+
+                                    %>
+
 
                                     <td>
 
 
-                                        <form action="cambiar_estado.jsp">
+                                        <form action="cambiar_estado.jsp" method="post">
                                             <input  name="id_encomienda" value="<%=temp.getEncomienda()%>" hidden />
-                                            <input  name="id_vehiculo" value="<%=temp.getEncomienda_vehiculo() %>" hidden />
-                                            
+                                            <input  name="id_vehiculo" value="<%=temp.getEncomienda_vehiculo()%>" hidden />
+
                                             <input  name="cambiar_estado" value="<%=temp.getEncomienda_estado()%>" hidden />  
                                             <center><button type="submit" class="btn"><img src="../imagenes/icono_cambiar.png" width="30" height="25" alt="ver"/></button></center>
                                         </form> 
@@ -293,115 +306,115 @@
             </div>
 
         </div>
-
-<footer>
-        <div class="container-fluid pagina">
-
-
+<br><br><br><br>   <br><br><br><br>
+        <footer>
+            <div class="container-fluid pagina">
 
 
 
-            <div class="row" >
-
-                <div class="col-6 col-sm-12 col-md-12 col-lg-3 col-xl-3" >
 
 
-                    <br>
-                    <br>
-                    <center>
-                        <img src="../imagenes/logo_bn.png" width="250px"  height="149px" />
+                <div class="row" >
+
+                    <div class="col-6 col-sm-12 col-md-12 col-lg-3 col-xl-3" >
 
 
-                    </center>
+                        <br>
+                        <br>
+                        <center>
+                            <img src="../imagenes/logo_bn.png" width="250px"  height="149px" />
+
+
+                        </center>
+                    </div>
+
+                    <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                        <br>
+                        <center>
+                            <p class="h5">“Un hogar impecable es nuestra misión"</p>
+                            <br>
+                            <img src="../imagenes/ubicacion.png" width="25" height="25" alt="ubicacion"/>
+
+
+                            Mza H Lote 01 urb. Pro Industrial S.M.P Lima-Perú
+                            <br>
+                            <img src="../imagenes/telefono.png" width="35" height="30" alt="telefono"/>
+
+                            Teléfono:  536-4941
+                            <br>
+                            <img src="../imagenes/celular.png" width="18" height="18" alt="celular"/>
+                            Ventas: 928315913
+                            <br>
+                            <img src="../imagenes/correo.png" width="25" height="25" alt="correo"/>
+
+                            Correo: Ventas@kazvel.com
+                            <br>
+                        </center>
+
+                        <br>
+                    </div>
+
+
+
+
+
+                    <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                        <br>
+
+
+                        <center>
+
+                            <p class="h3"> CONOCENOS :  </p>
+                            <!--
+                                                NOSOTROS
+                                                <br>
+                            -->        
+                            <a href="../trabajador_nosotros/Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
+
+                            <br>
+                            <a href="../trabajador_nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDAD  </a>   
+                            <br>
+
+                            <a href="../trabajador_nosotros/contacto.jsp"style="color: #000">CONTACTANOS</a> 
+
+                            <br>
+
+
+                        </center>
+                        <br>
+
+                    </div> 
+
+
+
+                    <div class="col-3 col-sm-4 col-md-4 col-lg-3 col-xl-3" >
+                        <br>
+
+                        <center>
+                            <p class="h3"> SIGUENOS EN :  </p>   
+                            <br>
+                            <a href=""><img src="../imagenes/facebook.png" height="40px" width="40px"  /></a> 
+                            <br>
+
+                            <a href=""><img src="../imagenes/twitter.png"  height="40px" width="40px" /></a> 
+                            <br>
+
+                            <a href="https://instagram.com/qkazvel?igshid=nc1l54gp8lh5"><img src="../imagenes/instagram.png" height="40px" width="40px"  /></a> 
+                        </center>
+
+                    </div>
+
+
+
                 </div>
 
-                <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
-                    <br>
-                    <center>
-                        <p class="h5">“Un hogar impecable es nuestra misión"</p>
-                        <br>
-                        <img src="../imagenes/ubicacion.png" width="25" height="25" alt="ubicacion"/>
-
-
-                        Mza H Lote 01 urb. Pro Industrial S.M.P Lima-Perú
-                        <br>
-                        <img src="../imagenes/telefono.png" width="35" height="30" alt="telefono"/>
-
-                        Teléfono:  536-4941
-                        <br>
-                        <img src="../imagenes/celular.png" width="18" height="18" alt="celular"/>
-                        Ventas: 928315913
-                        <br>
-                        <img src="../imagenes/correo.png" width="25" height="25" alt="correo"/>
-
-                        Correo: Ventas@kazvel.com
-                        <br>
-                    </center>
-
-                    <br>
-                </div>
 
 
 
-
-
-                <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
-                    <br>
-
-
-                    <center>
-
-                        <p class="h3"> CONOCENOS :  </p>
-                        <!--
-                                            NOSOTROS
-                                            <br>
-                        -->        
-                        <a href="../trabajador_nosotros/Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
-
-                        <br>
-                        <a href="../trabajador_nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDAD  </a>   
-                        <br>
-
-                        <a href="../trabajador_nosotros/contacto.jsp"style="color: #000">CONTACTANOS</a> 
-
-                        <br>
-
-
-                    </center>
-                    <br>
-
-                </div> 
-
-
-
-                <div class="col-3 col-sm-4 col-md-4 col-lg-3 col-xl-3" >
-                    <br>
-
-                    <center>
-                        <p class="h3"> SIGUENOS EN :  </p>   
-                        <br>
-                        <a href=""><img src="../imagenes/facebook.png" height="40px" width="40px"  /></a> 
-                        <br>
-
-                        <a href=""><img src="../imagenes/twitter.png"  height="40px" width="40px" /></a> 
-                        <br>
-
-                        <a href="https://instagram.com/qkazvel?igshid=nc1l54gp8lh5"><img src="../imagenes/instagram.png" height="40px" width="40px"  /></a> 
-                    </center>
-
-                </div>
 
 
 
             </div>
-
-
-
-
-
-
-
-        </div>
-    </footer>
+        </footer>
     </body>
 </html>

@@ -107,7 +107,7 @@
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
 
 
-                                    <form action="../login/login_controlador.jsp" class="px-4 py-3">
+                                    <form action="../login/login_controlador.jsp" class="px-4 py-3" method="post">
 
                                         <div class="form-group">
                                             <label for="exampleDropdownFormEmail1">Correo :</label>
@@ -261,7 +261,25 @@
 
                                     <td><% out.print("S/." + temp_listap.getPedido_pago());%></td>
 
-                                    <td><%=temp_listap.getPedido_estado()%></td>
+                                    
+                                    
+                                    <%
+                                        if (temp_listap.getPedido_estado() == 0) {
+                                    %>
+                                    <td>Solicitado</td>
+                                    <%
+                                        }
+                                        if (temp_listap.getPedido_estado() == 1) {
+                                    %>
+                                    <td>Pagado</td>
+                                    <%
+                                        }
+                                        if (temp_listap.getPedido_estado() == 2) {
+                                    %>
+                                    <td>Entregado</td>
+                                    <%}%>
+                                    
+                                    
                                     <td>
 
 
@@ -283,7 +301,7 @@
             </div>
         </div>
 
-
+<br><br><br><br>   <br><br><br><br>
         <footer>
             <div class="container-fluid pagina">
 

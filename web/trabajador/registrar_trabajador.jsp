@@ -254,7 +254,7 @@
 
         <br>
 
-        <form action="estado_trabajador_1.jsp" method="post" id="data">
+        <form action="estado_trabajador_1.jsp" method="post" id="data" method="post">
 
             <div class="container">
 

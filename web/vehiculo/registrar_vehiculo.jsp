@@ -8,14 +8,14 @@
         <meta charset="UTF-8">
         <title>Registrar vehiculo</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-       
+
         <link rel="icon" type="image/png" href="../imagenes/logo.png " />
         <link rel="stylesheet" type="text/css" href="../diceno/css/bootstrap.min.css">
 
 
         <link rel="stylesheet" type="text/css" href="../diceno/css/menu_principal.css">
 
-       
+
 
         <link href="../diceno/css/navbar.css" rel="stylesheet">
 
@@ -26,13 +26,13 @@
 
         <script src="../diceno/js/jquery-3.5.1.slim.min.js"></script>
         <script src="../diceno/js/bootstrap.bundle.min.js"></script>
-       
+
 
         <script src="../diceno/js/jquery-2.2.0.min.js" type="text/javascript"></script>
-        
+
         <link href="../diceno/css/navbar-top-fixed.css" rel="stylesheet">     
 
-        
+
         <link rel="stylesheet" href="../diceno/css/estilos.css">
 
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -62,10 +62,10 @@
                         <div class="pure-container" data-effect="pure-effect-push">
 
 
-                            
-                                <a href="../menu_principal/menu_principal_trabajador.jsp"><img src="../imagenes/logo.png" width="100" height="60" /> </a>  
 
-                            
+                            <a href="../menu_principal/menu_principal_trabajador.jsp"><img src="../imagenes/logo.png" width="100" height="60" /> </a>  
+
+
                         </div>  
 
 
@@ -86,7 +86,7 @@
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
 
 
-                                    <form action="../login/login_controlador.jsp" class="px-4 py-3">
+                                    <form action="../login/login_controlador.jsp" class="px-4 py-3" method="post" >
 
                                         <div class="form-group">
                                             <label for="exampleDropdownFormEmail1">Correo :</label>
@@ -176,7 +176,7 @@
 
 
         </div>
-        <br>  
+        <br>  <br><br><br>
 
         <div class="container">
             <div class="row">
@@ -189,54 +189,65 @@
         </div>
 
 
-        <form action="estados_vehiculo.jsp">
-        
+        <form action="estados_vehiculo.jsp" method="post" >
 
-        <div class="container" style="min-height: 40vh; width: auto">
-            <div class="row">
 
-                <div class="col-6">
-                    
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Placa</span>
-                        </div>
-                        <input type="text" class="form-control" placeholder="Placa" name="txtplaca" required="">
+            <div class="container" style="min-height: 40vh; width: auto">
+                <div class="row">
+                    <div class="col-3    ">
+
+
+
+
                     </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Marca</span>
+                    <div class="col-md-6 col-xs-6 col-sm-12">
+
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Placa</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Placa" name="txtplaca" required="">
                         </div>
-                        <input type="text" class="form-control" placeholder="Marca" name="txtmarca" required="">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Modelo</span>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Marca</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Marca" name="txtmarca" required="">
                         </div>
-                        <input type="text" class="form-control" placeholder="Modelo" name="txtmodelo" required="">
-                    </div>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">Capacidad de carga</span>
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Modelo</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Modelo" name="txtmodelo" required="">
                         </div>
-                        <input type="text" class="form-control" placeholder="CapCarga" name="txtcarga" required="">
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text">Capacidad de carga</span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="CapCarga" name="txtcarga" required="">
+                        </div>
+
                     </div>
-                    
+
+
+                    <div class="col-3">
+
+
+
+
+                    </div>
+
+
                 </div>
-                <div class="col-6">
-                    
-                        <div class="row">
-                            <center>
-                            <input type="submit" class="btn" style="background: #CE6100; color: #ffffff" name="btnGuardar" value="Guardar" />
-                            </center>
-                        </div>
-                    <br>
-                        
-                    
-                </div>
+
+
+                <center>
+                    <input type="submit" class="btn" style="background: #CE6100; color: #ffffff" name="btnGuardar" value="Guardar" />
+                </center>
+
+                <br>
+
             </div>
-
-        </div>
 
         </form>
 
@@ -245,7 +256,7 @@
 
 
 
-
+        <br><br><br><br>   <br><br><br><br>
         <footer>
             <div class="container-fluid pagina">
 

@@ -168,7 +168,7 @@
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
 
 
-                                    <form action="../login/login_controlador.jsp" class="px-4 py-3">
+                                    <form action="../login/login_controlador.jsp" class="px-4 py-3" method="post" >
 
                                         <div class="form-group">
                                             <label for="exampleDropdownFormEmail1">Correo :</label>
@@ -178,14 +178,7 @@
                                             <label for="exampleDropdownFormPassword1">Contraseña :</label>
                                             <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" name="contra">
                                         </div>
-                                        <div class="form-group">
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                                                <label class="form-check-label" for="dropdownCheck">
-                                                    recordar
-                                                </label>
-                                            </div>
-                                        </div>
+                                       
                                         <button type="submit" class="btn btn-primary">Ingresar</button>
 
                                     </form>
@@ -196,7 +189,7 @@
 
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="../cliente/Registrar usuario.jsp">Registrarse</a>
-                                    <a class="dropdown-item" href="#">¿Olvidaste tu contraseña?</a>
+                                   
 
                                 </div>
 

@@ -28,13 +28,13 @@
 
         <script src="../diceno/js/jquery-3.5.1.slim.min.js"></script>
         <script src="../diceno/js/bootstrap.bundle.min.js"></script>
-       
+
 
         <script src="../diceno/js/jquery-2.2.0.min.js" type="text/javascript"></script>
-      
+
         <link href="../diceno/css/navbar-top-fixed.css" rel="stylesheet">     
 
-        
+
         <link rel="stylesheet" href="../diceno/css/categorias.css">
 
         <link rel="stylesheet" href="../diceno/css/jquery.dataTables.min.css"/>
@@ -153,7 +153,7 @@
 
 
                     <div class="col-8 col-sm-6 col-md-7 col-lg-8 col-xl-9" style="left:14px" >
-                        <form action="../busquedas/dato.jsp">
+                        <form action="../busquedas/dato.jsp" method="post">
 
                             <input type="text" name="busqueda"  class="search-for-champion" >
 
@@ -177,7 +177,7 @@
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
 
 
-                                    <form action="../login/login_controlador.jsp" class="px-4 py-3">
+                                    <form action="../login/login_controlador.jsp" class="px-4 py-3" method="post">
 
                                         <div class="form-group">
                                             <label for="exampleDropdownFormEmail1">Correo :</label>
@@ -289,6 +289,10 @@
                             <th>PAGO</th>
                             <th>FECHA</th>
                             <th>ESTADO</th>
+                            <th>VER</th>
+                            <th>BORRAR</th>
+                             <th>PAGAR</th>
+                             <th>CANCELAR</th>
                             <th></th>
                             <th></th>
 
@@ -321,7 +325,21 @@
                             <td><%=temp.getPedido_ubicacion()%></td>
                             <td><%=temp.getPedido_pago()%></td>
                             <td><%=temp.getPedido_fecha()%></td>
-                            <td><%=temp.getPedido_estado()%></td>
+                            <%
+                                if (temp.getPedido_estado() == 0) {
+                            %>
+                            <td>Solicitado</td>
+                            <%
+                                }
+                                if (temp.getPedido_estado() == 1) {
+                            %>
+                            <td>Pagado</td>
+                            <%
+                                }
+                                if (temp.getPedido_estado() == 2) {
+                            %>
+                            <td>Entregado</td>
+                            <%}%>
                             <td>
                                 <a href="ver_lista_pedido.jsp?id=<%=temp.getPedido_id()%>">
                                     <center>    <img src="../imagenes/icono_ver.png" width="30" height="30" alt="ver"/>  </center>
@@ -337,12 +355,37 @@
 
                                 </a>
                             </td>
+
+                            <td> 
+                                <a href="http://wa.me/51977857322?text=%20--PAGAR--%20Me%20interesa%20pagar%20una%20solicitud%20de%20envio%20Codigo:<%=temp.getPedido_id()%>%20Apellido:<%=temp.getCliente_apellido()%>%20Telefono:<%=temp.getPedido_telefono()%>" class="btn" style="background: #339900; color: #ffffff;"> 
+                                    <img src="../imagenes/whatsapp.png" width="50" height="50" alt="whatsapp"/>
+                                    Realizar el pago
+                                </a>
+
+
+                            </td>
+                           
+
+
                             <%
-                            } else {
+                            } else if(temp.getPedido_estado() == 1) {
 
                             %>
-                            <td></td> 
+                            <td></td>
+                             <td></td>
+                            <td>
+                                <a href="http://wa.me/51977857322?text=%20--CANCELAR--Me%20interesa%20cancelar%20una%20solicitud%20de%20envio%20Codigo:<%=temp.getPedido_id()%>%20Apellido:<%=temp.getCliente_apellido()%>%20Telefono:<%=temp.getPedido_telefono()%>" class="btn" style="background: #FF0000; color: #ffffff;"> 
+                                    <img src="../imagenes/wsp_2.png" width="50" height="50" alt="whatsapp"/>
+                                     Cancelar pago
+                                </a>
+                                
+                                
+                            </td> 
                             <%}
+
+
+
+
                             %>
                         </tr>
 
@@ -358,124 +401,121 @@
             </div>
 
             <br>
-            <a href="http://wa.me/51977857322?text=Me%20interesa%20pagar%20una%20solicitud%20de%20envio" class="btn" style="background: #339900; color: #ffffff;"> 
-                <img src="../imagenes/whatsapp.png" width="50" height="50" alt="whatsapp"/>
-                Realizar el pago
-            </a>
+            
 
         </div>    
-  
-<br>             
+
+        <br>             
 
 
-<div class="container-fluid pagina">
+        <div class="container-fluid pagina">
 
 
 
 
 
-    <div class="row" >
+            <div class="row" >
 
-        <div class="col-6 col-sm-12 col-md-12 col-lg-3 col-xl-3" >
-
-
-            <br>
-            <br>
-            <center>
-                <img src="../imagenes/logo_bn.png" width="250px"  height="149px" />
+                <div class="col-6 col-sm-12 col-md-12 col-lg-3 col-xl-3" >
 
 
-            </center>
+                    <br>
+                    <br>
+                    <center>
+                        <img src="../imagenes/logo_bn.png" width="250px"  height="149px" />
+
+
+                    </center>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                    <br>
+                    <center>
+                        <p class="h5">“Un hogar impecable es nuestra misión"</p>
+                        <br>
+                        <img src="../imagenes/ubicacion.png" width="25" height="25" alt="ubicacion"/>
+
+
+                        Mza H Lote 01 urb. Pro Industrial S.M.P Lima-Perú
+                        <br>
+                        <img src="../imagenes/telefono.png" width="35" height="30" alt="telefono"/>
+
+                        Teléfono:  536-4941
+                        <br>
+                        <img src="../imagenes/celular.png" width="18" height="18" alt="celular"/>
+                        Ventas: 928315913
+                        <br>
+                        <img src="../imagenes/correo.png" width="25" height="25" alt="correo"/>
+
+                        Correo: Ventas@kazvel.com
+                        <br>
+                    </center>
+
+                    <br>
+                </div>
+
+
+
+
+
+                <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
+                    <br>
+
+
+                    <center>
+
+                        <p class="h3"> CONOCENOS :  </p>
+                        <!--
+                                            NOSOTROS
+                                            <br>
+                        -->        
+                        <a href="../Nosotros/Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
+
+                        <br>
+                        <a href="../Nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDAD  </a>   
+                        <br>
+
+                        <a href="../Nosotros/contacto.jsp"style="color: #000">CONTACTANOS</a> 
+
+                        <br>
+
+
+                    </center>
+                    <br>
+
+                </div> 
+
+
+
+                <div class="col-3 col-sm-4 col-md-4 col-lg-3 col-xl-3" >
+                    <br>
+
+                    <center>
+                        <p class="h3"> SIGUENOS EN :  </p>   
+                        <br>
+                        <a href=""><img src="../imagenes/facebook.png" height="40px" width="40px"  /></a> 
+                        <br>
+
+                        <a href=""><img src="../imagenes/twitter.png"  height="40px" width="40px" /></a> 
+                        <br>
+
+                        <a href="https://instagram.com/qkazvel?igshid=nc1l54gp8lh5"><img src="../imagenes/instagram.png" height="40px" width="40px"  /></a> 
+                    </center>
+
+                </div>
+
+
+
+            </div>
+
+
+
+
+
+
+
         </div>
 
-        <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
-            <br>
-            <center>
-                <p class="h5">“Un hogar impecable es nuestra misión"</p>
-                <br>
-                <img src="../imagenes/ubicacion.png" width="25" height="25" alt="ubicacion"/>
 
-
-                Mza H Lote 01 urb. Pro Industrial S.M.P Lima-Perú
-                <br>
-                <img src="../imagenes/telefono.png" width="35" height="30" alt="telefono"/>
-
-                Teléfono:  536-4941
-                <br>
-                <img src="../imagenes/celular.png" width="18" height="18" alt="celular"/>
-                Ventas: 928315913
-                <br>
-                <img src="../imagenes/correo.png" width="25" height="25" alt="correo"/>
-
-                Correo: Ventas@kazvel.com
-                <br>
-            </center>
-
-            <br>
-        </div>
-
-
-
-
-
-        <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
-            <br>
-
-
-            <center>
-
-                <p class="h3"> CONOCENOS :  </p>
-                <!--
-                                    NOSOTROS
-                                    <br>
-                -->        
-                <a href="../Nosotros/Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
-
-                <br>
-                <a href="../Nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDAD  </a>   
-                <br>
-
-                <a href="../Nosotros/contacto.jsp"style="color: #000">CONTACTANOS</a> 
-
-                <br>
-
-
-            </center>
-            <br>
-
-        </div> 
-
-
-
-        <div class="col-3 col-sm-4 col-md-4 col-lg-3 col-xl-3" >
-            <br>
-
-            <center>
-                <p class="h3"> SIGUENOS EN :  </p>   
-                <br>
-                <a href=""><img src="../imagenes/facebook.png" height="40px" width="40px"  /></a> 
-                <br>
-
-                <a href=""><img src="../imagenes/twitter.png"  height="40px" width="40px" /></a> 
-                <br>
-
-                <a href="https://instagram.com/qkazvel?igshid=nc1l54gp8lh5"><img src="../imagenes/instagram.png" height="40px" width="40px"  /></a> 
-            </center>
-
-        </div>
-
-
-
-    </div>
-
-
-
-
-
-
-
-</div>
-
-
-</body>
+    </body>
 </html>

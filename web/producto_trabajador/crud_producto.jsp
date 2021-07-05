@@ -11,7 +11,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="shortcut icon" href="#" />  
-        <title>Crud producto</title>
+        <title>Mantener producto</title>
         <link rel="icon" type="image/png" href="../imagenes/logo.png " />
 
 
@@ -110,7 +110,7 @@
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
 
 
-                                    <form action="../login/login_controlador.jsp" class="px-4 py-3">
+                                    <form action="../login/login_controlador.jsp" class="px-4 py-3" method="post">
 
                                         <div class="form-group">
                                             <label for="exampleDropdownFormEmail1">Correo :</label>
@@ -206,7 +206,7 @@
             <div class="row">
                 <div class="col-12">
                     <center>
-                        <p class="h3" style="color: #CE6100"> <strong>Crud productos</strong></p> <br>
+                        <p class="h3" style="color: #CE6100"> <strong>Mantener productos</strong></p> <br>
                     </center>
                 </div>
             </div>
@@ -287,13 +287,12 @@
 
                 </div>
             </div>
-            <a href="registrar_producto.jsp"><button type="button" class="btn btn-danger">NUEVO</button></a> 
+            <a href="registrar_producto.jsp"><button type="button" class="btn btn-danger" style=" background: #CE6100 ">NUEVO</button></a> 
         </div>
 
 
 
-
-        <br><br>
+<br><br><br><br>   <br><br><br><br>
 
 <footer>
             <div class="container-fluid pagina">

@@ -133,7 +133,7 @@
 
 
                    <div class="col-8 col-sm-6 col-md-7 col-lg-8 col-xl-9" style="left:14px" >
-                       <form action="../busquedas/dato.jsp">
+                       <form action="../busquedas/dato.jsp" method="post">
 
                             <input type="text" name="busqueda"  class="search-for-champion" >
 
@@ -159,7 +159,7 @@
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
 
 
-                                    <form action="../login/login_controlador.jsp" class="px-4 py-3">
+                                    <form action="../login/login_controlador.jsp" class="px-4 py-3" method="post">
 
                                         <div class="form-group">
                                             <label for="exampleDropdownFormEmail1">Correo :</label>

@@ -121,7 +121,7 @@
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
 
 
-                                    <form action="../login/login_controlador.jsp" class="px-4 py-3">
+                                    <form action="../login/login_controlador.jsp" class="px-4 py-3" method="post">
 
                                         <div class="form-group">
                                             <label for="exampleDropdownFormEmail1">Correo :</label>
@@ -226,7 +226,7 @@
         </div>
 
 
-        <form action="estados_proveedor.jsp" method="post" id="data">
+        <form action="estados_proveedor.jsp" method="post" id="data" method="post">
             <div class="container">
                 <div class="row">
 
@@ -329,8 +329,7 @@
         </form>
 
 
-        <br><br>
-
+       <br><br><br><br>   <br><br><br><br><br><br><br><br>   <br><br><br><br>
 
         <footer>
             <div class="container-fluid pagina">

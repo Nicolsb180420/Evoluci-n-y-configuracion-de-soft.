@@ -131,6 +131,12 @@ UPDATE carrito
         } catch (Exception e) {}
     }
 
+   
+     public void limpiar_carrito(String id_temp){
+        try {
+            con.getSt().executeUpdate("delete from carrito where carrito_cliente = "+id_temp );
+        } catch (Exception e) {}
+    }
     
     
 }

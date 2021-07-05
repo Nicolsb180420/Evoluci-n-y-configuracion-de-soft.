@@ -277,7 +277,7 @@
                                 </button>
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
 
-                                    <form class="px-4 py-3">
+                                    <form class="px-4 py-3" method="post">
 
                                         <div class="form-group">
                                             <label for="exampleDropdownFormEmail1">Correo :</label>
@@ -335,7 +335,7 @@
             </div>
         </div>
 
-        <form action="" name="formulario">
+        <form action="" name="formulario" method="post">
             <br>
             <div class="container">
                 <div class="row">

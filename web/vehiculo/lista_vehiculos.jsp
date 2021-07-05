@@ -11,7 +11,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="shortcut icon" href="#" />  
-        <title>Crud vehiculo</title>
+        <title>Mantener vehiculo</title>
         <link rel="icon" type="image/png" href="../imagenes/logo.png " />
 
 
@@ -111,7 +111,7 @@
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
 
 
-                                    <form action="../login/login_controlador.jsp" class="px-4 py-3">
+                                    <form action="../login/login_controlador.jsp" class="px-4 py-3" method="post">
 
                                         <div class="form-group">
                                             <label for="exampleDropdownFormEmail1">Correo :</label>
@@ -207,7 +207,7 @@
             <div class="row">
                 <div class="col-12">
                     <center>
-                        <p class="h3" style="color: #CE6100"> <strong>Crud vehiculo</strong></p> <br>
+                        <p class="h3" style="color: #CE6100"> <strong>Mantener vehiculo</strong></p> <br>
                     </center>
                 </div>
             </div>
@@ -226,9 +226,9 @@
                                     <th>CAPACIDAD DE CARGA</th>
                                     <th>FECHA REGISTRO</th>
                                     <th>ESTADO</th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
+                                    <th>VER</th>
+                                    <th>ACTUALIZAR</th>
+                                    <th>BORRAR</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -250,7 +250,20 @@
                                     <td><%=temp2.getVehiculo_modelo()%></td>
                                     <td><%=temp2.getVehiculo_capCarga()%></td>
                                     <td><%=temp2.getVehiculo_fecha_registro()%></td>
-                                    <td><%=temp2.getEstado() %></td>
+                                    
+                                    <%
+                                        if (temp2.getEstado() == 0) {
+                                    %>
+                                    <td>Libre</td>
+                                    <%
+                                        }
+                                        if (temp2.getEstado() == 1) {
+                                    %>
+                                    <td>Ocupado</td>
+                                    <%
+                                        }
+
+                                    %>
                                     <td><a href="ver_vehiculo.jsp?id=<%=temp2.getVehiculo_id()%>" class="btn">
                                             <img src="../imagenes/ver_producto.png" width="30" height="30" alt="ver_producto"/>
 
@@ -272,9 +285,9 @@
                     </div>
                 </div>
             </div>
-            <a href="registrar_vehiculo.jsp"><button type="button" class="btn btn-danger">NUEVA</button></a> 
+                            <a href="registrar_vehiculo.jsp"><button type="button" class="btn btn-danger" style="background: #CE6100">NUEVA</button></a> 
         </div>
-        <br><br>
+      <br><br><br><br>   <br><br><br><br>
 
         <footer>
             <div class="container-fluid pagina">

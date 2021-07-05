@@ -128,7 +128,7 @@
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
 
 
-                                    <form action="../login/login_controlador.jsp" class="px-4 py-3">
+                                    <form action="../login/login_controlador.jsp" class="px-4 py-3" method="post">
 
                                         <div class="form-group">
                                             <label for="exampleDropdownFormEmail1">Correo :</label>
@@ -230,7 +230,7 @@
         %>
         <div class="alert alert-danger" role="alert">
             <h4 class="alert-heading">ERROR!</h4>
-            <p>actual mente no se encuentra vehiculos disponibles para los pedidos </p>
+            <p>actualmente no se encuentra vehiculos disponibles para los pedidos </p>
             <hr>
             <p class="mb-0">AVISO : no se podra registrar ninguna encomienda </p>
         </div>             
@@ -297,8 +297,8 @@
                                     <td><%=temp_tra.getTrabajador_numero_identidad()%></td>
                                     <td><%=temp_tra.getTrabajador_telefono()%></td>
 
-                                    <td><a href="../trabajador/ver_trabajador.jsp?id=<%=temp_tra.getTrabajador_id()%>" class="btn btn-danger">VER</a> </td>
-                                    <td><a href="agregar_trabajador.jsp?id=<%=temp_tra.getTrabajador_id()%>" class="btn btn-danger">agregar</a> </td>
+                                    <td><a href="../trabajador/ver_trabajador.jsp?id=<%=temp_tra.getTrabajador_id()%>" ><center>    <img src="../imagenes/icono_ver.png" width="30" height="30" alt="ver"/>  </center></a> </td>
+                                    <td><a href="agregar_trabajador.jsp?id=<%=temp_tra.getTrabajador_id()%>" class="btn btn-danger" style=" background: #CE6100 ">AGREGAR</a> </td>
                                 </tr>
                                 <%}%>
                             </tbody>
@@ -355,7 +355,7 @@
 
                                         <td><%=temp_ct.getTrabajador_telefono()%></td>
 
-                                        <td><a href="../trabajador/ver_trabajador.jsp?id=<%=temp_tra.getTrabajador_id()%>" class="btn btn-danger">VER</a> </td>
+                                        <td><a href="../trabajador/ver_trabajador.jsp?id=<%=temp_tra.getTrabajador_id()%>" ><center>    <img src="../imagenes/icono_ver.png" width="30" height="30" alt="ver"/>  </center></a> </td>
                                         <td><a href="operador_bc_trabajador.jsp?id=<%=temp_ct.getCapsula_trabajador_id()%>" class="btn btn-danger">ELIMINAR</a> </td>
 
                                     </tr>
@@ -422,7 +422,7 @@
                                         <td><%=temp_listap.getPedido_fecha()%></td>
 
                                         <td><% out.print("S/." + temp_listap.getPedido_pago());%></td>
-
+                                        
                                         <td><%=temp_listap.getPedido_estado()%></td>
                                         <td>
 
@@ -433,7 +433,7 @@
 
 
                                         </td>
-                                        <td><a href="agregar_pedido.jsp?id=<%=temp_listap.getPedido_id()%>" class="btn btn-danger">agregar</a> </td>
+                                        <td><a href="agregar_pedido.jsp?id=<%=temp_listap.getPedido_id()%>" class="btn btn-danger" style=" background: #CE6100 " >AGREGAR</a> </td>
 
                                     </tr>
                                     <%}%>
@@ -531,9 +531,11 @@
                 </div>
 
 
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style=" background: #CE6100">
                     Registrar Encomienda
                 </button>
+                                <br>
+                                <br>
 
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -545,7 +547,7 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="operador_registrar.jsp" id="data">
+                            <form action="operador_registrar.jsp" id="data" method="post">
                                 <div class="modal-body">
 
 
@@ -560,7 +562,7 @@
                                     %>
 
                                     <div class="form-group">
-                                        <label >Distrito :</label>
+                                        <label >Departamento :</label>
                                         <select name="cmbdepartamento" onchange="comboDep()" style="color: #545b62; width: 75%" class="form-control" >
 
                                             <option value="">SELECCIONAR </option>
@@ -597,7 +599,7 @@
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal" aria-label="Close">cancelar</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
+                                    <button type="submit" class="btn btn-primary" style=" background: #CE6100">Guardar</button>
                                 </div>
                             </form>              
                         </div>
@@ -614,7 +616,7 @@
 
 <%}%>
 
-
+<br><br><br><br>   <br><br><br><br>
 
 <footer>
         <div class="container-fluid pagina">

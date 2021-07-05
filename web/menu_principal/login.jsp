@@ -205,14 +205,7 @@
                                             <label for="exampleDropdownFormPassword1">Contraseña :</label>
                                             <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" name="contra">
                                         </div>
-                                        <div class="form-group">
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                                                <label class="form-check-label" for="dropdownCheck">
-                                                    recordar
-                                                </label>
-                                            </div>
-                                        </div>
+                                        
                                         <button type="submit" class="btn btn-primary">Ingresar</button>
 
                                     </form>
@@ -223,7 +216,7 @@
 
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="../cliente/Registrar usuario.jsp">Registrarse</a>
-                                    <a class="dropdown-item" href="#">¿Olvidaste tu contraseña?</a>
+                                  
 
                                 </div>
 
@@ -421,7 +414,7 @@
 
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
 
-                         <img src="<% out.print("../imagenes/productos/" + p.getProducto_imagen().substring(47, p.getProducto_imagen().length()));
+                         <img src="<% out.print("../imagenes/productos/" + p.getProducto_imagen().substring(81, p.getProducto_imagen().length()));
                         /*81*/ /*out.print("../imagenes/productos/" + p.getProducto_imagen().substring(98, p.getProducto_imagen().length()));*/%>" width="auto" height="150"  class="card-body-top" />
 
 
@@ -470,7 +463,7 @@
 
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
 
-                         <img src="<% out.print("../imagenes/productos/" + l.getProducto_imagen().substring(47, l.getProducto_imagen().length()));
+                         <img src="<% out.print("../imagenes/productos/" + l.getProducto_imagen().substring(81, l.getProducto_imagen().length()));
                         /*81*/ /*out.print("../imagenes/productos/" + l.getProducto_imagen().substring(98, l.getProducto_imagen().length()));*/%>" width="auto" height="150"  class="card-body-top" />
 
 

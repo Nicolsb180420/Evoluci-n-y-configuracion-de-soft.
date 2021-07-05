@@ -172,7 +172,7 @@
 
 
                 <div class="col-8 col-sm-6 col-md-7 col-lg-8 col-xl-9" style="left:14px" >
-                    <form action="../busquedas/dato.jsp">
+                    <form action="../busquedas/dato.jsp" method="post">
 
                         <input type="text" name="busqueda"  class="search-for-champion" >
 
@@ -199,7 +199,7 @@
                             <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
 
 
-                                <form action="../login/login_controlador.jsp" class="px-4 py-3">
+                                <form action="../login/login_controlador.jsp" class="px-4 py-3" method="post">
 
                                     <div class="form-group">
                                         <label for="exampleDropdownFormEmail1">Correo :</label>
@@ -210,12 +210,7 @@
                                         <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" name="contra">
                                     </div>
                                     <div class="form-group">
-                                        <div class="form-check">
-                                            <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                                            <label class="form-check-label" for="dropdownCheck">
-                                                recordar
-                                            </label>
-                                        </div>
+                                        
                                     </div>
                                     <button type="submit" class="btn btn-primary">Ingresar</button>
 
@@ -227,7 +222,7 @@
 
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="../cliente/Registrar usuario.jsp">Registrarse</a>
-                                <a class="dropdown-item" href="#">¿Olvidaste tu contraseña?</a>
+                                
 
                             </div>
 
@@ -329,7 +324,7 @@
 
                                 <td><%=temp.getCarrito_id()%></td>
 
-                                <td>  <img src="<% out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(47, temp.getProducto_imagen().length()));
+                                <td>  <img src="<% out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(81, temp.getProducto_imagen().length()));
                                                /*  out.print("../imagenes/productos/" + temp.getProducto_imagen().substring(98, temp.getProducto_imagen().length()));*/%>" width="auto" height="100"  class="card-body-top" /></td>
 
                                 <td><%=temp.getProducto_nombre()%></td>
@@ -342,7 +337,7 @@
 
                                 <td> 
 
-                                    <form action="contolador_carrito.jsp">
+                                    <form action="contolador_carrito.jsp" method="post">
                                         <input type="text" hidden name="id_carrito" value="<%=temp.getCarrito_id()%>" />
 
                                         <input type="text" hidden name="cantidad" value="<%=temp.getCarrito_cantidad()%>" />
@@ -399,7 +394,7 @@
             <div class="col-12">
                 <!-- Button trigger modal -->
                 <br>
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" style="background: #FF8000">
                     Registrar venta
                 </button>
 
@@ -413,7 +408,9 @@
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <form action="controlador_registro_venta.jsp" id="data">
+                            
+                            
+                            <form action="controlador_registro_venta.jsp" id="data" method="post">
                                 <div class="modal-body">
 
 
@@ -429,7 +426,7 @@
                                     %>
 
                                     <div class="form-group">
-                                        <label >Distrito :</label>
+                                        <label >Departamento :</label>
                                         <select name="cmbdepartamento" onchange="comboDep()" style="color: #545b62; width: 75%" class="form-control" >
 
                                             <option value="">SELECCIONAR </option>

@@ -143,7 +143,7 @@
 
 
                     <div class="col-8 col-sm-6 col-md-7 col-lg-8 col-xl-9" style="left:14px" >
-                        <form action="../busquedas/dato.jsp">
+                        <form action="../busquedas/dato.jsp" method="post">
 
                             <input type="text" name="busqueda"  class="search-for-champion" >
 
@@ -171,7 +171,7 @@
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
 
 
-                                    <form action="../login/login_controlador.jsp" class="px-4 py-3">
+                                    <form action="../login/login_controlador.jsp" class="px-4 py-3" method="post">
 
                                         <div class="form-group">
                                             <label for="exampleDropdownFormEmail1">Correo :</label>
@@ -181,14 +181,7 @@
                                             <label for="exampleDropdownFormPassword1">Contraseña :</label>
                                             <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Contraseña" name="contra">
                                         </div>
-                                        <div class="form-group">
-                                            <div class="form-check">
-                                                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                                                <label class="form-check-label" for="dropdownCheck">
-                                                    recordar
-                                                </label>
-                                            </div>
-                                        </div>
+                                        
                                         <button type="submit" class="btn btn-primary">Ingresar</button>
 
                                     </form>
@@ -199,7 +192,7 @@
 
                                     <div class="dropdown-divider"></div>
                                     <a class="dropdown-item" href="../cliente/Registrar usuario.jsp">Registrarse</a>
-                                    <a class="dropdown-item" href="#">¿Olvidaste tu contraseña?</a>
+                                   
 
                                 </div>
 
@@ -278,7 +271,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     
                     <div id="contenedor1">
-                        <img src="<% out.print("../imagenes/productos/" + p.getProducto_imagen().substring(47, p.getProducto_imagen().length()));
+                        <img src="<% out.print("../imagenes/productos/" + p.getProducto_imagen().substring(81, p.getProducto_imagen().length()));
                              /*  out.print("../imagenes/productos/" + p.getProducto_imagen().substring(98, p.getProducto_imagen().length()));*/%>" width="450" height="500" alt="DETERGENTE" id="imagen"/>
                     </div>
                 </div>
@@ -313,7 +306,7 @@
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <form action="../login/login_controlador.jsp" >
+                                    <form action="../login/login_controlador.jsp" method="post" >
                                         <div class="modal-body">
 
                                             <div class="form-group">
@@ -493,6 +486,7 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12"> 
                     <p><strong>productos semejantes:</strong> </p>
+                       </div>
                     <%
 
                         con.productos_semejantes(p.getProducto_categoria());
@@ -504,7 +498,7 @@
 
                     <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3">
 
-                             <img src="<% out.print("../imagenes/productos/" + p.getProducto_imagen().substring(47, p.getProducto_imagen().length()));
+                             <img src="<% out.print("../imagenes/productos/" + p.getProducto_imagen().substring(81, p.getProducto_imagen().length()));
                              /*   out.print("../imagenes/productos/" + p.getProducto_imagen().substring(81, p.getProducto_imagen().length()));*/%>" width="auto" height="150"  class="card-body-top" />
 
 
@@ -520,12 +514,12 @@
                     <%}%>      
 
 
-                </div>
+             
 
 
 
-
-
+ </div>
+                    <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">     
 
 
@@ -554,7 +548,7 @@
                     %> 
 
                 </div>
-            </div>
+           </div>
 
             <hr>
 

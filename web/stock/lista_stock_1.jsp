@@ -113,7 +113,7 @@
                                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left">
 
 
-                                    <form action="../login/login_controlador.jsp" class="px-4 py-3">
+                                    <form action="../login/login_controlador.jsp" class="px-4 py-3" method="post">
 
                                         <div class="form-group">
                                             <label for="exampleDropdownFormEmail1">Correo :</label>
@@ -214,7 +214,7 @@
                 </div>
             </div>
         </div>
-        <form name="modificar" action="actualizar_stock.jsp">
+        <form name="modificar" action="actualizar_stock.jsp" method="post">
             <div class="container">
                 <div class="row table-responsive">
                     
@@ -256,12 +256,15 @@
                                     </tr>
                                     <%}%>
                                 </tbody>
+                                <br>
                             </table>   
-                            <input type="submit" name="btnActualizar1" value="Actualizar" class="btn btn-danger" />
-                        </div>
+                            <input type="submit" name="btnActualizar1" value="Actualizar" class="btn btn-danger" style=" background: #CE6100 " />
+                      
+                </div>
                     </div>
-                
-        </form>                      
+                <br>  
+        </form> 
+                                <br><br><br><br>   <br><br><br><br>
         <footer>
             <div class="container-fluid pagina">
 

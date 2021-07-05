@@ -66,6 +66,7 @@
             logica_carrito con = new logica_carrito();
 
             con.validar_exixtencia(id_cliente);
+            
             int ultimo = logica_carrito.logica_carrito.size() - 1;
             for (int i = 0; i < logica_carrito.logica_carrito.size(); i++) {
                 temp = (carrito) logica_carrito.logica_carrito.get(i);
@@ -81,6 +82,9 @@
 
             //  out.print(consulta);
             con_pedido.insertar(temp_pedido, consulta);
+            
+            
+            con.limpiar_carrito(id_cliente);
             response.sendRedirect("../lista_pedidos/lista_solicitud.jsp");
 
 

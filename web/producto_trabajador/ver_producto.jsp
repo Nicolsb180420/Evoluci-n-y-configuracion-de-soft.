@@ -193,7 +193,7 @@
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                 <div id="contenedor1">
-                     <img src="<% out.print("../imagenes/productos/" + p.getProducto_imagen().substring(47, p.getProducto_imagen().length()));
+                     <img src="<% out.print("../imagenes/productos/" + p.getProducto_imagen().substring(81, p.getProducto_imagen().length()));
                          /*  out.print("../imagenes/productos/" + p.getProducto_imagen().substring(98, p.getProducto_imagen().length()));*/%>" width="auto" height="450" />
                 </div>
             </div>
@@ -216,98 +216,7 @@
 
 
                 <br>
-    <div class="container-fluid pagina">
-        <div class="row" >
-
-            <div class="col-6 col-sm-12 col-md-12 col-lg-3 col-xl-3" >
-
-
-                <br>
-                <br>
-                <center>
-                    <img src="../imagenes/logo_bn.png" width="250px"  height="149px" />
-
-
-                </center>
-            </div>
-
-            <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
-                <br>
-                <center>
-                    <p class="h5">“Un hogar impecable es nuestra misión"</p>
-                    <br>
-                    <img src="../imagenes/ubicacion.png" width="25" height="25" alt="ubicacion"/>
-
-
-                    Mza H Lote 01 urb. Pro Industrial S.M.P Lima-Perú
-                    <br>
-                    <img src="../imagenes/telefono.png" width="35" height="30" alt="telefono"/>
-
-                    Teléfono:  536-4941
-                    <br>
-                    <img src="../imagenes/celular.png" width="18" height="18" alt="celular"/>
-                    Ventas: 928315913
-                    <br>
-                    <img src="../imagenes/correo.png" width="25" height="25" alt="correo"/>
-
-                    Correo: Ventas@kazvel.com
-                    <br>
-                </center>
-
-                <br>
-            </div>
-
-
-
-
-
-            <div class="col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3">
-                <br>
-
-
-                <center>
-
-                    <p class="h3"> CONOCENOS :  </p>
-                    <!--
-                                        NOSOTROS
-                                        <br>
-                    -->        
-                    <a href="../Nosotros/Preguntas.jsp" style="color: #000">PREGUNTAS FRECUENTES</a> 
-
-                    <br>
-                    <a href="../Nosotros/Politica.jsp"style="color: #000" > POLITICA PRIVACIDA  </a>   
-                    <br>
-
-                    <a href="../Nosotros/contacto.jsp"style="color: #000">CONTACTANOS</a> 
-
-                    <br>
-
-
-                </center>
-                <br>
-
-            </div> 
-
-
-
-            <div class="col-3 col-sm-4 col-md-4 col-lg-3 col-xl-3" >
-                <br>
-
-                <center>
-                    <p class="h3"> SIGUENOS EN :  </p>   
-                    <br>
-                    <a href=""><img src="../imagenes/facebook.png" height="40px" width="40px"  /></a> 
-                    <br>
-
-                    <a href=""><img src="../imagenes/twitter.png"  height="40px" width="40px" /></a> 
-                    <br>
-
-                    <a href="https://instagram.com/qkazvel?igshid=nc1l54gp8lh5"><img src="../imagenes/instagram.png" height="40px" width="40px"  /></a> 
-                </center>
-
-            </div>
-        </div>
-    </div>   
+   
                 
                 
 <footer>
