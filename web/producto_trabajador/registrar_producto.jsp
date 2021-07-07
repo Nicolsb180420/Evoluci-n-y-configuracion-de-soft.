@@ -229,7 +229,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text">Nombre</span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Nombre" name="nombre">
+                        <input type="text" class="form-control" placeholder="Nombre" name="nombre" >
                     </div>
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
